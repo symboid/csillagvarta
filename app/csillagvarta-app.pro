@@ -2,7 +2,7 @@
 TARGET = csillagvarta-app
 BUILD_ROOT=../..
 COMPONENT_NAME=csillagvarta
-include($${BUILD_ROOT}/build/qmake/application.pri)
+include($${BUILD_ROOT}/sdk/build/qmake/application.pri)
 
 SOURCES += \
     main.cc
@@ -12,22 +12,19 @@ SOURCES +=
 }
 
 HEADERS += \
+    init.h \
     setup.h \
     defs.h
 
 RESOURCES += \
     csillagvarta-app.qrc
 
-LIBS += $$moduleDep(sdk,app)
-LIBS += $$moduleDep(sdk,dox)
-LIBS += $$moduleDep(astro,ephe)
-LIBS += $$moduleDep(astro,calculo)
-
-#DEPENDPATH += $$SYS_HOME/sdk/app
-#DEPENDPATH += $$SYS_HOME/sdk/dox
-#DEPENDPATH += $$SYS_HOME/astro/ephe
-#DEPENDPATH += $$SYS_HOME/astro/calculo
+LIBS += $$moduleDep(sdk,arch)
+LIBS += $$moduleDep(sdk,network-qt)
+LIBS += $$moduleDep(astro,sweph)
+LIBS += $$moduleDep(qstro,eph)
+LIBS += $$moduleDep(qstro,calculo)
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
 
-include($${BUILD_ROOT}/build/qmake/qm-compile.pri)
+include($${BUILD_ROOT}/sdk/build/qmake/qm-compile.pri)

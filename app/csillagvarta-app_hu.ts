@@ -15,11 +15,4 @@
         <translation></translation>
     </message>
 </context>
-<context>
-    <name>MainScreen</name>
-    <message>
-        <source>Create</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
 </TS>

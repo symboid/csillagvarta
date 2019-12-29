@@ -1,39 +1,10 @@
 
-#include "sdk/app/init.h"
-#include "sdk/dox/init.h"
-#include "astro/calculo/init.h"
-#include "astro/ephe/init.h"
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQuickStyle>
-#ifndef Q_OS_IOS
-#include "csillagvarta/app/module.h"
-#endif
+#include "csillagvarta/app/defs.h"
+#include "sdk/arch/mainobject.h"
+#include "csillagvarta/app/init.h"
 
-int main(int argc, char *argv[])
+int main(int _argc, char* _argv[])
 {
-    int result = 0;
-
-    QGuiApplication app(argc, argv);
-
-    {
-        QQuickStyle::setStyle("Universal");
-
-        QQmlApplicationEngine engine;
-
-        const char* mainScreenTypeName = "MainScreen";
-        QUrl mainScreenQmlPath(QString("qrc:///%1.qml").arg(mainScreenTypeName));
-        qmlRegisterType(mainScreenQmlPath, "Symboid.Sdk.App", 1, 0, mainScreenTypeName);
-        engine.addImportPath("qrc:///");
-
-        initSdkApp();
-        initSdkDox();
-        initAstroEphe();
-        initAstroCalculo();
-
-        engine.load(QUrl("qrc:///Symboid/Sdk/App/main/MainAppWindow.qml"));
-        result = app.exec();
-    }
-
-    return result;
+    arh::main_object_init<app_csillagvarta, int*, char***> app(&_argc, &_argv);
+    return app->run("qrc:///main.qml");
 }

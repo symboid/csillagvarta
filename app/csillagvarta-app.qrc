@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>MainScreen.qml</file>
-        <file>DocViews.qml</file>
+        <file>main.qml</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

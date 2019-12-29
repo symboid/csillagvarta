@@ -2,6 +2,6 @@
 #ifndef __SYMBOID_CSILLAGVARTA_APP_DEFS_H__
 #define __SYMBOID_CSILLAGVARTA_APP_DEFS_H__
 
-#include "sdk/basics/defs.h"
+#include "sdk/defs.h"
 
 #endif // __SYMBOID_CSILLAGVARTA_APP_DEFS_H__

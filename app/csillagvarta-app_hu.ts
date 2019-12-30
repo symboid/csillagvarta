@@ -15,4 +15,11 @@
         <translation></translation>
     </message>
 </context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <source>MainWindow</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

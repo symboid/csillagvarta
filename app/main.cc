@@ -6,5 +6,5 @@
 int main(int _argc, char* _argv[])
 {
     arh::main_object_init<app_csillagvarta, int*, char***> app(&_argc, &_argv);
-    return app->run("qrc:///main.qml");
+    return app->run();
 }

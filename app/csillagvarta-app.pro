@@ -29,7 +29,7 @@ LIBS += $$moduleDep(qstro,calculo)
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
 
-include($${BUILD_ROOT}/sdk/build/qmake/qm-compile.pri)
+#include($${BUILD_ROOT}/sdk/build/qmake/qm-compile.pri)
 
 FORMS += \
     mainwindow.ui

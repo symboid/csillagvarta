@@ -3,7 +3,7 @@
 #define __SYMBOID_CSILLAGVARTA_APP_INIT_H__
 
 #include "csillagvarta/app/defs.h"
-//#define APP_QML
+#define APP_QML
 #ifdef APP_QML
 #   include "sdk/arch/appqml.h"
 template <class _App>

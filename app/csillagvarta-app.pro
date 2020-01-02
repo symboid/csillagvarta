@@ -21,11 +21,11 @@ HEADERS += \
 RESOURCES += \
     csillagvarta-app.qrc
 
-LIBS += $$moduleDep(sdk,arch)
-LIBS += $$moduleDep(sdk,network-qt)
-LIBS += $$moduleDep(astro,sweph)
-LIBS += $$moduleDep(qstro,eph)
 LIBS += $$moduleDep(qstro,calculo)
+LIBS += $$moduleDep(qstro,eph)
+LIBS += $$moduleDep(astro,sweph)
+LIBS += $$moduleDep(sdk,network-qt)
+LIBS += $$moduleDep(sdk,arch)
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
 

@@ -47,7 +47,6 @@ ApplicationWindow {
                 id: timeBox
                 anchors.right: parent.right
                 editable: true
-                showSeconds: false
                 circularLink: dateBox.dayLink
             }
         }

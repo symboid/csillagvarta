@@ -21,8 +21,7 @@ HEADERS += \
 RESOURCES += \
     csillagvarta-app.qrc
 
-LIBS += $$moduleDep(qstro,calculo)
-LIBS += $$moduleDep(qstro,eph)
+LIBS += $$moduleDep(astro,uicontrols-qt)
 LIBS += $$moduleDep(astro,sweph)
 LIBS += $$moduleDep(sdk,network-qt)
 LIBS += $$moduleDep(sdk,arch)

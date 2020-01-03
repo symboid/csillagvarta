@@ -14,8 +14,7 @@ using app_base = arh::app_qml<_App>;
 template <class _App>
 using app_base = arh::app_qtw<_App,MainWindow>;
 #endif
-#include "qstro/eph/init.h"
-#include "qstro/calculo/init.h"
+#include "astro/uicontrols-qt/init.h"
 
 struct app_csillagvarta : app_base<app_csillagvarta>
 {
@@ -26,8 +25,7 @@ struct app_csillagvarta : app_base<app_csillagvarta>
     {
     }
 
-    arh::mod_init<mod_qstro_eph> _M_mod_qstro_eph;
-    arh::mod_init<mod_qstro_calculo> _M_mod_qstro_calculo;
+    arh::mod_init<mod_astro_uicontrols_qt> _M_mod_astro_uicontrols_qt;
 };
 
 #endif // __SYMBOID_CSILLAGVARTA_APP_INIT_H__

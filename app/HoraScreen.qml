@@ -57,6 +57,7 @@ Flickable {
             title: qsTr("Calendar")
             visible: details.checked
             ComboBox {
+                id: calendarType
                 width: parent.defaultItemWidth
                 model: [ "Gregorian", "Julian" ]
             }
@@ -75,7 +76,9 @@ Flickable {
             second: timeBox.second
             geoLatt: geoLatt.arcDegree
             geoLont: geoLont.arcDegree
-            tzDiff: 0
+            tzDiff: tzDiff.hour
+            housesType: housesType.currentToken()
+            withJulianCalendar: calendarType.currentIndex !== 0
 
             Switch {
                 id: details
@@ -142,8 +145,35 @@ Flickable {
             visible: details.checked
 
             ComboBox {
+                id: housesType
                 width: parent.defaultItemWidth
-                model: [ "Placidus", "Mundan" ]
+                textRole: "name"
+                model: ListModel {
+                    ListElement {
+                        name: qsTr("Placidus")
+                        token: "placidus"
+                    }
+                    ListElement {
+                        name: qsTr("Koch")
+                        token: "koch"
+                    }
+                    ListElement {
+                        name: qsTr("Regiomontanus")
+                        token: "regiomontanus"
+                    }
+                    ListElement {
+                        name: qsTr("Campanus")
+                        token: "campanus"
+                    }
+                    ListElement {
+                        name: qsTr("Equal")
+                        token: "equal"
+                    }
+                }
+                function currentToken()
+                {
+                    return model.data(model.index(currentIndex, 0))
+                }
             }
         }
     }

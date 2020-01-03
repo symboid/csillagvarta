@@ -22,6 +22,7 @@ RESOURCES += \
     csillagvarta-app.qrc
 
 LIBS += $$moduleDep(astro,uicontrols-qt)
+LIBS += $$moduleDep(sdk,uicontrols-qt)
 LIBS += $$moduleDep(astro,sweph)
 LIBS += $$moduleDep(sdk,network-qt)
 LIBS += $$moduleDep(sdk,arch)

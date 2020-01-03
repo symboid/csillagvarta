@@ -6,7 +6,6 @@ import Symboid.Astro.Calculo 1.0
 
 Flickable {
 
-    property bool showDetails: false
     property int mandalaSize: 0
     property int screenSize: 0
     property int restSize: screenSize - mandalaSize
@@ -56,7 +55,7 @@ Flickable {
 
         HoraScreenParams {
             title: qsTr("Calendar")
-            visible: showDetails
+            visible: details.checked
             ComboBox {
                 width: parent.defaultItemWidth
                 model: [ "Gregorian", "Julian" ]
@@ -77,6 +76,16 @@ Flickable {
             geoLatt: geoLatt.arcDegree
             geoLont: geoLont.arcDegree
             tzDiff: 0
+
+            Switch {
+                id: details
+                anchors {
+                    bottom: parent.bottom
+                    right: parent.right
+                }
+                text: qsTr("Details")
+            }
+
         }
 
         HoraScreenParams {
@@ -96,18 +105,18 @@ Flickable {
             }
             GeoCoordBox {
                 id: geoLatt
-                visible: showDetails
+                visible: details.checked
                 isLattitude: true
                 editable: true
             }
             GeoCoordBox {
                 id: geoLont
-                visible: showDetails
+                visible: details.checked
                 editable: true
             }
 
             Row {
-                visible: showDetails
+                visible: details.checked
                 Label {
                     width: parent.parent.defaultItemWidth - parent.spacing - tzDiff.width
                     anchors.verticalCenter: parent.verticalCenter
@@ -130,7 +139,7 @@ Flickable {
         }
         HoraScreenParams {
             title: qsTr("House system")
-            visible: showDetails
+            visible: details.checked
 
             ComboBox {
                 width: parent.defaultItemWidth

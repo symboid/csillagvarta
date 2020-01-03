@@ -18,17 +18,5 @@ ApplicationWindow {
         isLandscape: mainWindow.width > mainWindow.height
         mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
         screenSize: isLandscape ? mainWindow.width : mainWindow.height
-        showDetails: details.checked
-    }
-
-    Switch {
-        id: details
-        anchors {
-            bottom: parent.bottom
-            bottomMargin: 20
-            right: parent.right
-            rightMargin: 20
-        }
-        text: qsTr("Details")
     }
 }

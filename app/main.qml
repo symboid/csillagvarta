@@ -12,18 +12,13 @@ ApplicationWindow {
     width: screen.desktopAvailableWidth
     height: screen.desktopAvailableHeight
 
-    Flickable {
+    HoraScreen {
+        id: horaScreen
         anchors.fill: parent
-        flickableDirection: horaScreen.isLandscape ? Flickable.HorizontalFlick : Flickable.VerticalFlick
-        contentWidth: horaScreen.width
-        contentHeight: horaScreen.height
-        HoraScreen {
-            id: horaScreen
-            isLandscape: mainWindow.width > mainWindow.height
-            mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
-            screenSize: isLandscape ? mainWindow.width : mainWindow.height
-            showDetails: details.checked
-        }
+        isLandscape: mainWindow.width > mainWindow.height
+        mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
+        screenSize: isLandscape ? mainWindow.width : mainWindow.height
+        showDetails: details.checked
     }
 
     Switch {

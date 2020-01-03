@@ -15,7 +15,7 @@ Flow {
 
     flow: isLandscape ? Flow.TopToBottom : Flow.LeftToRight
 
-    HoraParamColumn {
+    HoraScreenParams {
         title: qsTr("Horoscope name")
         TextField {
             id: radixName
@@ -26,7 +26,7 @@ Flow {
         }
     }
 
-    HoraParamColumn {
+    HoraScreenParams {
         title: qsTr("Date and time")
 
         DateCoordBox {
@@ -40,7 +40,7 @@ Flow {
         }
     }
 
-    HoraParamColumn {
+    HoraScreenParams {
         title: qsTr("Calendar")
         visible: showDetails
         ComboBox {
@@ -66,7 +66,7 @@ Flow {
         tzDiff: 0
     }
 
-    HoraParamColumn {
+    HoraScreenParams {
         title: qsTr("Location")
 
         Row {
@@ -74,7 +74,7 @@ Flow {
                 width: parent.parent.defaultItemWidth - spacing - locationButton.width
             }
             spacing: 10
-            RoundButton {
+            Button {
                 id: locationButton
                 height: parent.height
                 width: height
@@ -96,18 +96,26 @@ Flow {
         Row {
             visible: showDetails
             Label {
+                width: parent.parent.defaultItemWidth - spacing - tzDiff.width
                 anchors.verticalCenter: parent.verticalCenter
                 text: qsTr("Time zone diff:")
             }
-            NumberBox {
-                from: -12
-                to: 12
+            MultiNumberBox {
+                id: tzDiff
                 editable: true
+                property int hour: numberBox(0).value
+                boxes: ListModel {
+                    ListElement {
+                        number_from: -12
+                        number_to: 12
+                        number_suffix: qsTr("h")
+                    }
+                }
             }
         }
 
     }
-    HoraParamColumn {
+    HoraScreenParams {
         title: qsTr("House system")
         visible: showDetails
 

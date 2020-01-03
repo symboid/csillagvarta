@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>HoraParamColumn.qml</file>
+        <file>HoraScreenParams.qml</file>
         <file>HoraScreen.qml</file>
     </qresource>
     <qresource prefix="/tr"/>

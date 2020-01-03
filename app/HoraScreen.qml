@@ -8,10 +8,18 @@ Flow {
 
     property bool showDetails: false
 
-    readonly property bool isLandscape: width > height
+    property int mandalaSize: 0
+    property int screenSize: 0
+    property int restSize: screenSize - mandalaSize
+
+    property bool isLandscape: true
+    width: isLandscape ? childrenRect.width : mandalaSize
+    height: isLandscape ? mandalaSize : childrenRect.height
+
+    readonly property int minParamSectionWidth: 300
     readonly property int paramSectionWidth:
-        isLandscape ? (width - horaView.width) / 2
-                    : width / 2
+        isLandscape ? ((restSize / 2) < minParamSectionWidth ? minParamSectionWidth : restSize / 2)
+                    : ((mandalaSize / 2) < minParamSectionWidth ? mandalaSize : mandalaSize / 2)
 
     flow: isLandscape ? Flow.TopToBottom : Flow.LeftToRight
 
@@ -51,7 +59,6 @@ Flow {
 
     HoraView {
         id: horaView
-        property int mandalaSize: isLandscape ? parent.height : parent.width
         width: mandalaSize
         height: mandalaSize
 

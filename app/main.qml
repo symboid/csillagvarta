@@ -4,6 +4,7 @@ import Symboid.Astro.Eph 1.0
 import Symboid.Astro.Calculo 1.0
 
 ApplicationWindow {
+    id: mainWindow
     visible: true
 
     x:0
@@ -11,9 +12,18 @@ ApplicationWindow {
     width: screen.desktopAvailableWidth
     height: screen.desktopAvailableHeight
 
-    HoraScreen {
+    Flickable {
         anchors.fill: parent
-        showDetails: details.checked
+        flickableDirection: horaScreen.isLandscape ? Flickable.HorizontalFlick : Flickable.VerticalFlick
+        contentWidth: horaScreen.width
+        contentHeight: horaScreen.height
+        HoraScreen {
+            id: horaScreen
+            isLandscape: mainWindow.width > mainWindow.height
+            mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
+            screenSize: isLandscape ? mainWindow.width : mainWindow.height
+            showDetails: details.checked
+        }
     }
 
     Switch {

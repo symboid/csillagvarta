@@ -3,6 +3,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
+import QtPositioning 5.12
 
 Flickable {
 
@@ -111,11 +112,13 @@ Flickable {
                 visible: details.checked
                 isLattitude: true
                 editable: true
+                enabled: !positionSrc.active || !positionSrc.valid
             }
             GeoCoordBox {
                 id: geoLont
                 visible: details.checked
                 editable: true
+                enabled: !positionSrc.active || !positionSrc.valid
             }
 
             Row {
@@ -139,6 +142,38 @@ Flickable {
                 }
             }
 
+            PositionSource {
+                id: positionSrc
+                updateInterval: 1000
+                active: currLocSwitch.checked
+                onPositionChanged: {
+                    if (valid)
+                    {
+                        if (position.latitudeValid)
+                        {
+                            geoLatt.setArcDegree(position.coordinate.latitude)
+                        }
+                        if (position.longitudeValid)
+                        {
+                            geoLont.setArcDegree(position.coordinate.longitude)
+                        }
+                    }
+                }
+                onSourceErrorChanged: {
+                    if (sourceError !== PositionSource.NoError)
+                    {
+                        currLocSwitch.toggle()
+                    }
+                }
+
+            }
+            Switch {
+                id: currLocSwitch
+                text: qsTr("Use current")
+                visible: details.checked
+                rightPadding: 60
+                enabled: positionSrc.supportedPositioningMethods & PositionSource.SatellitePositioningMethods
+            }
         }
         HoraScreenParams {
             title: qsTr("House system")

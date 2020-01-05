@@ -11,7 +11,7 @@ Grid {
     columns: 1
     horizontalItemAlignment: Grid.AlignRight
 
-    readonly property int defaultItemWidth: width - 4*padding
+    readonly property int defaultItemWidth: width - 3*padding
 
     Label {
         id: titleLabel

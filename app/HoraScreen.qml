@@ -123,8 +123,8 @@ Flickable {
 
             Row {
                 visible: details.checked
+                spacing: 10
                 Label {
-                    width: parent.parent.defaultItemWidth - parent.spacing - tzDiff.width
                     anchors.verticalCenter: parent.verticalCenter
                     text: qsTr("Time zone diff:")
                 }
@@ -171,7 +171,6 @@ Flickable {
                 id: currLocSwitch
                 text: qsTr("Use current")
                 visible: details.checked
-                rightPadding: 60
                 enabled: positionSrc.supportedPositioningMethods & PositionSource.SatellitePositioningMethods
             }
         }

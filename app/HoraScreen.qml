@@ -81,6 +81,15 @@ Flickable {
             housesType: housesType.currentToken()
             withJulianCalendar: calendarType.currentIndex !== 0
 
+            RoundButton {
+                height: geoLatt.height
+                width: height
+                text: "..."
+                anchors.right: parent.right
+                anchors.top: parent.top
+                onClicked: geoNameDialog.open()
+            }
+
             Switch {
                 id: details
                 anchors {
@@ -95,17 +104,8 @@ Flickable {
         HoraScreenParams {
             title: qsTr("Location")
 
-            Row {
-                TextField {
-                    width: parent.parent.defaultItemWidth - parent.spacing - locationButton.width
-                }
-                spacing: 10
-                Button {
-                    id: locationButton
-                    height: parent.height
-                    width: height
-                    text: "..."
-                }
+            TextField {
+                width: parent.defaultItemWidth
             }
             GeoCoordBox {
                 id: geoLatt
@@ -170,7 +170,7 @@ Flickable {
             Switch {
                 id: currLocSwitch
                 text: qsTr("Use current")
-                visible: details.checked
+                visible: false //details.checked
                 enabled: positionSrc.supportedPositioningMethods & PositionSource.SatellitePositioningMethods
             }
         }
@@ -210,5 +210,12 @@ Flickable {
                 }
             }
         }
+    }
+
+    GeoNameDialog {
+        id: geoNameDialog
+        anchors.centerIn: parent
+        width: parent.width - 100
+        height: parent.height -100
     }
 }

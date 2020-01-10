@@ -3,6 +3,7 @@
         <file>main.qml</file>
         <file>HoraScreenParams.qml</file>
         <file>HoraScreen.qml</file>
+        <file>GeoNameDialog.qml</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

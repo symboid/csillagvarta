@@ -214,8 +214,8 @@ Flickable {
 
     GeoNameDialog {
         id: geoNameDialog
-        anchors.centerIn: parent
-        width: parent.width - 100
-        height: parent.height -100
+        width: Math.min(400,parent.width)
+        height: parent.height
+        edge: Qt.RightEdge
     }
 }

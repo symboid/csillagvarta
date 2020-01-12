@@ -3,7 +3,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 
 Grid {
-    property alias title: titleLabel.text
+    property string title: ""
 
     width: parent.paramSectionWidth
     padding: 20
@@ -16,6 +16,8 @@ Grid {
     Label {
         id: titleLabel
         width: parent.width - 2*parent.padding
+        text: title + ":"
         font.italic: true
+        font.bold: true
     }
 }

@@ -10,11 +10,12 @@ Drawer {
     property GeoCoordBox geoLattBox: null
     property GeoCoordBox geoLontBox: null
 
-    opacity: 0.75
+    opacity: 0.875
 
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
+        contentHeight: searchGeoName.height
         Flow {
             id: searchGeoName
             anchors.left: parent.left

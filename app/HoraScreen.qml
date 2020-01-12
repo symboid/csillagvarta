@@ -81,15 +81,6 @@ Flickable {
             housesType: housesType.currentToken()
             withJulianCalendar: calendarType.currentIndex !== 0
 
-            RoundButton {
-                height: geoLatt.height
-                width: height
-                text: "..."
-                anchors.right: parent.right
-                anchors.top: parent.top
-                onClicked: geoNameDialog.open()
-            }
-
             Switch {
                 id: details
                 anchors {
@@ -102,11 +93,25 @@ Flickable {
         }
 
         HoraScreenParams {
+            id: locationParams
             title: qsTr("Location")
 
             TextField {
                 id: geoName
                 width: parent.defaultItemWidth
+
+                RoundButton {
+                    height: geoLatt.height * 1.33
+                    width: height
+                    icon.source: "file:///home/robert/Munka/icons/black/png/globe_3_icon&48.png"
+                    icon.width: 48
+                    icon.height: 48
+                    icon.color: "darkblue"
+                    anchors.right: parent.right
+                    anchors.bottom: parent.top
+                    anchors.bottomMargin: -20
+                    onClicked: geoNameDialog.open()
+                }
             }
             GeoCoordBox {
                 id: geoLatt

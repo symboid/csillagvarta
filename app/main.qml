@@ -18,8 +18,10 @@ ApplicationWindow {
         isLandscape: mainWindow.width > mainWindow.height
         mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
         screenSize: isLandscape ? mainWindow.width : mainWindow.height
+        fontPointSize: mainWindow.font.pointSize
     }
 
+    /*
     Grid {
         columns: 2
         anchors.left: parent.left
@@ -34,8 +36,10 @@ ApplicationWindow {
         Text { text: "px ratio:" } Text { text: screen.devicePixelRatio  }
         Text { text: "size (cm):" } Text { text: numberPrec(screen.width / parent.pxPerCm, 1) + " x " + numberPrec(screen.height / parent.pxPerCm, 1) }
     }
+
     function numberPrec(num,prec)
     {
         return Number(num).toLocaleString(Qt.locale(), 'f', prec)
     }
+    */
 }

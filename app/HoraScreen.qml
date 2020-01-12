@@ -11,6 +11,7 @@ Flickable {
     property int screenSize: 0
     property int restSize: screenSize - mandalaSize
     property bool isLandscape: true
+    property alias fontPointSize: horaView.fontPointSize
 
     flickableDirection: isLandscape ? Flickable.HorizontalFlick : Flickable.VerticalFlick
     contentWidth: horaScreen.width
@@ -36,7 +37,6 @@ Flickable {
                 width: parent.defaultItemWidth
                 leftPadding: 10
                 rightPadding: leftPadding
-                placeholderText: qsTr("name")
             }
         }
 

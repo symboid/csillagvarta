@@ -151,11 +151,11 @@ Flickable {
                     {
                         if (position.latitudeValid)
                         {
-                            geoLatt.setArcDegree(position.coordinate.latitude)
+                            geoLatt.arcDegree = position.coordinate.latitude
                         }
                         if (position.longitudeValid)
                         {
-                            geoLont.setArcDegree(position.coordinate.longitude)
+                            geoLont.arcDegree = position.coordinate.longitude
                         }
                     }
                 }

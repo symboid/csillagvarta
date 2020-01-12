@@ -95,11 +95,11 @@ Drawer {
                         {
                             if (position.latitudeValid)
                             {
-                                lattArcDegree = position.coordinate.latitude
+                                currLoc.lattArcDegree = position.coordinate.latitude
                             }
                             if (position.longitudeValid)
                             {
-                                lontArcDegree = position.coordinate.longitude
+                                currLoc.lontArcDegree = position.coordinate.longitude
                             }
                         }
                     }

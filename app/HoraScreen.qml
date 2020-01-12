@@ -105,6 +105,7 @@ Flickable {
             title: qsTr("Location")
 
             TextField {
+                id: geoName
                 width: parent.defaultItemWidth
             }
             GeoCoordBox {
@@ -112,13 +113,11 @@ Flickable {
                 visible: details.checked
                 isLattitude: true
                 editable: true
-                enabled: !positionSrc.active || !positionSrc.valid
             }
             GeoCoordBox {
                 id: geoLont
                 visible: details.checked
                 editable: true
-                enabled: !positionSrc.active || !positionSrc.valid
             }
 
             Row {
@@ -140,38 +139,6 @@ Flickable {
                         }
                     }
                 }
-            }
-
-            PositionSource {
-                id: positionSrc
-                updateInterval: 1000
-                active: currLocSwitch.checked
-                onPositionChanged: {
-                    if (valid)
-                    {
-                        if (position.latitudeValid)
-                        {
-                            geoLatt.arcDegree = position.coordinate.latitude
-                        }
-                        if (position.longitudeValid)
-                        {
-                            geoLont.arcDegree = position.coordinate.longitude
-                        }
-                    }
-                }
-                onSourceErrorChanged: {
-                    if (sourceError !== PositionSource.NoError)
-                    {
-                        currLocSwitch.toggle()
-                    }
-                }
-
-            }
-            Switch {
-                id: currLocSwitch
-                text: qsTr("Use current")
-                visible: false //details.checked
-                enabled: positionSrc.supportedPositioningMethods & PositionSource.SatellitePositioningMethods
             }
         }
         HoraScreenParams {
@@ -217,5 +184,8 @@ Flickable {
         width: Math.min(400,parent.width)
         height: parent.height
         edge: Qt.RightEdge
+        geoNameBox: geoName
+        geoLattBox: geoLatt
+        geoLontBox: geoLont
     }
 }

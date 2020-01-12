@@ -6,9 +6,9 @@ import Symboid.Astro.Controls 1.0
 import QtPositioning 5.12
 
 Drawer {
-    property string geoName: ""
-    property double geoLatt: 0
-    property double geoLont: 0
+    property TextField geoNameBox: null
+    property GeoCoordBox geoLattBox: null
+    property GeoCoordBox geoLontBox: null
 
     opacity: 0.75
 
@@ -42,9 +42,18 @@ Drawer {
                     onClicked: {
                         if (searchBox.selectedItem)
                         {
-                            geoName = searchBox.selectedItem.geoName
-                            geoLatt = searchBox.selectedItem.lattArcDegree
-                            geoLont = searchBox.selectedItem.lontArcDegree
+                            if (geoNameBox)
+                            {
+                                geoNameBox.text = searchBox.selectedItem.geoName
+                            }
+                            if (geoLattBox)
+                            {
+                                geoLattBox.arcDegree = searchBox.selectedItem.lattArcDegree
+                            }
+                            if (geoLontBox)
+                            {
+                                geoLontBox.arcDegree = searchBox.selectedItem.lontArcDegree
+                            }
                             close()
                         }
                     }
@@ -75,9 +84,18 @@ Drawer {
                     id: currButton
                     icon.source: "file:///home/robert/Munka/icons/black/png/br_down_icon&16.png"
                     onClicked: {
-                        geoName = currLoc.geoName
-                        geoLatt = currLoc.lattArcDegree
-                        geoLont = currLoc.lontArcDegree
+                        if (geoNameBox)
+                        {
+                            geoNameBox.text = currLoc.geoName
+                        }
+                        if (geoLattBox)
+                        {
+                            geoLattBox.arcDegree = currLoc.lattArcDegree
+                        }
+                        if (geoLontBox)
+                        {
+                            geoLontBox.arcDegree = currLoc.lontArcDegree
+                        }
                         close()
                     }
                 }

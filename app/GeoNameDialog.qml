@@ -84,6 +84,7 @@ Drawer {
                 RoundButton {
                     id: currButton
                     icon.source: "file:///home/robert/Munka/icons/black/png/br_down_icon&16.png"
+                    enabled: positionSrc.sourceError === PositionSource.NoError
                     onClicked: {
                         if (geoNameBox)
                         {
@@ -120,12 +121,6 @@ Drawer {
                             {
                                 currLoc.lontArcDegree = position.coordinate.longitude
                             }
-                        }
-                    }
-                    onSourceErrorChanged: {
-                        if (sourceError !== PositionSource.NoError)
-                        {
-                            currButton.enabled = false
                         }
                     }
                 }

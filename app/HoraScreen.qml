@@ -135,12 +135,13 @@ Flickable {
                 MultiNumberBox {
                     id: tzDiff
                     editable: true
-                    property int hour: numberBox(0).value
-                    boxes: ListModel {
-                        ListElement {
-                            number_from: -12
-                            number_to: 12
-                            number_suffix: qsTr("h")
+                    property int hour: box(0).value
+                    boxes: Row {
+                        NumberBox {
+                            from: -12
+                            to: 12
+                            displaySuffix: qsTr("h")
+                            circular: true
                         }
                     }
                 }

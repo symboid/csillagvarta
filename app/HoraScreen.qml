@@ -90,6 +90,27 @@ Flickable {
                 text: qsTr("Details")
             }
 
+            RoundButton {
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                text: qsTr("Tabular")
+                onClicked: horaTableDialog.open()
+            }
+
+            Dialog {
+                id: horaTableDialog
+                title: qsTr("Horoscope items")
+                standardButtons: Dialog.Close
+                anchors.centerIn: parent
+
+                HoraTableView {
+                    anchors.fill: parent
+                    horaModel: horaView
+                }
+
+                height: parent.height - 50
+                width: 300
+            }
         }
 
         HoraScreenParams {

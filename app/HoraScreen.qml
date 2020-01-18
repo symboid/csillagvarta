@@ -105,11 +105,11 @@ Flickable {
 
                 HoraTableView {
                     anchors.fill: parent
-                    horaModel: horaView
+                    horaModel: horaTableDialog.opened ? horaView : null
                 }
 
                 height: parent.height - 50
-                width: 300
+                width: parent.width - 50
             }
         }
 

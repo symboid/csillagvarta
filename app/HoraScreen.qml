@@ -134,15 +134,16 @@ Flickable {
                     onClicked: geoNameDialog.open()
                 }
             }
-            GeoCoordBox {
+            ArcCoordBox {
                 id: geoLatt
                 visible: details.checked
-                isLattitude: true
+                sectionCalc: GeoLattSectionCalc {}
                 editable: true
             }
-            GeoCoordBox {
+            ArcCoordBox {
                 id: geoLont
                 visible: details.checked
+                sectionCalc: GeoLontSectionCalc {}
                 editable: true
             }
 

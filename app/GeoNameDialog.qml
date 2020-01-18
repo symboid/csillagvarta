@@ -7,8 +7,8 @@ import QtPositioning 5.12
 
 Drawer {
     property TextField geoNameBox: null
-    property GeoCoordBox geoLattBox: null
-    property GeoCoordBox geoLontBox: null
+    property ArcCoordBox geoLattBox: null
+    property ArcCoordBox geoLontBox: null
 
     opacity: 0.875
 

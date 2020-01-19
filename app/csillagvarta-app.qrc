@@ -1,9 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>HoraScreenParams.qml</file>
-        <file>HoraScreen.qml</file>
-        <file>GeoNameDialog.qml</file>
+        <file>icons/cog_icon&amp;32.png</file>
+        <file>icons/doc_lines_icon&amp;32.png</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

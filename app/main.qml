@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Window 2.12
 import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
+import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
     id: mainWindow
@@ -13,16 +14,20 @@ ApplicationWindow {
     width: screen.desktopAvailableWidth
     height: screen.desktopAvailableHeight
 
+    Material.theme: Material.Light
+    Material.primary: Material.Green
+    Material.accent: Material.Red
+
     header: ToolBar {
         id: toolbar
         ToolButton {
-            icon.source: "file:///Users/robert/Munka/icons/black/png/folder_icon&32.png"
+            icon.source: "/icons/doc_lines_icon&32.png"
             icon.width: 32
             icon.height: 32
             onClicked: documentDialog.open()
         }
         ToolButton {
-            icon.source: "file:///Users/robert/Munka/icons/black/png/cog_icon&32.png"
+            icon.source: "/icons/cog_icon&32.png"
             icon.width: 32
             icon.height: 32
             anchors.right: parent.right

@@ -32,12 +32,31 @@ ApplicationWindow {
             icon.height: 32
             anchors.right: parent.right
         }
+//        Material.primary: "#CFE2D7"
+        Material.primary: "#95B2A0"
+    }
+
+    Column {
+        id: hunFlag
+        anchors.top: toolbar.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        Repeater {
+            model: 3
+            delegate: Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 2
+                readonly property var flagColor: [ "red", "white", "green" ]
+                color: flagColor[index]
+            }
+        }
     }
 
     HoraScreen {
         id: horaScreen
         anchors {
-            top: toolbar.bottom
+            top: hunFlag.bottom
             bottom: parent.bottom
             left: parent.left
             right: parent.right
@@ -51,6 +70,8 @@ ApplicationWindow {
         id: documentDialog
         width: Math.min(400, parent.width)
         height: parent.height
+
+        Material.background: "#DFEEE5"
 
         opacity: 0.875
 

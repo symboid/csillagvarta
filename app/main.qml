@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Window 2.12
+import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
 
 ApplicationWindow {
@@ -12,13 +13,71 @@ ApplicationWindow {
     width: screen.desktopAvailableWidth
     height: screen.desktopAvailableHeight
 
+    header: ToolBar {
+        id: toolbar
+        ToolButton {
+            icon.source: "file:///Users/robert/Munka/icons/black/png/folder_icon&32.png"
+            icon.width: 32
+            icon.height: 32
+            onClicked: documentDialog.open()
+        }
+        ToolButton {
+            icon.source: "file:///Users/robert/Munka/icons/black/png/cog_icon&32.png"
+            icon.width: 32
+            icon.height: 32
+            anchors.right: parent.right
+        }
+    }
+
     HoraScreen {
         id: horaScreen
-        anchors.fill: parent
-        isLandscape: mainWindow.width > mainWindow.height
-        mandalaSize: isLandscape ? mainWindow.height : mainWindow.width
-        screenSize: isLandscape ? mainWindow.width : mainWindow.height
+        anchors {
+            top: toolbar.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
+
         fontPointSize: mainWindow.font.pointSize
+    }
+
+    Drawer {
+
+        id: documentDialog
+        width: Math.min(400, parent.width)
+        height: parent.height
+
+        opacity: 0.875
+
+        edge: Qt.LeftEdge
+
+        DocItemOpsView {
+            anchors.fill: parent
+            leftAligned: documentDialog.edge === Qt.LeftEdge
+            operations: Container {
+                DocItemOp {
+                    title: qsTr("Recent horoscopes")
+                    control: Rectangle {
+                        width: 100
+                        height: 100
+                        border.width: 1
+                        border.color: "red"
+                    }
+                }
+                DocItemOp {
+                    title: qsTr("Current transit")
+                }
+                DocItemOp {
+                    title: qsTr("Saved horoscopes")
+                    control: Rectangle {
+                        width: 100
+                        height: 100
+                        border.width: 1
+                        border.color: "blue"
+                    }
+                }
+            }
+        }
     }
 
     /*

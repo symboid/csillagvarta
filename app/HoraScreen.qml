@@ -7,10 +7,12 @@ import QtPositioning 5.12
 
 Flickable {
 
-    property int mandalaSize: 0
-    property int screenSize: 0
-    property int restSize: screenSize - mandalaSize
-    property bool isLandscape: true
+    readonly property bool isLandscape: width > height
+
+    readonly property int mandalaSize: isLandscape ? height : width
+    readonly property int screenSize: isLandscape ? width : height
+    readonly property int restSize: screenSize - mandalaSize
+
     property alias fontPointSize: horaView.fontPointSize
 
     flickableDirection: isLandscape ? Flickable.HorizontalFlick : Flickable.VerticalFlick

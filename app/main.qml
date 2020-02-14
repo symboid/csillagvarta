@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Window 2.12
 import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
+import Symboid.Sdk.Dox 1.0
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls.Universal 2.3
 
@@ -63,45 +64,14 @@ ApplicationWindow {
         fontPointSize: mainWindow.font.pointSize
     }
 
-    Drawer {
-
+    DocumentDialog {
         id: documentDialog
         width: Math.min(400, parent.width)
         height: parent.height
-
-        Material.background: "#DFEEE5"
-
-        opacity: 0.875
-
         edge: Qt.LeftEdge
 
-        DocItemOpsView {
-            anchors.fill: parent
-            leftAligned: documentDialog.edge === Qt.LeftEdge
-            operations: Container {
-                DocItemOp {
-                    title: qsTr("Recent horoscopes")
-                    control: Rectangle {
-                        width: 100
-                        height: 100
-                        border.width: 1
-                        border.color: "red"
-                    }
-                }
-                DocItemOp {
-                    title: qsTr("Current transit")
-                }
-                DocItemOp {
-                    title: qsTr("Saved horoscopes")
-                    control: Rectangle {
-                        width: 100
-                        height: 100
-                        border.width: 1
-                        border.color: "blue"
-                    }
-                }
-            }
-        }
+//        Material.background: "#DFEEE5"
+//        opacity: 0.875
     }
 
     /*

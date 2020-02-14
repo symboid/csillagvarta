@@ -15,6 +15,7 @@ template <class _App>
 using app_base = arh::app_qtw<_App,MainWindow>;
 #endif
 #include "astro/uicontrols-qt/init.h"
+#include "sdk/dox-qt/init.h"
 
 struct app_csillagvarta : app_base<app_csillagvarta>
 {
@@ -26,6 +27,7 @@ struct app_csillagvarta : app_base<app_csillagvarta>
     }
 
     arh::mod_init<mod_astro_uicontrols_qt> _M_mod_astro_uicontrols_qt;
+    arh::mod_init<mod_sdk_dox_qt> _M_mod_sdk_dox_qt;
 };
 
 #endif // __SYMBOID_CSILLAGVARTA_APP_INIT_H__

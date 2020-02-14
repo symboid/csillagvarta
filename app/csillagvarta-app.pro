@@ -22,6 +22,7 @@ RESOURCES += \
     csillagvarta-app.qrc
 
 LIBS += $$moduleDep(astro,uicontrols-qt)
+LIBS += $$moduleDep(sdk,dox-qt)
 LIBS += $$moduleDep(sdk,uicontrols-qt)
 LIBS += $$moduleDep(astro,sweph)
 LIBS += $$moduleDep(sdk,network-qt)
@@ -31,6 +32,7 @@ ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.1
 ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/network-qt/libsdk-network-qt.so
 ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/uicontrols-qt/libsdk-uicontrols-qt.so
 ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/astro/sweph/libastro-sweph.so
+ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/dox-qt/libsdk-dox-qt.so
 ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/astro/uicontrols-qt/libastro-uicontrols-qt.so
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)

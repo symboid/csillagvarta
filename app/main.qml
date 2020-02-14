@@ -4,6 +4,7 @@ import QtQuick.Window 2.12
 import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
 import QtQuick.Controls.Material 2.3
+import QtQuick.Controls.Universal 2.3
 
 ApplicationWindow {
     id: mainWindow
@@ -18,18 +19,15 @@ ApplicationWindow {
     Material.primary: Material.Green
     Material.accent: Material.Red
 
+    Universal.accent: Universal.Emerald
+
     header: ToolBar {
-        id: toolbar
         ToolButton {
             icon.source: "/icons/doc_lines_icon&32.png"
-            icon.width: 32
-            icon.height: 32
             onClicked: documentDialog.open()
         }
         ToolButton {
             icon.source: "/icons/cog_icon&32.png"
-            icon.width: 32
-            icon.height: 32
             anchors.right: parent.right
         }
 //        Material.primary: "#CFE2D7"
@@ -38,7 +36,7 @@ ApplicationWindow {
 
     Column {
         id: hunFlag
-        anchors.top: toolbar.bottom
+        anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         Repeater {

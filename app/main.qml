@@ -64,11 +64,18 @@ ApplicationWindow {
         fontPointSize: mainWindow.font.pointSize
     }
 
+    Document {
+        id: horaDocument
+        title: horaScreen.title
+    }
+
     DocumentDialog {
         id: documentDialog
         width: Math.min(400, parent.width)
         height: parent.height
         edge: Qt.LeftEdge
+
+        currentDocument: horaDocument
 
 //        Material.background: "#DFEEE5"
 //        opacity: 0.875

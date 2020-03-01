@@ -67,6 +67,17 @@ ApplicationWindow {
     Document {
         id: horaDocument
         title: horaScreen.title
+
+        DocumentNode {
+            id: radix
+
+            property string title: horaScreen.title
+            property alias titleAlias: horaScreen.title
+
+            DocumentNode {
+                id: date
+            }
+        }
     }
 
     DocumentDialog {

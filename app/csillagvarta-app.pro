@@ -28,12 +28,14 @@ LIBS += $$moduleDep(astro,sweph)
 LIBS += $$moduleDep(sdk,network-qt)
 LIBS += $$moduleDep(sdk,arch)
 
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/arch/libsdk-arch.so
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/network-qt/libsdk-network-qt.so
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/uicontrols-qt/libsdk-uicontrols-qt.so
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/astro/sweph/libastro-sweph.so
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/sdk/dox-qt/libsdk-dox-qt.so
-ANDROID_EXTRA_LIBS += /home/robert/code/symboid/_build/debug-android_armv7-qt5.12/astro/uicontrols-qt/libastro-uicontrols-qt.so
+android: {
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,arch)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,network-qt)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,sweph)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,uicontrols-qt)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,dox-qt)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,uicontrols-qt)
+}
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
 

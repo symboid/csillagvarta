@@ -67,16 +67,37 @@ ApplicationWindow {
     Document {
         id: horaDocument
         title: horaScreen.title
+        filePath: "/home/robert/testdoc.json"
 
         DocumentNode {
-            id: radix
+            name: "radix"
 
-            property string title: horaScreen.title
-            property alias titleAlias: horaScreen.title
+            property alias title: horaScreen.title
 
             DocumentNode {
-                id: date
+                name: "time"
+                property alias year: horaScreen.year
+                property alias month: horaScreen.month
+                property alias day: horaScreen.day
+                property alias hour: horaScreen.hour
+                property alias minute: horaScreen.minute
+                property alias second: horaScreen.second
             }
+            DocumentNode {
+                name: "geoLoc"
+                property alias geoName: horaScreen.geoName
+                property alias latt: horaScreen.geoLatt
+                property alias lont: horaScreen.geoLont
+                property alias tzDiff: horaScreen.geoTzDiff
+            }
+        }
+        onLoadStarted: {
+            horaScreen.unsetCurrent()
+        }
+
+        onLoadCurrent: {
+            horaScreen.title = qsTr("Current Transit")
+            horaScreen.setCurrent()
         }
     }
 

@@ -67,7 +67,6 @@ ApplicationWindow {
     Document {
         id: horaDocument
         title: horaScreen.title
-        filePath: "/home/robert/testdoc.json"
 
         DocumentNode {
             name: "radix"
@@ -82,6 +81,7 @@ ApplicationWindow {
                 property alias hour: horaScreen.hour
                 property alias minute: horaScreen.minute
                 property alias second: horaScreen.second
+                property alias calendarType: horaScreen.calendarType
             }
             DocumentNode {
                 name: "geoLoc"
@@ -109,8 +109,8 @@ ApplicationWindow {
 
         currentDocument: horaDocument
 
-//        Material.background: "#DFEEE5"
-//        opacity: 0.875
+        Material.background: "#DFEEE5"
+        opacity: 0.875
     }
 
     /*

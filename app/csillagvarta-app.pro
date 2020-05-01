@@ -5,16 +5,10 @@ COMPONENT_NAME=csillagvarta
 include($${BUILD_ROOT}/sdk/build/qmake/application.pri)
 
 SOURCES += \
-    main.cc \
-    mainwindow.cc
-    
-lupdate_only {
-SOURCES +=
-}
+    main.cc
 
 HEADERS += \
     init.h \
-    mainwindow.h \
     setup.h \
     defs.h
 
@@ -38,8 +32,3 @@ android: {
 }
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
-
-#include($${BUILD_ROOT}/sdk/build/qmake/qm-compile.pri)
-
-FORMS += \
-    mainwindow.ui

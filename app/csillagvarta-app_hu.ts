@@ -16,10 +16,10 @@
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
+    <name>main</name>
     <message>
-        <source>MainWindow</source>
-        <translation type="unfinished"></translation>
+        <source>Current Transit</source>
+        <translation>Aktuális tranzit</translation>
     </message>
 </context>
 </TS>

@@ -6,6 +6,7 @@ import Symboid.Astro.Controls 1.0
 import Symboid.Sdk.Dox 1.0
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls.Universal 2.3
+import "." as Csillagvarta
 
 ApplicationWindow {
     id: mainWindow
@@ -30,6 +31,7 @@ ApplicationWindow {
         ToolButton {
             icon.source: "/icons/cog_icon&32.png"
             anchors.right: parent.right
+            onClicked: processView.toggleSettingsScreen()
         }
 //        Material.primary: "#CFE2D7"
         Material.primary: "#95B2A0"
@@ -52,8 +54,8 @@ ApplicationWindow {
         }
     }
 
-    HoraScreen {
-        id: horaScreen
+    ProcessView {
+        id: processView
         anchors {
             top: hunFlag.bottom
             bottom: parent.bottom
@@ -61,7 +63,32 @@ ApplicationWindow {
             right: parent.right
         }
 
-        fontPointSize: mainWindow.font.pointSize
+        readonly property int noScreenIndex: -1
+        readonly property int horaScreenIndex: 0
+        readonly property int settingsScreenIndex: 1
+        property int lastScreenIndex: noScreenIndex
+
+        function toggleSettingsScreen()
+        {
+            if (currentIndex !== settingsScreenIndex)
+            {
+                lastScreenIndex = currentIndex
+                currentIndex = settingsScreenIndex
+            }
+            else if (lastScreenIndex !== noScreenIndex)
+            {
+                currentIndex = lastScreenIndex
+            }
+        }
+
+        HoraScreen {
+            id: horaScreen
+            fontPointSize: mainWindow.font.pointSize
+        }
+
+        Csillagvarta.SettingsScreen {
+            id: settingsScreen
+        }
     }
 
     Document {

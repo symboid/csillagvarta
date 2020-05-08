@@ -4,6 +4,7 @@
         <file>icons/cog_icon&amp;32.png</file>
         <file>icons/doc_lines_icon&amp;32.png</file>
         <file>depfixes.qml</file>
+        <file>SettingsScreen.qml</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

@@ -12,10 +12,9 @@ ApplicationWindow {
     id: mainWindow
     visible: true
 
-    x:0
-    y:0
-    width: screen.desktopAvailableWidth
-    height: screen.desktopAvailableHeight
+    visibility: Window.Maximized
+    width: 900
+    height: 600
 
     Material.theme: Material.Light
     Material.primary: Material.Green

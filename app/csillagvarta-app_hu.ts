@@ -18,7 +18,7 @@
 <context>
     <name>SettingsScreen</name>
     <message>
-        <source>Orbis</source>
+        <source>General</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

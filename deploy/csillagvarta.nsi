@@ -21,6 +21,8 @@
 !insertmacro DeployQtBasics
 !insertmacro DeployQtDeps
 
+!insertmacro RegAppPath csillagvarta-app.exe "${QtInstallDir}\bin"
+
 ;!insertmacro StartMenuFolder ${COMPONENT_TITLE}
 ;!insertmacro StartMenuBootLink ${COMPONENT_TITLE} "kirkoszkop" "$INSTDIR\kirkoszkop.exe"
 ;!insertmacro StartMenuLink "$(TextUninstall)" "$INSTDIR\${PackageUninstallerExe}" "" ""

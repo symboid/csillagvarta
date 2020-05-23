@@ -8,13 +8,17 @@ UiControls.SettingsScreen {
 
     UiControls.SettingsPane {
         title: qsTr("General")
+
+        UiControls.UiStyleSettingsGroup {
+
+        }
     }
 
     HoraSettingsPane {
 
     }
 
-    AspectSettingsPane {
+    OrbisSettingsPane {
 
     }
 

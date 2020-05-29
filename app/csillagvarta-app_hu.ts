@@ -26,7 +26,7 @@
     <name>main</name>
     <message>
         <source>Current Transit</source>
-        <translation>Aktuális tranzit</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

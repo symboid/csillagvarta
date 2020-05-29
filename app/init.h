@@ -4,6 +4,7 @@
 
 #include "csillagvarta/app/defs.h"
 #include "sdk/arch/appqml.h"
+#include "sdk/hosting/init.h"
 #include "astro/uicontrols-qt/init.h"
 #include "sdk/dox-qt/init.h"
 
@@ -16,6 +17,7 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
     {
     }
 
+    arh::mod_init<mod_sdk_hosting> _M_mod_sdk_hosting;
     arh::mod_init<mod_astro_uicontrols_qt> _M_mod_astro_uicontrols_qt;
     arh::mod_init<mod_sdk_dox_qt> _M_mod_sdk_dox_qt;
 };

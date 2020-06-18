@@ -16,6 +16,7 @@ RESOURCES += \
     csillagvarta-app.qrc
 
 LIBS += $$moduleDep(astro,uicontrols-qt)
+LIBS += $$moduleDep(astro,db)
 LIBS += $$moduleDep(sdk,dox-qt)
 LIBS += $$moduleDep(sdk,hosting)
 LIBS += $$moduleDep(sdk,uicontrols-qt)
@@ -30,6 +31,7 @@ android: {
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,uicontrols-qt)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,hosting)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,dox-qt)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,db)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,uicontrols-qt)
 }
 

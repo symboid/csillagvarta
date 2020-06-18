@@ -73,10 +73,12 @@ ApplicationWindow {
             {
                 lastScreenIndex = currentIndex
                 currentIndex = settingsScreenIndex
+                horaScreen.interactive = false
             }
             else if (lastScreenIndex !== noScreenIndex)
             {
                 currentIndex = lastScreenIndex
+                horaScreen.interactive = true
             }
         }
 

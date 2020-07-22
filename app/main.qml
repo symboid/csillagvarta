@@ -23,9 +23,15 @@ ApplicationWindow {
     Universal.accent: Universal.Emerald
 
     header: ToolBar {
-        ToolButton {
-            icon.source: "/icons/doc_lines_icon&32.png"
-            onClicked: documentDialog.open()
+        Row {
+            ToolButton {
+                icon.source: "/icons/doc_lines_icon&32.png"
+                onClicked: documentDialog.open()
+            }
+            ToolButton {
+                icon.source: "/icons/zoom_icon&32.png"
+                onClicked: horaScreen.zoomToDefault()
+            }
         }
         ToolButton {
             icon.source: "/icons/cog_icon&32.png"

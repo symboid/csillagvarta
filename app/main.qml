@@ -26,7 +26,7 @@ ApplicationWindow {
         Row {
             ToolButton {
                 icon.source: "/icons/doc_lines_icon&32.png"
-                onClicked: documentDialog.open()
+                onClicked: horaDocumentDialog.open()
             }
             ToolButton {
                 icon.source: "/icons/zoom_icon&32.png"
@@ -134,15 +134,9 @@ ApplicationWindow {
             horaScreen.setCurrent()
         }
     }
-
-    DocumentDialog {
-        id: documentDialog
-        width: Math.min(400, parent.width)
-        height: parent.height
-        edge: Qt.LeftEdge
-
+    HoraDocumentDialog {
+        id: horaDocumentDialog
         currentDocument: horaDocument
-
         Material.background: "#DFEEE5"
         opacity: 0.875
     }

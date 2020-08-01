@@ -6,6 +6,7 @@
         <file>depfixes.qml</file>
         <file>SettingsScreen.qml</file>
         <file>icons/zoom_icon&amp;32.png</file>
+        <file>HoraDocumentDialog.qml</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

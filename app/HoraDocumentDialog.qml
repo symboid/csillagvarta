@@ -30,7 +30,10 @@ DocumentDialog {
             id: recentDox
             title: qsTr("Recent horoscopes")
             currentDocument: documentDialog.currentDocument
-            onFinishExec: close()
+            onFinishExec: {
+                add(currentDocument.title, currentDocument.filePath)
+                close()
+            }
         }
     ]
 

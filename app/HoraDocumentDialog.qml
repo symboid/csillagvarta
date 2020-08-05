@@ -18,7 +18,11 @@ DocumentDialog {
                 recentDox.add(currentDocument.title, currentDocument.filePath)
                 close()
             }
-            onDocumentSaved: close()
+            onDocumentSaved: {
+                recentDox.add(currentDocument.title, currentDocument.filePath)
+                close()
+            }
+            onDocumentDeleted: recentDox.remove(documentPath)
         },
         InputOperation {
             title: qsTr("Current transit")

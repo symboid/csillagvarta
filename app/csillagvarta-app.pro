@@ -35,6 +35,6 @@ android: {
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,uicontrols-qt)
 }
 
-QMAKE_EXTRA_TARGETS += $$object_dep_on_module_header(main)
+QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)
 
 include($${BUILD_ROOT}/astro/sweph/files.pri)

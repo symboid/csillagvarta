@@ -20,14 +20,12 @@ LIBS += $$moduleDep(astro,db)
 LIBS += $$moduleDep(sdk,dox-qt)
 LIBS += $$moduleDep(sdk,hosting)
 LIBS += $$moduleDep(sdk,uicontrols-qt)
-LIBS += $$moduleDep(astro,sweph)
 LIBS += $$moduleDep(sdk,network-qt)
 LIBS += $$moduleDep(sdk,arch)
 
 android: {
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,arch)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,network-qt)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,sweph)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,uicontrols-qt)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,hosting)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,dox-qt)
@@ -37,4 +35,4 @@ android: {
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)
 
-include($${BUILD_ROOT}/astro/sweph/files.pri)
+include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)

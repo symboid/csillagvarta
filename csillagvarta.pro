@@ -8,7 +8,7 @@ SUBDIRS = \
     $$module_dep(astro,calculo) \
     $$module_dep(sdk,uicontrols-qt) \
     $$module_dep(sdk,hosting) \
-    $$module_dep(sdk,dox-qt) \
+    $$module_dep(sdk,dox) \
     $$module_dep(astro,db) \
     $$module_dep(astro,uicontrols-qt) \
     $$module_dep(csillagvarta,app)

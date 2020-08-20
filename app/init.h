@@ -8,8 +8,9 @@
 #include "sdk/uicontrols-qt/init.h"
 #include "sdk/hosting/init.h"
 #include "sdk/dox/init.h"
-#include "astro/db/init.h"
 #include "astro/uicontrols-qt/init.h"
+#include "astro/db/init.h"
+#include "astro/hora/init.h"
 
 struct app_csillagvarta : arh::app_qml<app_csillagvarta>
 {
@@ -24,8 +25,9 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
     arh::mod_init<mod_sdk_uicontrols_qt> _M_mod_sdk_uicontrols_qt;
     arh::mod_init<mod_sdk_hosting> _M_mod_sdk_hosting;
     arh::mod_init<mod_sdk_dox> _M_mod_sdk_dox;
-    arh::mod_init<mod_astro_db> _M_mod_astro_db;
     arh::mod_init<mod_astro_uicontrols_qt> _M_mod_astro_uicontrols_qt;
+    arh::mod_init<mod_astro_db> _M_mod_astro_db;
+    arh::mod_init<mod_astro_hora> _M_mod_astro_hora;
 };
 
 #endif // __SYMBOID_CSILLAGVARTA_APP_INIT_H__

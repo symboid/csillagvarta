@@ -1,12 +1,13 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>MainScreen.qml</file>
         <file>icons/cog_icon&amp;32.png</file>
         <file>icons/doc_lines_icon&amp;32.png</file>
         <file>depfixes.qml</file>
         <file>SettingsScreen.qml</file>
         <file>icons/zoom_icon&amp;32.png</file>
         <file>HoraDocumentDialog.qml</file>
+        <file>main.qml</file>
     </qresource>
     <qresource prefix="/tr"/>
 </RCC>

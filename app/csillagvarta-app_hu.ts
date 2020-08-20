@@ -31,6 +31,13 @@
     </message>
 </context>
 <context>
+    <name>MainScreen</name>
+    <message>
+        <source>Current Transit</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsScreen</name>
     <message>
         <source>General</source>
@@ -40,7 +47,7 @@
 <context>
     <name>main</name>
     <message>
-        <source>Current Transit</source>
+        <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

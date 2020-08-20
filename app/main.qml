@@ -37,21 +37,23 @@ ApplicationWindow {
                 }
             }
 
+            Timer {
+                interval: 100
+                running: true
+                onTriggered: {
+                    console.info("Loading main screen...")
+                    mainScreenLoader.source = "/MainScreen.qml"
+                }
+            }
         }
 
         Loader {
             id: mainScreenLoader
             onLoaded: {
                 console.info("Main screen loaded.")
+                loadProcess.currentIndex = 1
             }
         }
-
-    }
-
-    Component.onCompleted: {
-        console.info("Loading main screen...")
-        mainScreenLoader.source = "/MainScreen.qml"
-        loadProcess.currentIndex = 1
 
     }
 }

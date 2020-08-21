@@ -22,6 +22,9 @@ ApplicationWindow {
 
     Universal.accent: Universal.Emerald
 
+    signal settingsClicked
+    onSettingsClicked: loadProcess.currentIndex = 2
+
     ProcessView {
         id: loadProcess
         anchors.fill: parent
@@ -55,5 +58,9 @@ ApplicationWindow {
             }
         }
 
+        Csillagvarta.SettingsScreen {
+            id: settingsScreen
+            onBackClicked: loadProcess.currentIndex = 1
+        }
     }
 }

@@ -28,7 +28,7 @@ Item {
         ToolButton {
             icon.source: "/icons/cog_icon&32.png"
             anchors.right: parent.right
-            onClicked: processView.toggleSettingsScreen()
+            onClicked: mainWindow.settingsClicked()
         }
 //        Material.primary: "#CFE2D7"
         Material.primary: "#95B2A0"
@@ -51,43 +51,15 @@ Item {
         }
     }
 
-    ProcessView {
-        id: processView
+    HoraScreen {
         anchors {
             top: hunFlag.bottom
             bottom: parent.bottom
             left: parent.left
             right: parent.right
         }
-
-        readonly property int noScreenIndex: -1
-        readonly property int horaScreenIndex: 0
-        readonly property int settingsScreenIndex: 1
-        property int lastScreenIndex: noScreenIndex
-
-        function toggleSettingsScreen()
-        {
-            if (currentIndex !== settingsScreenIndex)
-            {
-                lastScreenIndex = currentIndex
-                currentIndex = settingsScreenIndex
-                horaScreen.interactive = false
-            }
-            else if (lastScreenIndex !== noScreenIndex)
-            {
-                currentIndex = lastScreenIndex
-                horaScreen.interactive = true
-            }
-        }
-
-        HoraScreen {
-            id: horaScreen
-            fontPointSize: mainWindow.font.pointSize
-        }
-
-        Csillagvarta.SettingsScreen {
-            id: settingsScreen
-        }
+        id: horaScreen
+        fontPointSize: mainWindow.font.pointSize
     }
 
     Document {

@@ -10,9 +10,8 @@ import "." as Csillagvarta
 
 Item {
 
-    ToolBar {
-        id: toolbar
-        anchors.top: parent.top
+    ScreenToolBar {
+        id: toolBar
         anchors.left: parent.left
         anchors.right: parent.right
         Row {
@@ -30,30 +29,11 @@ Item {
             anchors.right: parent.right
             onClicked: mainWindow.settingsClicked()
         }
-//        Material.primary: "#CFE2D7"
-        Material.primary: "#95B2A0"
-    }
-
-    Column {
-        id: hunFlag
-        anchors.top: toolbar.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        Repeater {
-            model: 3
-            delegate: Rectangle {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 2
-                readonly property var flagColor: [ "red", "white", "green" ]
-                color: flagColor[index]
-            }
-        }
     }
 
     HoraScreen {
         anchors {
-            top: hunFlag.bottom
+            top: toolBar.bottom
             bottom: parent.bottom
             left: parent.left
             right: parent.right
@@ -98,6 +78,7 @@ Item {
             horaScreen.setCurrent()
         }
     }
+
     HoraDocumentDialog {
         id: horaDocumentDialog
         currentDocument: horaDocument

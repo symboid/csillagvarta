@@ -32,13 +32,13 @@ Item {
     }
 
     HoraScreen {
+        id: horaScreen
         anchors {
             top: toolBar.bottom
             bottom: parent.bottom
             left: parent.left
             right: parent.right
         }
-        id: horaScreen
         fontPointSize: mainWindow.font.pointSize
     }
 

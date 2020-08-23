@@ -17,8 +17,8 @@ ApplicationWindow {
     height: 600
 
     Material.theme: Material.Light
-    Material.primary: Material.Green
-    Material.accent: Material.Red
+    Material.primary: "#95B2A0"
+    Material.accent: "#C94848"
 
     Universal.accent: Universal.Emerald
 
@@ -59,7 +59,6 @@ ApplicationWindow {
         }
 
         Csillagvarta.SettingsScreen {
-            id: settingsScreen
             onBackClicked: loadProcess.currentIndex = 1
         }
     }

@@ -5,7 +5,7 @@
 #include "csillagvarta/app/defs.h"
 #include "sdk/arch/appqml.h"
 #include "sdk/network/init.h"
-#include "sdk/uicontrols-qt/init.h"
+#include "sdk/controls/init.h"
 #include "sdk/hosting/init.h"
 #include "sdk/dox/init.h"
 #include "astro/uicontrols-qt/init.h"
@@ -22,7 +22,7 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
     }
 
     arh::mod_init<mod_sdk_network> _M_mod_sdk_network;
-    arh::mod_init<mod_sdk_uicontrols_qt> _M_mod_sdk_uicontrols_qt;
+    arh::mod_init<mod_sdk_controls> _M_mod_sdk_controls;
     arh::mod_init<mod_sdk_hosting> _M_mod_sdk_hosting;
     arh::mod_init<mod_sdk_dox> _M_mod_sdk_dox;
     arh::mod_init<mod_astro_uicontrols_qt> _M_mod_astro_uicontrols_qt;

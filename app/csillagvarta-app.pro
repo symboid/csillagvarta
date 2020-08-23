@@ -17,7 +17,7 @@ RESOURCES += \
 
 LIBS += $$moduleDep(astro,hora)
 LIBS += $$moduleDep(astro,db)
-LIBS += $$moduleDep(astro,uicontrols-qt)
+LIBS += $$moduleDep(astro,controls)
 LIBS += $$moduleDep(sdk,dox)
 LIBS += $$moduleDep(sdk,hosting)
 LIBS += $$moduleDep(sdk,controls)
@@ -30,7 +30,7 @@ android: {
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,controls)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,hosting)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,dox)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,uicontrols-qt)
+    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,controls)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,db)
     ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,hora)
 }

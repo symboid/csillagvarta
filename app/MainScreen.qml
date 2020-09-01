@@ -56,146 +56,40 @@ Sdk.MainScreen {
         height: metrics.mandalaSize
         currentIndex: viewSelector.currentIndex
         Rectangle {
-            border.width: horaFlickable.minHoraSize != horaFlickable.horaSize ? 1 : 0
+            border.width: horaPanel.minHoraSize != horaPanel.horaSize ? 1 : 0
             border.color: "lightgray"
             color: "transparent"
-            Flickable {
-                id: horaFlickable
+            HoraPanel {
+                id: horaPanel
                 anchors.fill: parent
-                contentWidth: horaView.width
-                contentHeight: horaView.height
-                clip: true
+                minHoraSize: metrics.mandalaSize
+                horaSize: metrics.mandalaSize
 
-                function zoomToMinimum()
-                {
-                    horaSize = minHoraSize
-                    contentX = 0
-                    contentY = 0
-                }
-                function zoomToDefault()
-                {
-                    horaSize = minHoraSize / horaView.defaultZoom
-                    contentX = (horaSize - minHoraSize) / 2
-                    contentY = contentX
-                }
-                function zoomTo(zoomPointX,zoomPointY,zoomDelta)
-                {
-                    var zoomRatio = (horaSize + zoomDelta) / horaSize
-                    if (horaSize + zoomDelta >= minHoraSize)
-                    {
-                        horaSize += zoomDelta
-                        var newContentX = contentX + (zoomRatio - 1) * zoomPointX
-                        var newContentY = contentY + (zoomRatio - 1) * zoomPointY
-                        contentX = newContentX < 0.0 ? 0.0 : newContentX
-                        contentY = newContentY < 0.0 ? 0.0 : newContentY
-//                            console.log("contentCorner = ("+contentX+","+contentY+"), zoom=("+zoomDelta+","+zoomRatio+")")
-                    }
-                    else
-                    {
-                        zoomToMinimum()
-                    }
-                }
+                year: dateTimeParams.year
+                month: dateTimeParams.month
+                day: dateTimeParams.day
+                hour: dateTimeParams.hour
+                minute: dateTimeParams.minute
+                second: dateTimeParams.second
 
-                onWidthChanged:  zoomToDefault()
-                onHeightChanged: zoomToDefault()
+                geoLatt: locationParams.geoLatt
+                geoLont: locationParams.geoLont
+                tzDiff: locationParams.geoTzDiff
 
-                readonly property int minHoraSize: metrics.mandalaSize
-                property int horaSize: metrics.mandalaSize
-                MouseArea {
-                    anchors.fill: parent
-                    onWheel: {
-                        var zoomDelta = (wheel.angleDelta.y/500.0) * horaFlickable.horaSize
-                        horaFlickable.zoomTo(wheel.x, wheel.y, zoomDelta)
-                    }
-                    onClicked: {
-//                            console.log("contentCorner = ("+contentX+","+contentY+")")
-                    }
-
-                    onDoubleClicked: horaFlickable.zoomToDefault()
-                }
-                PinchArea {
-                    anchors.fill: parent
-                    onPinchUpdated: {
-                        var zoomDelta = (pinch.scale > 1 ? 1 : -1) * horaFlickable.horaSize / 30
-                        horaFlickable.zoomTo(pinch.center.x, pinch.center.y, zoomDelta)
-                    }
-                }
-
-                HoraView {
-                    id: horaView
-                    width: horaFlickable.horaSize
-                    height: horaFlickable.horaSize
-
-                    year: dateTimeParams.year
-                    month: dateTimeParams.month
-                    day: dateTimeParams.day
-                    hour: dateTimeParams.hour
-                    minute: dateTimeParams.minute
-                    second: dateTimeParams.second
-                    geoLatt: locationParams.geoLatt
-                    geoLont: locationParams.geoLont
-                    tzDiff: locationParams.geoTzDiff
-                    housesType: housesType.currentToken()
-                    withJulianCalendar: calendarType.currentIndex !== 0
-
-                    displayFlags: HoraView.SHOW_FIXSTARS
-                    fontPointSize: mainWindow.font.pointSize
-
-                    BusyIndicator {
-                        id: horaCalcIndicator
-                        width: 100
-                        height: 100
-                        anchors.centerIn: parent
-                        running: false
-                    }
-                    onStartCalc: horaCalcIndicator.running = true
-                    onStopCalc: horaCalcIndicator.running = false
-                }
+                housesType: housesType.currentToken()
+                withJulianCalendar: calendarType.currentIndex !== 0
             }
         }
         Item {
-            HoraTableView {
+            PlanetsTableView {
                 id: planetTableView
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: showPlanetSeconds.top
-                anchors.margins: 20
-                tableModel: horaView.planetsModel
-                headerModel: tableModel.headerModel
-                columnComponents: [
-                    Component {
-                        Pane {
-                            Label {
-                                text: cellData
-                                font.family: "Symboid"
-                                width: 40
-                            }
-                        }
-                    },
-                    Component {
-                        ArcCoordLabel {
-                            arcDegree: cellData
-                            sectionCalc: ZodiacSectionCalc {}
-                            sectionFont.family: "Symboid"
-                            showSecond: showPlanetSeconds.checked
-                        }
-                    },
-                    Component {
-                        ArcCoordLabel {
-                            arcDegree: cellData
-                            sectionCalc: SignumSectionCalc {}
-                            showSecond: showPlanetSeconds.checked
-                        }
-                    },
-                    Component {
-                        ArcCoordLabel {
-                            arcDegree: cellData
-                            sectionCalc: SignumSectionCalc {}
-                            showSecond: showPlanetSeconds.checked
-                        }
-                    }
-                ]
+
+                tableModel: horaPanel.planetsModel
+                showSeconds: showPlanetSeconds.checked
             }
             CheckBox {
                 id: showPlanetSeconds
@@ -211,40 +105,15 @@ Sdk.MainScreen {
             }
         }
         Item {
-            HoraTableView {
+            HousesTableView {
                 id: houseTableView
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: showHousesSeconds.top
-                anchors.margins: 20
-                tableModel: horaView.housesModel
-                headerModel: tableModel.headerModel
-                columnComponents: [
-                    Component {
-                        Pane {
-                            Label {
-                                text: cellData
-                                anchors.horizontalCenter: parent.horizontalCenter
-                            }
-                        }
-                    },
-                    Component {
-                        ArcCoordLabel {
-                            arcDegree: cellData
-                            sectionCalc: ZodiacSectionCalc {}
-                            sectionFont.family: "Symboid"
-                            showSecond: showHousesSeconds.checked
-                        }
-                    },
-                    Component {
-                        ArcCoordLabel {
-                            arcDegree: cellData
-                            sectionCalc: SignumSectionCalc {}
-                            showSecond: showHousesSeconds.checked
-                        }
-                    }
-                ]
+
+                tableModel: horaPanel.housesModel
+                showSeconds: showHousesSeconds.checked
             }
             CheckBox {
                 id: showHousesSeconds
@@ -359,7 +228,7 @@ Sdk.MainScreen {
         }
         ListElement {
             toolIcon: "/icons/zoom_icon&32.png"
-            toolOperation: function() { horaFlickable.zoomToDefault() }
+            toolOperation: function() { horaPanel.zoomToDefault() }
         }
         ListElement {
             toolIcon: "/icons/cog_icon&32.png"
@@ -374,5 +243,5 @@ Sdk.MainScreen {
         opacity: 0.875
     }
 
-    Component.onCompleted: horaView.interactive = true
+    Component.onCompleted: horaPanel.interactive = true
 }

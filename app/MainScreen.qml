@@ -76,6 +76,7 @@ Sdk.MainScreen {
                 geoLont: locationParams.geoLont
                 tzDiff: locationParams.geoTzDiff
 
+                displayFlags: HoraView.SHOW_FIXSTARS
                 housesType: housesType.currentToken()
                 withJulianCalendar: calendarType.currentIndex !== 0
             }
@@ -243,5 +244,8 @@ Sdk.MainScreen {
         opacity: 0.875
     }
 
-    Component.onCompleted: horaPanel.interactive = true
+    Component.onCompleted: {
+        dateTimeParams.setCurrent()
+        horaPanel.interactive = true
+    }
 }

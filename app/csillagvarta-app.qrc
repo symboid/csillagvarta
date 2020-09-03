@@ -9,5 +9,7 @@
         <file>HoraDocumentDialog.qml</file>
         <file>main.qml</file>
     </qresource>
-    <qresource prefix="/tr"/>
+    <qresource prefix="/tr">
+        <file>csillagvarta-app_hu.qm</file>
+    </qresource>
 </RCC>

@@ -55,31 +55,26 @@ Sdk.MainScreen {
         width: metrics.mandalaSize
         height: metrics.mandalaSize
         currentIndex: viewSelector.currentIndex
-        Rectangle {
-            border.width: horaPanel.minHoraSize != horaPanel.horaSize ? 1 : 0
-            border.color: "lightgray"
-            color: "transparent"
-            HoraPanel {
-                id: horaPanel
-                anchors.fill: parent
-                minHoraSize: metrics.mandalaSize
-                horaSize: metrics.mandalaSize
+        HoraPanel {
+            id: horaPanel
+            isLandscape: metrics.isLandscape
+            minHoraSize: metrics.mandalaSize
+            horaSize: metrics.mandalaSize
 
-                year: dateTimeParams.year
-                month: dateTimeParams.month
-                day: dateTimeParams.day
-                hour: dateTimeParams.hour
-                minute: dateTimeParams.minute
-                second: dateTimeParams.second
+            year: dateTimeParams.year
+            month: dateTimeParams.month
+            day: dateTimeParams.day
+            hour: dateTimeParams.hour
+            minute: dateTimeParams.minute
+            second: dateTimeParams.second
 
-                geoLatt: locationParams.geoLatt
-                geoLont: locationParams.geoLont
-                tzDiff: locationParams.geoTzDiff
+            geoLatt: locationParams.geoLatt
+            geoLont: locationParams.geoLont
+            tzDiff: locationParams.geoTzDiff
 
-                displayFlags: HoraView.SHOW_FIXSTARS
-                housesType: housesType.currentToken()
-                withJulianCalendar: calendarType.currentIndex !== 0
-            }
+            displayFlags: HoraView.SHOW_FIXSTARS
+            housesType: housesType.currentToken()
+            withJulianCalendar: calendarType.currentIndex !== 0
         }
         Item {
             PlanetsTableView {
@@ -173,16 +168,9 @@ Sdk.MainScreen {
         }
     }
 
-    MainScreenBottomPane {
-        referenceItem: details.checked ? houseSystemParams : locationParams
-        controlItem: Pane {
-            padding: 0
-            Switch {
-                id: details
-                anchors.centerIn: parent
-                text: qsTr("Details")
-            }
-        }
+    MainScreenDetailsSwitch {
+        id: details
+        referenceItem: checked ? houseSystemParams : locationParams
     }
 
     Document {

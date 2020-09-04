@@ -16,10 +16,8 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
 {
     APP_OBJECT(csillagvarta)
 
-    app_csillagvarta(int* _argc, char*** _argv)
-        : arh::app_qml<app_csillagvarta>(_argc, _argv)
-    {
-    }
+    app_csillagvarta(int* _argc, char*** _argv);
+    ~app_csillagvarta();
 
     arh::mod_init<mod_sdk_network> _M_mod_sdk_network;
     arh::mod_init<mod_sdk_controls> _M_mod_sdk_controls;

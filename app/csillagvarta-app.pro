@@ -5,6 +5,7 @@ COMPONENT_NAME=csillagvarta
 include($${BUILD_ROOT}/sdk/build/qmake/application.pri)
 
 SOURCES += \
+    init.cc \
     main.cc
 
 HEADERS += \

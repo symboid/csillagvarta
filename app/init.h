@@ -16,6 +16,8 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
 {
     APP_OBJECT(csillagvarta)
 
+    static constexpr const char* name = "CsillagVarta";
+
     app_csillagvarta(int* _argc, char*** _argv);
     ~app_csillagvarta();
 

@@ -96,11 +96,4 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Loading...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
 </TS>

@@ -10,7 +10,8 @@ int main(int _argc, char* _argv[])
 {
     arh::main_object_init<app_csillagvarta, int*, char***> app(&_argc, &_argv);
     arh::main_object<QSoftwareUpdate> softwareUpdate;
-    softwareUpdate->addComponentVersion(COMPONENT_NAME, COMPONENT_VER_MAJOR, COMPONENT_VER_MINOR,
+    softwareUpdate->mAppSwid = COMPONENT_SWID;
+    softwareUpdate->setAppVersion(COMPONENT_NAME, COMPONENT_VER_MAJOR, COMPONENT_VER_MINOR,
                         COMPONENT_VER_PATCH, COMPONENT_VER_SERIAL, COMPONENT_REV_ID);
     QQuickStyle::setStyle("Material");
     return app->run();

@@ -5,6 +5,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls.Material 2.3
 import QtQuick.Controls.Universal 2.3
 import Symboid.Sdk.Controls 1.0
+import Symboid.Sdk.Hosting 1.0
 import "." as Csillagvarta
 
 ApplicationWindow {
@@ -29,25 +30,12 @@ ApplicationWindow {
         id: loadProcess
         anchors.fill: parent
 
-        Item {
-            Label {
-                anchors.centerIn: parent
-                text: qsTr("Loading...")
-                font {
-                    pointSize: 36
-                    italic: true
-                    bold: true
-                }
+        LoadScreen {
+
+            onLoadMainScreen: {
+                mainScreenLoader.source = "/MainScreen.qml"
             }
 
-            Timer {
-                interval: 100
-                running: true
-                onTriggered: {
-                    console.info("Loading main screen...")
-                    mainScreenLoader.source = "/MainScreen.qml"
-                }
-            }
         }
 
         Loader {

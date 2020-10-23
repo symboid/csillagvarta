@@ -47,7 +47,7 @@ Sdk.MainScreen {
 
     MainScreenViewSelector {
         id: viewSelector
-        viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") , qsTr("Primary directions") ]
+        viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") ]
         referenceItem: details.checked ? calendarParam : dateTimeParams
     }
 
@@ -123,10 +123,6 @@ Sdk.MainScreen {
                     houseTableView.tableModel.update()
                 }
             }
-        }
-        ForecastTableView {
-            horaView: horaPanel.view
-
         }
     }
 

@@ -210,21 +210,6 @@ Sdk.MainScreen {
         }
     }
 
-    toolButtons: ListModel {
-        ListElement {
-            toolIcon: "/icons/doc_lines_icon&32.png"
-            toolOperation: function() { horaDocumentDialog.open() }
-        }
-        ListElement {
-            toolIcon: "/icons/zoom_icon&32.png"
-            toolOperation: function() { horaPanel.zoomToDefault() }
-        }
-        ListElement {
-            toolIcon: "/icons/cog_icon&32.png"
-            toolOperation: function() { mainWindow.settingsClicked() }
-        }
-    }
-
     HoraDocumentDialog {
         id: horaDocumentDialog
         currentDocument: horaDocument

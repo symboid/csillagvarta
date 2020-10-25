@@ -68,8 +68,10 @@ ApplicationWindow {
                         model: mainProcess.count
                         delegate: ToolButton {
                             icon.source: iconSources[index]
-                            icon.height: height
-                            icon.width: height
+                            icon.height: 64
+                            icon.width: 64
+                            height: 64
+                            width: 64
                             property var iconSources: [
                                 "/icons/doc_empty_icon&32.png",
                                 "/icons/target_icon&32.png",

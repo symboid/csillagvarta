@@ -15,12 +15,10 @@ Sdk.MainScreen {
     function setCurrent()
     {
         dateTimeParams.currentTimerOn = true
-        locationParams.lockedToCurrent = true
     }
     function unsetCurrent()
     {
         dateTimeParams.currentTimerOn = false
-        locationParams.lockedToCurrent = false
     }
 
     MainScreenParamBox {

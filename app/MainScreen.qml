@@ -14,11 +14,7 @@ Sdk.MainScreen {
 
     function setCurrent()
     {
-        dateTimeParams.currentTimerOn = true
-    }
-    function unsetCurrent()
-    {
-        dateTimeParams.currentTimerOn = false
+        dateTimeParams.setCurrent()
     }
 
     MainScreenParamBox {
@@ -171,9 +167,12 @@ Sdk.MainScreen {
         referenceItem: checked ? houseSystemParams : locationParams
     }
 
-    Document {
-        id: horaDocument
+    property Document horaDocument: Document {
         title: horaName.text
+        onTitleChanged: {
+            horaName.text = title
+            title = Qt.binding(function(){return horaName.text})
+        }
 
         DocumentNode {
             name: "radix"
@@ -198,21 +197,13 @@ Sdk.MainScreen {
                 property alias tzDiff: locationParams.geoTzDiff
             }
         }
-        onLoadStarted: {
-            unsetCurrent()
-        }
 
         onLoadCurrent: {
-            horaName.text = qsTr("Current Transit")
             setCurrent()
         }
-    }
-
-    HoraDocumentDialog {
-        id: horaDocumentDialog
-        currentDocument: horaDocument
-        Material.background: "#DFEEE5"
-        opacity: 0.875
+        Component.onDestruction: {
+            save()
+        }
     }
 
     Component.onCompleted: {

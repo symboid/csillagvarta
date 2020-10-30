@@ -33,10 +33,6 @@
 <context>
     <name>MainScreen</name>
     <message>
-        <source>Current Transit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Horoscope name</source>
         <translation type="unfinished"></translation>
     </message>

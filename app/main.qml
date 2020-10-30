@@ -45,6 +45,11 @@ ApplicationWindow {
                 anchors.fill: parent
 
                 DocumentScreen {
+                    id: documentScreen
+                    currentDocument: mainScreenLoader.item !== null ? mainScreenLoader.item.horaDocument : null
+                    onDocumentLoaded: {
+                        mainProcess.currentIndex = 1
+                    }
                 }
 
                 Loader {
@@ -68,10 +73,8 @@ ApplicationWindow {
                         model: mainProcess.count
                         delegate: ToolButton {
                             icon.source: iconSources[index]
-                            icon.height: 64
-                            icon.width: 64
-                            height: 64
-                            width: 64
+                            icon.height: pagerFrame.height
+                            icon.width: pagerFrame.height
                             property var iconSources: [
                                 "/icons/doc_empty_icon&32.png",
                                 "/icons/target_icon&32.png",

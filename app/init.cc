@@ -30,7 +30,7 @@ app_csillagvarta::app_csillagvarta(int* _argc, char*** _argv)
     horaConfig->mAspectTypes.insert(hor::opposition);
     horaConfig->mAspectTypes.insert(hor::trigon);
     horaConfig->mAspectTypes.insert(hor::quadrat);
-    horaConfig->mAspectTypes.insert(hor::quintil);
+//    horaConfig->mAspectTypes.insert(hor::quintil);
     horaConfig->mAspectTypes.insert(hor::sextil);
 }
 

@@ -2,6 +2,7 @@
 #include "csillagvarta/app/defs.h"
 #include "sdk/arch/mainobject.h"
 #include "csillagvarta/app/init.h"
+#include <QSettings>
 #include <QQuickStyle>
 #include "csillagvarta/component.h"
 #include "sdk/hosting/qsoftwareupdate.h"
@@ -13,6 +14,13 @@ int main(int _argc, char* _argv[])
     softwareUpdate->mAppSwid = COMPONENT_SWID;
     softwareUpdate->setAppVersion(COMPONENT_NAME, COMPONENT_VER_MAJOR, COMPONENT_VER_MINOR,
                         COMPONENT_VER_PATCH, COMPONENT_VER_SERIAL, COMPONENT_REV_ID);
-    QQuickStyle::setStyle("Material");
+    QCoreApplication::setApplicationName("CsillagVarta");
+    QCoreApplication::setOrganizationName("Symboid");
+    QCoreApplication::setOrganizationDomain("symboid.com");
+
+    QSettings settings;
+
+    QQuickStyle::setStyle(settings.value("ui/style").toString());
+
     return app->run();
 }

@@ -21,6 +21,7 @@ Sdk.MainScreen {
         title: qsTr("Horoscope name")
         MainScreenTextField {
             id: horaName
+            readOnly: true
         }
     }
 

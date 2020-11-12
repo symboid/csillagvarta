@@ -20,10 +20,6 @@ Hosting.SettingsScreen {
 
     }
 
-    OrbisSettingsPane {
-
-    }
-
     SoftwarePane {
 
     }

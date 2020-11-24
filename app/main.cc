@@ -15,8 +15,8 @@ int main(int _argc, char* _argv[])
     softwareUpdate->setAppVersion(COMPONENT_NAME, COMPONENT_VER_MAJOR, COMPONENT_VER_MINOR,
                         COMPONENT_VER_PATCH, COMPONENT_VER_SERIAL, COMPONENT_REV_ID);
 
+    QQuickStyle::setFallbackStyle("Material");
     QSettings settings;
-
     QQuickStyle::setStyle(settings.value("ui/style").toString());
 
     return app->run();

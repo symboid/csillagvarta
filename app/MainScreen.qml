@@ -67,7 +67,6 @@ Sdk.MainScreen {
             geoLont: locationParams.geoLont
             tzDiff: locationParams.geoTzDiff
 
-            displayFlags: HoraView.SHOW_FIXSTARS
             housesType: housesType.currentToken()
             withJulianCalendar: calendarType.currentIndex !== 0
         }

@@ -6,6 +6,7 @@
 #include <QQuickStyle>
 #include "csillagvarta/component.h"
 #include "sdk/hosting/qsoftwareupdate.h"
+#include "sdk/hosting/qappconfig.h"
 
 int main(int _argc, char* _argv[])
 {
@@ -15,9 +16,9 @@ int main(int _argc, char* _argv[])
     softwareUpdate->setAppVersion(COMPONENT_NAME, COMPONENT_VER_MAJOR, COMPONENT_VER_MINOR,
                         COMPONENT_VER_PATCH, COMPONENT_VER_SERIAL, COMPONENT_REV_ID);
 
-    QQuickStyle::setFallbackStyle("Material");
-    QSettings settings;
-    QQuickStyle::setStyle(settings.value("ui/style").toString());
+    arh::main_object<QAppConfig> appConfig;
+    QString st = appConfig->ui()->style();
+    QQuickStyle::setStyle(appConfig->ui()->style());
 
     return app->run();
 }

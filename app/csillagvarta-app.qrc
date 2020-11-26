@@ -4,7 +4,6 @@
         <file>icons/cog_icon&amp;32.png</file>
         <file>depfixes.qml</file>
         <file>SettingsScreen.qml</file>
-        <file>HoraDocumentDialog.qml</file>
         <file>main.qml</file>
         <file>icons/doc_empty_icon&amp;32.png</file>
         <file>icons/target_icon&amp;32.png</file>

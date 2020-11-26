@@ -26,12 +26,6 @@ app_csillagvarta::app_csillagvarta(int* _argc, char*** _argv)
 //    horaConfig->mPlanets.push_back(hor::planet(hor::planet::chiron, new hor::simple_orbis_config(0.5)));
     horaConfig->mPlanets.push_back(hor::planet(hor::planet::lilith, new hor::simple_orbis_config(1.5)));
 
-    horaConfig->mAspectTypes.insert(hor::conjunction);
-    horaConfig->mAspectTypes.insert(hor::opposition);
-    horaConfig->mAspectTypes.insert(hor::trigon);
-    horaConfig->mAspectTypes.insert(hor::quadrat);
-//    horaConfig->mAspectTypes.insert(hor::quintil);
-    horaConfig->mAspectTypes.insert(hor::sextil);
 }
 
 app_csillagvarta::~app_csillagvarta()

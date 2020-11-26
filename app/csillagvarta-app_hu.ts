@@ -2,21 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
-    <name>HoraDocumentDialog</name>
-    <message>
-        <source>Saved horoscopes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Current transit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Recent horoscopes</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>InputPage</name>
     <message>
         <source></source>

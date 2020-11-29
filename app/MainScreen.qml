@@ -21,7 +21,16 @@ Sdk.MainScreen {
         title: qsTr("Horoscope name")
         MainScreenTextField {
             id: horaName
-            readOnly: true
+            button: RoundButton {
+                radius: 5
+                enabled: horaName.text !== ""
+                display: RoundButton.IconOnly
+                icon.source: "/icons/save_icon&32.png"
+                icon.color: "#C94848"
+                onClicked: {
+                    horaDocument.save()
+                }
+            }
         }
     }
 
@@ -173,6 +182,9 @@ Sdk.MainScreen {
             horaName.text = title
             title = Qt.binding(function(){return horaName.text})
         }
+        onLoadStarted: horaPanel.interactive = false
+        onLoadFinished: horaPanel.interactive = true
+        onLoadFailed: horaPanel.interactive = true
 
         DocumentNode {
             name: "radix"
@@ -202,7 +214,6 @@ Sdk.MainScreen {
             setCurrent()
         }
         Component.onDestruction: {
-            save()
         }
     }
 

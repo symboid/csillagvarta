@@ -22,13 +22,7 @@ ApplicationWindow {
     Material.primary: "#95B2A0"
     Material.accent: "#C94848"
 
-//    Universal.background: "#95B2A0"
-//    Universal.theme: Universal.Dark
     Universal.accent: "#C94848"
-//    Universal.accent: Universal.Emerald
-
-    signal settingsClicked
-    onSettingsClicked: mainProcess.currentIndex = 2
 
     ProcessView {
         id: loadProcess

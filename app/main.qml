@@ -29,56 +29,15 @@ ApplicationWindow {
         anchors.fill: parent
         LoadScreen {
             onLoadMainScreen: {
-                mainScreenLoader.source = "/MainScreen.qml"
+                mainScreenLoader.source = "/MainPage.qml"
             }
         }
 
-        Page {
-            ProcessView {
-                id: mainProcess
-                anchors.fill: parent
-
-                DocumentScreen {
-                    id: documentScreen
-                    currentDocument: mainScreenLoader.item !== null ? mainScreenLoader.item.horaDocument : null
-                    onDocumentLoaded: {
-                        mainProcess.currentIndex = 1
-                    }
-                }
-
-                Loader {
-                    id: mainScreenLoader
-                    onLoaded: {
-                        console.info("Main screen loaded.")
-                        loadProcess.currentIndex = 1
-                    }
-                }
-
-                Csillagvarta.SettingsScreen {
-                }
-            }
-
-            footer: ToolBar {
-                id: pagerFrame
-                Row {
-                    anchors.centerIn: parent
-                    spacing: 20
-                    Repeater {
-                        model: mainProcess.count
-                        delegate: ToolButton {
-                            icon.source: iconSources[index]
-                            icon.height: pagerFrame.height
-                            icon.width: pagerFrame.height
-                            property var iconSources: [
-                                "/icons/doc_empty_icon&32.png",
-                                "/icons/target_icon&32.png",
-                                "/icons/cog_icon&32.png"
-                            ]
-                            highlighted: index === mainProcess.currentIndex
-                            onClicked: mainProcess.currentIndex = index
-                        }
-                    }
-                }
+        Loader {
+            id: mainScreenLoader
+            onLoaded: {
+                console.info("Main page loaded.")
+                loadProcess.currentIndex = 1
             }
         }
     }

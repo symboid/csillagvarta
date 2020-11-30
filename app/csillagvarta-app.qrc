@@ -8,6 +8,7 @@
         <file>icons/doc_empty_icon&amp;32.png</file>
         <file>icons/target_icon&amp;32.png</file>
         <file>icons/save_icon&amp;32.png</file>
+        <file>MainPage.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

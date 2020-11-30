@@ -17,6 +17,8 @@ Sdk.MainScreen {
         dateTimeParams.setCurrent()
     }
 
+    signal documentSaved
+
     MainScreenParamBox {
         title: qsTr("Horoscope name")
         MainScreenTextField {
@@ -29,6 +31,7 @@ Sdk.MainScreen {
                 icon.color: "#C94848"
                 onClicked: {
                     horaDocument.save()
+                    documentSaved()
                 }
             }
         }

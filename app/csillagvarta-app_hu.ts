@@ -65,6 +65,14 @@
         <source>Equal</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Document &apos;%1&apos; saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save document &apos;%1&apos;!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsScreen</name>

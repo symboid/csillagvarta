@@ -12,6 +12,10 @@ import QtQuick.Controls.Material 2.3
 
 Sdk.MainScreen {
 
+    property MessageDialog messageDlg: MessageDialog {
+
+    }
+
     function setCurrent()
     {
         dateTimeParams.setCurrent()
@@ -30,8 +34,15 @@ Sdk.MainScreen {
                 icon.source: "/icons/save_icon&32.png"
                 icon.color: "#C94848"
                 onClicked: {
-                    horaDocument.save()
-                    documentSaved()
+                    if (horaDocument.save())
+                    {
+                        documentSaved()
+                        messageDlg.showNotification(qsTr("Document '%1' saved.").arg(horaName.text))
+                    }
+                    else
+                    {
+                        messageDlg.showError(qsTr("Failed to save document '%1'!").arg(horaName.text))
+                    }
                 }
             }
         }

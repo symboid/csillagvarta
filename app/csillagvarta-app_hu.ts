@@ -66,11 +66,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Document &apos;%1&apos; saved.</source>
+        <source>Horoscope of &apos;%1&apos; saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save document &apos;%1&apos;!</source>
+        <source>Failed to save horoscope of &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

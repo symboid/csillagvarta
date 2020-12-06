@@ -6,7 +6,8 @@ import Symboid.Sdk.Hosting 1.0
 import Symboid.Sdk.Dox 1.0
 import "." as Csillagvarta
 
-Page {
+ProcessPage {
+
     ProcessView {
         id: mainProcess
         anchors.fill: parent

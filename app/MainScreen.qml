@@ -12,10 +12,6 @@ import QtQuick.Controls.Material 2.3
 
 Sdk.MainScreen {
 
-    property MessageDialog messageDlg: MessageDialog {
-
-    }
-
     function setCurrent()
     {
         dateTimeParams.setCurrent()
@@ -37,11 +33,11 @@ Sdk.MainScreen {
                     if (horaDocument.save())
                     {
                         documentSaved()
-                        messageDlg.showNotification(qsTr("Document '%1' saved.").arg(horaName.text))
+                        infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(horaName.text))
                     }
                     else
                     {
-                        messageDlg.showError(qsTr("Failed to save document '%1'!").arg(horaName.text))
+                        errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(horaName.text))
                     }
                 }
             }

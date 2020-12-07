@@ -19,6 +19,25 @@ Sdk.MainScreen {
 
     signal documentSaved
 
+    Drawer {
+        id: messageDialog
+        edge: Qt.TopEdge
+        dragMargin: 0
+        width: parent.width
+        topPadding: 20
+        bottomPadding: 20
+//        closePolicy: showBusy ? Popup.NoAutoClose : Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        contentItem: Column {
+            DialogButtonBox {
+                id: buttonBox
+                alignment: Qt.AlignHCenter
+                anchors.left: parent.left
+                anchors.right: parent.right
+                standardButtons: DialogButtonBox.Yes | DialogButtonBox.No
+            }
+        }
+    }
+
     MainScreenParamBox {
         title: qsTr("Horoscope name")
         MainScreenTextField {
@@ -33,7 +52,8 @@ Sdk.MainScreen {
                     if (horaDocument.save())
                     {
                         documentSaved()
-                        infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(horaName.text))
+//                        infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(horaName.text))
+                        messageDialog.open()
                     }
                     else
                     {

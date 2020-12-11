@@ -11,6 +11,7 @@ ProcessPage {
     ProcessView {
         id: mainProcess
         anchors.fill: parent
+        currentIndex: 1
 
         DocumentScreen {
             id: documentScreen

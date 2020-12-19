@@ -6,7 +6,7 @@
 
 !insertmacro SetupComponentProps csillagvarta
 
-!insertmacro Package "CsillagVarta"
+!insertmacro PackageWithRun "CsillagVarta" StartCsillagVarta
 
 !insertmacro ClearQtDeps
 !insertmacro DeployModule csillagvarta\app\csillagvarta-app.exe
@@ -32,3 +32,7 @@
 !insertmacro DesktopLink ${COMPONENT_TITLE} "$INSTDIR\csillagvarta-app.exe" "" "$INSTDIR\csillagvarta-app.exe"
 
 !insertmacro SetupComponentVersion
+
+Function StartCsillagVarta
+	ExecShell "open" "$INSTDIR\csillagvarta-app.exe"
+FunctionEnd

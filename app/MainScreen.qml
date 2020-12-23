@@ -55,7 +55,7 @@ Sdk.MainScreen {
         visible: details.checked
         MainScreenComboBox {
             id: calendarType
-            model: [ "Gregorian", "Julian" ]
+            model: [ qsTr("Gregorian"), qsTr("Julian") ]
         }
     }
 

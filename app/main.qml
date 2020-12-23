@@ -11,5 +11,6 @@ MainAppWindow {
     Material.primary: "#95B2A0"
     Material.accent: "#C94848"
 
+    Universal.theme: Universal.Light
     Universal.accent: "#C94848"
 }

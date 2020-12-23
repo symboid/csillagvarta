@@ -8,7 +8,6 @@ import Symboid.Astro.Controls 1.0
 import Symboid.Astro.Db 1.0
 import Symboid.Astro.Hora 1.0
 import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.3
 
 Sdk.MainScreen {
 
@@ -55,7 +54,7 @@ Sdk.MainScreen {
         visible: details.checked
         MainScreenComboBox {
             id: calendarType
-            model: [ "Gregorian", "Julian" ]
+            model: [ qsTr("Gregorian"), qsTr("Julian") ]
         }
     }
 

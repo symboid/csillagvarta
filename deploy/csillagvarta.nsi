@@ -19,6 +19,11 @@
 !insertmacro DeployModule astro\hora\astro-hora.dll
 !insertmacro DeployModule astro\db\astro-db.dll
 !insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR sefstars.txt
+!insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR seplm12.se1
+!insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR seplm06.se1
+!insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR sepl_00.se1
+!insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR sepl_06.se1
+!insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR sepl_12.se1
 !insertmacro DeployFile   astro\db\sweph\ephe $INSTDIR sepl_18.se1
 !insertmacro DeployQtBasics
 !insertmacro DeployQtDeps

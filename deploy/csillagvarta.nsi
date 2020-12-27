@@ -2,7 +2,7 @@
 ;!define _Config_x86
 ;!define _Config_Debug
 
-!include ..\..\sdk\build\deploy\nsis\package.nsh
+!include ..\..\build\deploy\nsis\package.nsh
 
 !insertmacro SetupComponentProps csillagvarta
 

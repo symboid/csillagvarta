@@ -2,7 +2,7 @@
 TARGET = csillagvarta-app
 BUILD_ROOT=../..
 COMPONENT_NAME=csillagvarta
-include($${BUILD_ROOT}/sdk/build/qmake/application.pri)
+include($${BUILD_ROOT}/build/qmake/application.pri)
 
 SOURCES += \
     init.cc \

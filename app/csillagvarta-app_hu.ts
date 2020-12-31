@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Enter a name!</source>
-        <translation type="unfinished"></translation>
+        <translation>Írj be egy nevet!</translation>
     </message>
 </context>
 <context>

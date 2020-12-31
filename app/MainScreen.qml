@@ -22,6 +22,7 @@ Sdk.MainScreen {
         title: qsTr("Horoscope name")
         MainScreenTextField {
             id: horaName
+            placeholderText: qsTr("Enter a name!")
             button: RoundButton {
                 radius: 5
                 enabled: horaName.text !== ""

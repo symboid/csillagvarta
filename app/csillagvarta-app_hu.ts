@@ -81,6 +81,10 @@
         <source>Julian</source>
         <translation>Julián naptár</translation>
     </message>
+    <message>
+        <source>Enter a name!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsScreen</name>

@@ -16,7 +16,7 @@ struct app_csillagvarta : arh::app_qml<app_csillagvarta>
 {
     APP_OBJECT(csillagvarta)
 
-    static constexpr const char* name = "Csillagvárta";
+    static constexpr const char* name = "Csillagvarta";
     static constexpr const char* company = "Symboid";
     static constexpr const char* domain = "symboid.com";
 

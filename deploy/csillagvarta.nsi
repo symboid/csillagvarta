@@ -6,7 +6,7 @@
 
 !insertmacro SetupComponentProps csillagvarta
 
-!insertmacro PackageWithRun "CsillagVarta" StartCsillagVarta
+!insertmacro PackageWithRun "Csillagvarta" StartCsillagVarta
 
 !insertmacro ClearQtDeps
 !insertmacro DeployModule csillagvarta\app\csillagvarta-app.exe

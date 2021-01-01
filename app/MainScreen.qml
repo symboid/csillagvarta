@@ -47,6 +47,7 @@ Sdk.MainScreen {
     MainScreenDateTimeBox {
         id: dateTimeParams
         showCurrentTimer: details.checked
+        showSeconds: details.checked
     }
 
     MainScreenParamBox {

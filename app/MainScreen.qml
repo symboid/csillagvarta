@@ -73,8 +73,8 @@ Sdk.MainScreen {
         HoraPanel {
             id: horaPanel
             isLandscape: metrics.isLandscape
-            minHoraSize: metrics.mandalaSize
-            horaSize: metrics.mandalaSize
+            minHoraSize: Math.min(parent.width,parent.height)
+            horaSize: minHoraSize
 
             year: dateTimeParams.year
             month: dateTimeParams.month

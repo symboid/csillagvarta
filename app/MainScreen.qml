@@ -60,15 +60,38 @@ Sdk.MainScreen {
         }
     }
 
-    MainScreenViewSelector {
-        id: viewSelector
+    // 0 - bottom left (default)
+    // 1 - top middle
+    // 2 - bottom middle
+    property int viewSelectorPos: metrics.isTransLandscape ? 1 : 0
+
+    property MainScreenViewSelector viewSelector: MainScreenViewSelector {
         viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") ]
+    }
+
+    MainScreenBottomPane {
+        width: metrics.isLandscape ? metrics.paramSectionWidth : metrics.screenWidth
         referenceItem: details.checked ? calendarParam : dateTimeParams
+        controlItem: viewSelectorPos === 0 ? viewSelector : null
+    }
+
+    Pane {
+        id: viewSelectorPane
+        width: viewLayout.width
+        visible: viewSelectorTop.item !== null
+        ItemSlot {
+            id: viewSelectorTop
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: metrics.paramSectionWidth
+            item: viewSelectorPos === 1 ? viewSelector : null
+        }
+        bottomPadding: topPadding * 3
     }
 
     StackLayout {
-        width: metrics.mandalaSize
-        height: metrics.mandalaSize
+        id: viewLayout
+        width: metrics.isTransLandscape ? metrics.horzMandalaSpace : metrics.mandalaSize
+        height: metrics.mandalaSize - viewSelectorPane.height * viewSelectorPane.visible
         currentIndex: viewSelector.currentIndex
         HoraPanel {
             id: horaPanel

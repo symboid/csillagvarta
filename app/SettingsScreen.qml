@@ -11,7 +11,7 @@ Hosting.SettingsScreen {
     SettingsGroupFixed {
         title: qsTr("General")
 
-        UiStyleSettingsGroup {
+        AppearanceSettingsGroup {
 
         }
     }

@@ -79,7 +79,7 @@ Sdk.MainScreen {
         id: viewSelectorPane
         width: viewLayout.width
         visible: viewSelectorTop.item !== null
-        ItemSlot {
+        ItemSlotExpanding {
             id: viewSelectorTop
             anchors.horizontalCenter: parent.horizontalCenter
             width: metrics.paramSectionWidth

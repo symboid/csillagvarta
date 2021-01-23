@@ -78,12 +78,12 @@ Sdk.MainScreen {
     Pane {
         id: viewSelectorPane
         width: viewLayout.width
-        visible: viewSelectorTop.item !== null
-        ItemSlotExpanding {
+        visible: viewSelectorTop.contentItem !== null
+        contentItem: ItemSlotExpanding {
             id: viewSelectorTop
             anchors.horizontalCenter: parent.horizontalCenter
             width: metrics.paramSectionWidth
-            item: viewSelectorPos === 1 ? viewSelector : null
+            contentItem: viewSelectorPos === 1 ? viewSelector : null
         }
         bottomPadding: topPadding * 3
     }

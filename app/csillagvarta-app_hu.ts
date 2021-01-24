@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Chart</source>
-        <translation>Kördiagram</translation>
+        <translation>Horoszkópábra</translation>
     </message>
     <message>
         <source>Planet positions</source>

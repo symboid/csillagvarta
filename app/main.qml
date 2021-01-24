@@ -13,4 +13,6 @@ MainAppWindow {
 
     Universal.theme: Universal.Light
     Universal.accent: "#C94848"
+
+    palette.highlight: "#C94848"
 }

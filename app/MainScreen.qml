@@ -11,6 +11,15 @@ import QtQuick.Layouts 1.12
 
 Sdk.MainScreen {
 
+    readonly property int mandalaSize: metrics.isLandscape ? metrics.screenHeight : metrics.screenWidth
+    readonly property int restSize: metrics.screenSize - mandalaSize
+    readonly property int horzMandalaSpace: metrics.screenWidth - 2 * metrics.minParamSectionWidth
+
+    metrics.isTransLandscape: metrics.isLandscape && horzMandalaSpace < mandalaSize
+    metrics.paramSectionWidth:
+        metrics.isLandscape ? ((restSize / 2) < metrics.minParamSectionWidth ? metrics.minParamSectionWidth : restSize / 2)
+                    : ((mandalaSize / 2) < metrics.minParamSectionWidth ? mandalaSize : mandalaSize / 2)
+
     function setCurrent()
     {
         dateTimeParams.setCurrent()
@@ -90,14 +99,15 @@ Sdk.MainScreen {
 
     StackLayout {
         id: viewLayout
-        width: metrics.isTransLandscape ? metrics.horzMandalaSpace : metrics.mandalaSize
-        height: metrics.mandalaSize - viewSelectorPane.height * viewSelectorPane.visible
+        width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
+        height: mandalaSize - viewSelectorPane.height * viewSelectorPane.visible
         currentIndex: viewSelector.currentIndex
         HoraPanel {
             id: horaPanel
             isLandscape: metrics.isLandscape
             minHoraSize: Math.min(parent.width,parent.height)
             horaSize: minHoraSize
+            withSeparator: true
 
             year: dateTimeParams.year
             month: dateTimeParams.month

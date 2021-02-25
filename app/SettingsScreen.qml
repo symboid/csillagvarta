@@ -8,7 +8,7 @@ import Symboid.Astro.Hora 1.0
 
 Hosting.SettingsScreen {
 
-    SettingsGroupFixed {
+    FolderGroupFixed {
         title: qsTr("General")
 
         AppearanceSettingsGroup {

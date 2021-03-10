@@ -6,6 +6,6 @@ REL_OUTPUT_DIR=$1
 REL_ARCHIVE_DIR=$2
 
 ComponentApiBegin csillagvarta $REL_OUTPUT_DIR $REL_ARCHIVE_DIR
-FolderApi app
+ModuleApi app
 ComponentApiEnd
 

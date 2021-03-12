@@ -3,6 +3,6 @@
 
 !insertmacro ComponentApiBegin csillagvarta
 !insertmacro ExeFolder app
-!insertmacro FileApi . component.h
-!insertmacro FileApi . component.ico
+!insertmacro FileApi include\csillagvarta component.h
+!insertmacro FileApi assets\csillagvarta component.ico
 !insertmacro FileApi deploy csillagvarta.nsi

@@ -38,9 +38,8 @@ android: {
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)
 
-include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
-
 !CONFIG(component_api) {
+include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
 $$copySwephFile(sefstars,txt)
 $$copySwephFile(seplm30,se1)
 $$copySwephFile(seplm12,se1)

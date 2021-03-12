@@ -55,5 +55,5 @@ $$copySwephFile(sepl_18,se1)
 msvc {
 api_app_assets.files = $$shell_path($$SYS_HOME/csillagvarta/deploy/csillagvarta.nsi)
 }
-api_app_assets.path = /assets/csillagvarta
+api_app_assets.path = /assets
 INSTALLS += api_app_assets

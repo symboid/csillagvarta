@@ -16,24 +16,24 @@ HEADERS += \
 RESOURCES += \
     csillagvarta-app.qrc
 
-LIBS += $$moduleDep(astro,hora)
-LIBS += $$moduleDep(astro,db)
-LIBS += $$moduleDep(astro,controls)
-LIBS += $$moduleDep(sdk,dox)
-LIBS += $$moduleDep(sdk,hosting)
-LIBS += $$moduleDep(sdk,controls)
-LIBS += $$moduleDep(sdk,network)
-LIBS += $$moduleDep(sdk,arch)
+LIBS += $$externDep(astro,hora)
+LIBS += $$externDep(astro,db)
+LIBS += $$externDep(astro,controls)
+LIBS += $$externDep(sdk,dox)
+LIBS += $$externDep(sdk,hosting)
+LIBS += $$externDep(sdk,controls)
+LIBS += $$externDep(sdk,network)
+LIBS += $$externDep(sdk,arch)
 
 android: {
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,arch)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,network)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,controls)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,hosting)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(sdk,dox)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,controls)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,db)
-    ANDROID_EXTRA_LIBS += $$androidModuleBuildPath(astro,hora)
+    ANDROID_EXTRA_LIBS += $$externPath(sdk,arch)
+    ANDROID_EXTRA_LIBS += $$externPath(sdk,network)
+    ANDROID_EXTRA_LIBS += $$externPath(sdk,controls)
+    ANDROID_EXTRA_LIBS += $$externPath(sdk,hosting)
+    ANDROID_EXTRA_LIBS += $$externPath(sdk,dox)
+    ANDROID_EXTRA_LIBS += $$externPath(astro,controls)
+    ANDROID_EXTRA_LIBS += $$externPath(astro,db)
+    ANDROID_EXTRA_LIBS += $$externPath(astro,hora)
 }
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)

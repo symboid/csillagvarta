@@ -38,9 +38,8 @@ android: {
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)
 
-include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
-
 !CONFIG(component_api) {
+include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
 $$copySwephFile(sefstars,txt)
 $$copySwephFile(seplm30,se1)
 $$copySwephFile(seplm12,se1)
@@ -50,3 +49,10 @@ $$copySwephFile(sepl_06,se1)
 $$copySwephFile(sepl_12,se1)
 $$copySwephFile(sepl_18,se1)
 }
+
+
+msvc {
+api_app_assets.files = $$shell_path($$SYS_HOME/csillagvarta/deploy/csillagvarta.nsi)
+}
+api_app_assets.path = /assets
+INSTALLS += api_app_assets

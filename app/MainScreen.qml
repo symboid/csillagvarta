@@ -11,6 +11,8 @@ import QtQuick.Layouts 1.12
 
 Sdk.MainScreen {
 
+    id: mainScreen
+
     readonly property int mandalaSize: metrics.isLandscape ? metrics.screenHeight : metrics.screenWidth
     readonly property int restSize: metrics.screenSize - mandalaSize
     readonly property int horzMandalaSpace: metrics.screenWidth - 2 * metrics.minParamSectionWidth
@@ -57,6 +59,12 @@ Sdk.MainScreen {
         id: dateTimeParams
         showCurrentTimer: details.checked
         showSeconds: details.checked
+        datePopup: Popup {
+            parent: mainScreen
+            anchors.centerIn: parent
+            width: 200
+            height: 200
+        }
     }
 
     MainScreenParamBox {

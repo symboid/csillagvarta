@@ -59,11 +59,8 @@ Sdk.MainScreen {
         id: dateTimeParams
         showCurrentTimer: details.checked
         showSeconds: details.checked
-        datePopup: Popup {
+        datePopup: DateTimePopup {
             parent: mainScreen
-            anchors.centerIn: parent
-            width: 200
-            height: 200
         }
     }
 

@@ -59,22 +59,7 @@ Sdk.MainScreen {
         id: dateTimeParams
         showCurrentTimer: details.checked
         showSeconds: details.checked
-        datePopup: DateTimePopup {
-            parent: mainScreen
-            onOpenedChanged: {
-                if (opened)
-                {
-                    selectedYear = dateTimeParams.year
-                    selectedMonth = dateTimeParams.month - 1
-                    selectedDay = dateTimeParams.day
-                }
-            }
-            onDateTimeAccepted: {
-                dateTimeParams.year = selectedYear
-                dateTimeParams.month = selectedMonth + 1
-                dateTimeParams.day = selectedDay
-            }
-        }
+        popupParent: mainScreen
     }
 
     MainScreenParamBox {

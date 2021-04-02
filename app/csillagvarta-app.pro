@@ -1,5 +1,7 @@
 
-TARGET = csillagvarta-app
+ios: TARGET = csillagvarta
+else: TARGET = csillagvarta-app
+
 BUILD_ROOT=../..
 COMPONENT_NAME=csillagvarta
 include($${BUILD_ROOT}/build/qmake/application.pri)
@@ -38,17 +40,17 @@ android: {
 
 QMAKE_EXTRA_TARGETS += $$object_dep_on_component_header(main)
 
-!CONFIG(component_api) {
-include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
-$$copySwephFile(sefstars,txt)
-$$copySwephFile(seplm30,se1)
-$$copySwephFile(seplm12,se1)
-$$copySwephFile(seplm06,se1)
-$$copySwephFile(sepl_00,se1)
-$$copySwephFile(sepl_06,se1)
-$$copySwephFile(sepl_12,se1)
-$$copySwephFile(sepl_18,se1)
-}
+#!CONFIG(component_api) {
+#include($${BUILD_ROOT}/astro/db/sweph/ephe/files.pri)
+#$$copySwephFile(sefstars,txt)
+#$$copySwephFile(seplm30,se1)
+#$$copySwephFile(seplm12,se1)
+#$$copySwephFile(seplm06,se1)
+#$$copySwephFile(sepl_00,se1)
+#$$copySwephFile(sepl_06,se1)
+#$$copySwephFile(sepl_12,se1)
+#$$copySwephFile(sepl_18,se1)
+#}
 
 
 msvc {
@@ -56,3 +58,7 @@ api_app_assets.files = $$shell_path($$SYS_HOME/csillagvarta/deploy/csillagvarta.
 }
 api_app_assets.path = /assets
 INSTALLS += api_app_assets
+
+ios {
+    QMAKE_ASSET_CATALOGS+=$${BUILD_ROOT}/astro/db/sweph/ephe
+}

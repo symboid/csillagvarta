@@ -14,6 +14,9 @@ SUBDIRS += \
     $$module_dep(astro,controls) \
     $$module_dep(astro,db) \
     $$module_dep(astro,hora)
+
+SUBDIRS += \
+    $$module_dep(ephe,data)
 }
 
 SUBDIRS += \

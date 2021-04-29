@@ -78,7 +78,7 @@ Sdk.MainScreen {
     property int viewSelectorPos: metrics.isTransLandscape ? 1 : 0
 
     property MainScreenViewSelector viewSelector: MainScreenViewSelector {
-        viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") ]
+        viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps"), qsTr("Primary directions") ]
     }
 
     MainScreenBottomPane {
@@ -171,6 +171,13 @@ Sdk.MainScreen {
                 text: qsTr("Show seconds")
                 onCheckedChanged: {
                     houseTableView.tableModel.update()
+                }
+            }
+        }
+        ForecastTableView {
+            tableModel: ForecastItemModel {
+                forecastModel: DirexModel {
+
                 }
             }
         }

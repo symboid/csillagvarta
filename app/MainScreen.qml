@@ -112,16 +112,18 @@ Sdk.MainScreen {
             horaSize: minHoraSize
             withSeparator: true
 
-            year: dateTimeParams.year
-            month: dateTimeParams.month
-            day: dateTimeParams.day
-            hour: dateTimeParams.hour
-            minute: dateTimeParams.minute
-            second: dateTimeParams.second
+            horaCoords: HoraCoords {
+                year: dateTimeParams.year
+                month: dateTimeParams.month
+                day: dateTimeParams.day
+                hour: dateTimeParams.hour
+                minute: dateTimeParams.minute
+                second: dateTimeParams.second
 
-            geoLatt: locationParams.geoLatt
-            geoLont: locationParams.geoLont
-            tzDiff: locationParams.geoTzDiff
+                geoLatt: locationParams.geoLatt
+                geoLont: locationParams.geoLont
+                tzDiff: locationParams.geoTzDiff
+            }
 
             housesType: housesType.currentToken()
             withJulianCalendar: calendarType.currentIndex !== 0
@@ -180,7 +182,6 @@ Sdk.MainScreen {
                 periodEnd: "2002-01-01"
                 hora: horaPanel.hora
                 forecastModel: DirexModel {
-                    hora: horaPanel.hora
                 }
             }
         }

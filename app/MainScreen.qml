@@ -178,6 +178,7 @@ Sdk.MainScreen {
             tableModel: ForecastItemModel {
                 periodBegin: "2000-01-01"
                 periodEnd: "2002-01-01"
+                hora: horaPanel.hora
                 forecastModel: DirexModel {
                     hora: horaPanel.hora
                 }

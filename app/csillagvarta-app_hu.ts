@@ -46,18 +46,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Chart</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Planet positions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>House cusps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Show seconds</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,7 +74,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Radix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forecast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Planet positions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>House cusps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Primary directions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Period</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

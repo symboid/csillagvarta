@@ -72,18 +72,42 @@ Sdk.MainScreen {
         }
     }
 
+    // forecast parameters
+    MainScreenParamBox {
+        id: forecastPeriod
+        title: qsTr("Period")
+        DateCoordBox {
+            id: periodBegin
+            editable: true
+            Component.onCompleted: setCurrent()
+        }
+        DateCoordBox {
+            id: periodEnd
+            editable: true
+            Component.onCompleted: setCurrent()
+        }
+    }
+
+    Item {
+        id: bottomPaneHelper
+        width: 1; height: 1
+    }
+
     // 0 - bottom left (default)
     // 1 - top middle
     // 2 - bottom middle
     property int viewSelectorPos: metrics.isTransLandscape ? 1 : 0
 
     property MainScreenViewSelector viewSelector: MainScreenViewSelector {
-        viewNames: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps"), qsTr("Primary directions") ]
+        viewTitles: [
+            { main: qsTr("Radix"),    sub: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") ] },
+            { main: qsTr("Forecast"), sub: [ qsTr("Primary directions") ] }
+        ]
     }
 
     MainScreenBottomPane {
         width: metrics.isLandscape ? metrics.paramSectionWidth : metrics.screenWidth
-        referenceItem: details.checked ? calendarParam : dateTimeParams
+        referenceItem: bottomPaneHelper
         controlItem: viewSelectorPos === 0 ? viewSelector : null
     }
 
@@ -104,84 +128,90 @@ Sdk.MainScreen {
         id: viewLayout
         width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
         height: mandalaSize - viewSelectorPane.height * viewSelectorPane.visible
-        currentIndex: viewSelector.currentIndex
-        HoraPanel {
-            id: horaPanel
-            isLandscape: metrics.isLandscape
-            minHoraSize: Math.min(parent.width,parent.height)
-            horaSize: minHoraSize
-            withSeparator: true
+        currentIndex: viewSelector.mainIndex
+        StackLayout {
+            currentIndex: viewSelector.subIndex
+            HoraPanel {
+                id: horaPanel
+                isLandscape: metrics.isLandscape
+                minHoraSize: Math.min(parent.width,parent.height)
+                horaSize: minHoraSize
+                withSeparator: true
 
-            horaCoords: HoraCoords {
-                year: dateTimeParams.year
-                month: dateTimeParams.month
-                day: dateTimeParams.day
-                hour: dateTimeParams.hour
-                minute: dateTimeParams.minute
-                second: dateTimeParams.second
+                horaCoords: HoraCoords {
+                    year: dateTimeParams.year
+                    month: dateTimeParams.month
+                    day: dateTimeParams.day
+                    hour: dateTimeParams.hour
+                    minute: dateTimeParams.minute
+                    second: dateTimeParams.second
 
-                geoLatt: locationParams.geoLatt
-                geoLont: locationParams.geoLont
-                tzDiff: locationParams.geoTzDiff
+                    geoLatt: locationParams.geoLatt
+                    geoLont: locationParams.geoLont
+                    tzDiff: locationParams.geoTzDiff
+                }
+
+                housesType: housesType.currentToken()
+                withJulianCalendar: calendarType.currentIndex !== 0
             }
+            Item {
+                PlanetsTableView {
+                    id: planetTableView
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: showPlanetSeconds.top
 
-            housesType: housesType.currentToken()
-            withJulianCalendar: calendarType.currentIndex !== 0
+                    tableModel: horaPanel.planetsModel
+                    showSeconds: showPlanetSeconds.checked
+                }
+                CheckBox {
+                    id: showPlanetSeconds
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                        bottomMargin: 20
+                    }
+                    text: qsTr("Show seconds")
+                    onCheckedChanged: {
+                        planetTableView.tableModel.update()
+                    }
+                }
+            }
+            Item {
+                HousesTableView {
+                    id: houseTableView
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: showHousesSeconds.top
+
+                    tableModel: horaPanel.housesModel
+                    showSeconds: showHousesSeconds.checked
+                }
+                CheckBox {
+                    id: showHousesSeconds
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        bottom: parent.bottom
+                        bottomMargin: 20
+                    }
+                    text: qsTr("Show seconds")
+                    onCheckedChanged: {
+                        houseTableView.tableModel.update()
+                    }
+                }
+            }
         }
-        Item {
-            PlanetsTableView {
-                id: planetTableView
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: showPlanetSeconds.top
-
-                tableModel: horaPanel.planetsModel
-                showSeconds: showPlanetSeconds.checked
-            }
-            CheckBox {
-                id: showPlanetSeconds
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    bottom: parent.bottom
-                    bottomMargin: 20
-                }
-                text: qsTr("Show seconds")
-                onCheckedChanged: {
-                    planetTableView.tableModel.update()
-                }
-            }
-        }
-        Item {
-            HousesTableView {
-                id: houseTableView
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: showHousesSeconds.top
-
-                tableModel: horaPanel.housesModel
-                showSeconds: showHousesSeconds.checked
-            }
-            CheckBox {
-                id: showHousesSeconds
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    bottom: parent.bottom
-                    bottomMargin: 20
-                }
-                text: qsTr("Show seconds")
-                onCheckedChanged: {
-                    houseTableView.tableModel.update()
-                }
-            }
-        }
-        ForecastTableView {
-            tableModel: ForecastItemModel {
-                periodBegin: "2000-01-01"
-                periodEnd: "2002-01-01"
-                hora: horaPanel.hora
-                forecastModel: DirexModel {
+        StackLayout {
+            currentIndex: viewSelector.subIndex
+            ForecastTableView {
+                tableModel: ForecastItemModel {
+                    periodBegin: "2018-01-01"
+                    periodEnd: "2020-01-01"
+                    hora: horaPanel.hora
+                    forecastModel: DirexModel {
+                    }
                 }
             }
         }

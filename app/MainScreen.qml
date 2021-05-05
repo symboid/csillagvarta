@@ -101,7 +101,7 @@ Sdk.MainScreen {
     property MainScreenViewSelector viewSelector: MainScreenViewSelector {
         viewTitles: [
             { main: qsTr("Radix"),    sub: [ qsTr("Chart"), qsTr("Planet positions"), qsTr("House cusps") ] },
-            { main: qsTr("Forecast"), sub: [ qsTr("Primary directions") ] }
+            { main: qsTr("Forecast"), sub: [ qsTr("Primary directions"), qsTr("Transits") ] }
         ]
     }
 
@@ -205,14 +205,23 @@ Sdk.MainScreen {
         }
         StackLayout {
             currentIndex: viewSelector.subIndex
-            ForecastTableView {
-                tableModel: ForecastItemModel {
-                    periodBegin: "2018-01-01"
-                    periodEnd: "2020-01-01"
-                    hora: horaPanel.hora
-                    forecastModel: DirexModel {
-                    }
+            ForecastTablePane {
+                periodBegin: "2018-01-01"
+                periodEnd: "2020-01-01"
+                autoRecalc: true
+                hora: horaPanel.hora
+                forecastModel: DirexModel {
                 }
+            }
+            ForecastTablePane {
+                periodBegin: "2018-01-01"
+                periodEnd: "2025-01-01"
+                autoRecalc: false
+                hora: horaPanel.hora
+                forecastModel: TransitModel {
+                }
+                onStartCalc: busyPopup.show(qsTr("Calculating transit table..."))
+                onStopCalc: busyPopup.close()
             }
         }
     }

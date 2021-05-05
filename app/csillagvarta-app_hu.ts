@@ -105,10 +105,6 @@
         <source>Transits</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Calculating transit table...</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SettingsScreen</name>

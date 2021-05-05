@@ -149,10 +149,11 @@ Sdk.MainScreen {
                     geoLatt: locationParams.geoLatt
                     geoLont: locationParams.geoLont
                     tzDiff: locationParams.geoTzDiff
+
+                    withJulianCalendar: calendarType.currentIndex !== 0
                 }
 
                 housesType: housesType.currentToken()
-                withJulianCalendar: calendarType.currentIndex !== 0
             }
             Item {
                 PlanetsTableView {
@@ -220,8 +221,6 @@ Sdk.MainScreen {
                 hora: horaPanel.hora
                 forecastModel: TransitModel {
                 }
-                onStartCalc: busyPopup.show(qsTr("Calculating transit table..."))
-                onStopCalc: busyPopup.close()
             }
         }
     }

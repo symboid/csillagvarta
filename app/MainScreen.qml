@@ -72,22 +72,6 @@ Sdk.MainScreen {
         }
     }
 
-    // forecast parameters
-    MainScreenParamBox {
-        id: forecastPeriod
-        title: qsTr("Period")
-        DateCoordBox {
-            id: periodBegin
-            editable: true
-            Component.onCompleted: setCurrent()
-        }
-        DateCoordBox {
-            id: periodEnd
-            editable: true
-            Component.onCompleted: setCurrent()
-        }
-    }
-
     Item {
         id: bottomPaneHelper
         width: 1; height: 1
@@ -108,6 +92,7 @@ Sdk.MainScreen {
     MainScreenBottomPane {
         width: metrics.isLandscape ? metrics.paramSectionWidth : metrics.screenWidth
         referenceItem: bottomPaneHelper
+//        referenceItem: details.checked ? calendarParam : dateTimeParams
         controlItem: viewSelectorPos === 0 ? viewSelector : null
     }
 
@@ -207,16 +192,12 @@ Sdk.MainScreen {
         StackLayout {
             currentIndex: viewSelector.subIndex
             ForecastTablePane {
-                periodBegin: "2018-01-01"
-                periodEnd: "2020-01-01"
                 autoRecalc: true
                 hora: horaPanel.hora
                 forecastModel: DirexModel {
                 }
             }
             ForecastTablePane {
-                periodBegin: "2018-01-01"
-                periodEnd: "2025-01-01"
                 autoRecalc: false
                 hora: horaPanel.hora
                 forecastModel: TransitModel {

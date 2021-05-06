@@ -98,10 +98,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Period</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Transits</source>
         <translation type="unfinished"></translation>
     </message>

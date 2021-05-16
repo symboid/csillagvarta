@@ -192,13 +192,13 @@ Sdk.MainScreen {
         StackLayout {
             currentIndex: viewSelector.subIndex
             ForecastTablePane {
-                autoRecalc: true
+                autocalc: true
                 hora: horaPanel.hora
                 forecastModel: DirexModel {
                 }
             }
             ForecastTablePane {
-                autoRecalc: false
+                autocalc: false
                 hora: horaPanel.hora
                 forecastModel: TransitModel {
                 }
@@ -259,9 +259,9 @@ Sdk.MainScreen {
             horaName.text = title
             title = Qt.binding(function(){return horaName.text})
         }
-        onLoadStarted: horaPanel.interactive = false
-        onLoadFinished: horaPanel.interactive = true
-        onLoadFailed: horaPanel.interactive = true
+        onLoadStarted: horaPanel.autocalc = false
+        onLoadFinished: horaPanel.autocalc = true
+        onLoadFailed: horaPanel.autocalc = true
 
         DocumentNode {
             name: "radix"
@@ -296,6 +296,6 @@ Sdk.MainScreen {
 
     Component.onCompleted: {
         dateTimeParams.setCurrent()
-        horaPanel.interactive = true
+        horaPanel.autocalc = true
     }
 }

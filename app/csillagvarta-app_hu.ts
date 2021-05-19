@@ -2,35 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
-    <name>InputPage</name>
-    <message>
-        <source></source>
-        <translation></translation>
-    </message>
-</context>
-<context>
-    <name>InputPlugins</name>
-    <message>
-        <source></source>
-        <translation></translation>
-    </message>
-</context>
-<context>
-    <name>MainScreen</name>
+    <name>HoraViewScreen</name>
     <message>
         <source>Horoscope name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter a name!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horoscope of &apos;%1&apos; saved.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to save horoscope of &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -73,32 +51,29 @@
         <source>Equal</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>InputPage</name>
     <message>
-        <source>Radix</source>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>InputPlugins</name>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>RadixScreen</name>
+    <message>
+        <source>Horoscope of &apos;%1&apos; saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Forecast</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chart</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Planet positions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>House cusps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Primary directions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transits</source>
+        <source>Failed to save horoscope of &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

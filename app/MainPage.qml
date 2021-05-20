@@ -40,13 +40,10 @@ ProcessPage {
         id: pagerFrame
         Row {
             anchors.centerIn: parent
-            spacing: 20
             Repeater {
                 model: mainProcess.count
                 delegate: ToolButton {
                     icon.source: iconSources[index]
-                    icon.height: pagerFrame.height
-                    icon.width: pagerFrame.height
                     property var iconSources: [
                         "/icons/folder_open_icon&32.png",
                         "/icons/calc_icon&32.png",

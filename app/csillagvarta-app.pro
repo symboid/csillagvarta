@@ -60,5 +60,5 @@ api_app_assets.path = /assets
 INSTALLS += api_app_assets
 
 ios {
-    QMAKE_ASSET_CATALOGS+=$${BUILD_ROOT}/astro/db/sweph/ephe
+    QMAKE_ASSET_CATALOGS+=$${BUILD_ROOT}/ephe/data/files
 }

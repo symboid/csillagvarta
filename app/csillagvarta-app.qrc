@@ -5,13 +5,17 @@
         <file>depfixes.qml</file>
         <file>SettingsScreen.qml</file>
         <file>main.qml</file>
-        <file>icons/doc_empty_icon&amp;32.png</file>
-        <file>icons/target_icon&amp;32.png</file>
         <file>icons/save_icon&amp;32.png</file>
         <file>MainPage.qml</file>
         <file>DocViewScreen.qml</file>
         <file>HoraViewScreen.qml</file>
         <file>icons/home_icon&amp;32.png</file>
+        <file>icons/calc_icon&amp;32.png</file>
+        <file>icons/doc_lines_icon&amp;32.png</file>
+        <file>icons/folder_open_icon&amp;32.png</file>
+        <file>MethodsScreen.qml</file>
+        <file>MethodItem.qml</file>
+        <file>icons/br_next_icon&amp;24.png</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

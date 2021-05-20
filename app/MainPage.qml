@@ -11,14 +11,17 @@ ProcessPage {
     ProcessView {
         id: mainProcess
         anchors.fill: parent
-        currentIndex: 1
+        currentIndex: 2
 
         DocumentFolderScreen {
             id: documentScreen
             currentDocument: radixScreen.horaDocument
             onDocumentLoaded: {
-                mainProcess.currentIndex = 1
+                mainProcess.currentIndex = 2
             }
+        }
+
+        Csillagvarta.MethodsScreen {
         }
 
         Csillagvarta.RadixScreen {
@@ -27,9 +30,6 @@ ProcessPage {
         }
 
         DocumentScreen {
-        }
-
-        Csillagvarta.HoraViewScreen {
         }
 
         Csillagvarta.SettingsScreen {
@@ -48,10 +48,10 @@ ProcessPage {
                     icon.height: pagerFrame.height
                     icon.width: pagerFrame.height
                     property var iconSources: [
-                        "/icons/doc_empty_icon&32.png",
-                        "/icons/target_icon&32.png",
+                        "/icons/folder_open_icon&32.png",
+                        "/icons/calc_icon&32.png",
                         "/icons/home_icon&32.png",
-                        "/icons/target_icon&32.png",
+                        "/icons/doc_lines_icon&32.png",
                         "/icons/cog_icon&32.png"
                     ]
                     highlighted: index === mainProcess.currentIndex

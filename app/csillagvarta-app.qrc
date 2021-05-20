@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>RadixScreen.qml</file>
         <file>icons/cog_icon&amp;32.png</file>
         <file>depfixes.qml</file>
         <file>SettingsScreen.qml</file>
@@ -16,6 +15,7 @@
         <file>MethodsScreen.qml</file>
         <file>MethodItem.qml</file>
         <file>icons/br_next_icon&amp;24.png</file>
+        <file>HomeScreen.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

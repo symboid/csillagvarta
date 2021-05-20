@@ -5,8 +5,48 @@ import Symboid.Sdk.Controls 1.0
 import Symboid.Sdk.Hosting 1.0
 import Symboid.Sdk.Dox 1.0
 import "." as Csillagvarta
+import QtQuick.Layouts 1.3
 
 ProcessPage {
+
+    property Document mainDocument: Document {
+        title: radixScreen.horaTitle
+        onTitleChanged: {
+            radixScreen.horaTitle = title
+            title = Qt.binding(function(){return radixScreen.horaTitle})
+        }
+        onLoadStarted: radixScreen.autocalc = false
+        onLoadFinished: radixScreen.autocalc = true
+        onLoadFailed: radixScreen.autocalc = true
+
+        DocumentNode {
+            name: "radix"
+
+            property alias title: radixScreen.horaTitle
+
+            DocumentNode {
+                name: "time"
+                property alias year: radixScreen.horaYear
+                property alias month: radixScreen.horaMonth
+                property alias day: radixScreen.horaDay
+                property alias hour: radixScreen.horaHour
+                property alias minute: radixScreen.horaMinute
+                property alias second: radixScreen.horaSecond
+                property alias calendarType: radixScreen.horaCalendarType
+            }
+            DocumentNode {
+                name: "geoLoc"
+                property alias geoName: radixScreen.horaGeoName
+                property alias latt: radixScreen.horaGeoLatt
+                property alias lont: radixScreen.horaGeoLont
+                property alias tzDiff: radixScreen.horaGeoTzDiff
+            }
+        }
+
+        onLoadCurrent: {
+            radixScreen.setCurrent()
+        }
+    }
 
     ProcessView {
         id: mainProcess
@@ -14,19 +54,49 @@ ProcessPage {
         currentIndex: 2
 
         DocumentFolderScreen {
-            id: documentScreen
-            currentDocument: radixScreen.horaDocument
+            id: documentFolderScreen
+            currentDocument: mainDocument
             onDocumentLoaded: {
                 mainProcess.currentIndex = 2
             }
         }
 
-        Csillagvarta.MethodsScreen {
+        MethodsScreen {
         }
 
-        Csillagvarta.RadixScreen {
-            id: radixScreen
-            onDocumentSaved: documentScreen.refresh()
+        StackLayout {
+            currentIndex: 0
+            HoraViewScreen {
+                id: radixScreen
+                showCurrent: showDetails
+                horaTitleButton: RoundButton {
+                    radius: 5
+                    enabled: radixScreen.horaTitle !== ""
+                    display: RoundButton.IconOnly
+                    icon.source: "/icons/save_icon&32.png"
+                    icon.color: "#C94848"
+                    onClicked: {
+                        if (mainDocument.save())
+                        {
+                            documentFolderScreen.refresh()
+                            infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(radixScreen.horaTitle))
+                        }
+                        else
+                        {
+                            errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(radixScreen.horaTitle))
+                        }
+                    }
+                }
+                Component.onCompleted: {
+                    setCurrent()
+                    autocalc = true
+                }
+            }
+
+            HomeScreen {
+                id: homeScreen
+                source: "qrc:/RadixScreen.qml"
+            }
         }
 
         DocumentScreen {
@@ -38,11 +108,20 @@ ProcessPage {
 
     footer: ToolBar {
         id: pagerFrame
-        Row {
+        readonly property int buttonCount: mainProcess.count
+        readonly property int cellWidth: Math.min(mainProcess.width / buttonCount, 80)
+        GridView {
             anchors.centerIn: parent
-            Repeater {
-                model: mainProcess.count
-                delegate: ToolButton {
+            height: pagerFrame.height
+            width: pagerFrame.cellWidth * pagerFrame.buttonCount
+            cellHeight: pagerFrame.height
+            cellWidth: pagerFrame.cellWidth
+            model: pagerFrame.buttonCount
+            delegate: Item {
+                height: pagerFrame.height
+                width: pagerFrame.cellWidth
+                ToolButton {
+                    anchors.centerIn: parent
                     icon.source: iconSources[index]
                     property var iconSources: [
                         "/icons/folder_open_icon&32.png",

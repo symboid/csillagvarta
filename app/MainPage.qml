@@ -62,9 +62,18 @@ ProcessPage {
         }
 
         MethodsScreen {
+            onLoadRadixView: {
+                viewSelector.currentIndex = 0
+                mainProcess.currentIndex = 2
+            }
+            onLoadDocView: {
+                viewSelector.currentIndex = 1
+                mainProcess.currentIndex = 2
+            }
         }
 
         StackLayout {
+            id: viewSelector
             currentIndex: 0
             HoraViewScreen {
                 id: radixScreen
@@ -95,7 +104,7 @@ ProcessPage {
 
             HomeScreen {
                 id: homeScreen
-                source: "qrc:/RadixScreen.qml"
+                source: "qrc:/HoraViewScreen.qml"
             }
         }
 

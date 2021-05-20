@@ -9,14 +9,19 @@ FolderScreen {
     initialTitle: qsTr("Calculation methods")
     property alias settingsView: documentScreen.folderView
 
+    signal loadRadixView
+    signal loadDocView(string viewName)
+
     MethodItem {
         title: qsTr("Natal horoscope")
+        onLoadClicked: loadRadixView()
     }
 
     FolderGroupFixed {
         title: qsTr("Forecasts")
         MethodItem {
             title: qsTr("Primary direction")
+            onLoadClicked: loadDocView("ForecastScreen.qml")
         }
         MethodItem {
             title: qsTr("Transit")

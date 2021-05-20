@@ -113,17 +113,6 @@
     </message>
 </context>
 <context>
-    <name>RadixScreen</name>
-    <message>
-        <source>Horoscope of &apos;%1&apos; saved.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to save horoscope of &apos;%1&apos;!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SettingsScreen</name>
     <message>
         <source>General</source>

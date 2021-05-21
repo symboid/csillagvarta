@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.12
 DocViewScreen {
 
     property alias horaTitle: horaName.text
-    property alias horaTitleButton: horaName.button
+    property alias horaButton: horaName.button
     property alias showCurrent: dateTimeParams.showCurrentTimer
     property alias showDetails: details.checked
     property alias autocalc: horaPanel.autocalc

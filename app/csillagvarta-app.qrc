@@ -16,6 +16,8 @@
         <file>MethodItem.qml</file>
         <file>icons/br_next_icon&amp;24.png</file>
         <file>HomeScreen.qml</file>
+        <file>MainDocument.qml</file>
+        <file>RadixScreen.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

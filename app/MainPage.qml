@@ -75,33 +75,20 @@ ProcessPage {
         StackLayout {
             id: viewSelector
             currentIndex: 0
-            HoraViewScreen {
+            RadixScreen {
                 id: radixScreen
-                showCurrent: showDetails
-                horaTitleButton: RoundButton {
-                    radius: 5
-                    enabled: radixScreen.horaTitle !== ""
-                    display: RoundButton.IconOnly
-                    icon.source: "/icons/save_icon&32.png"
-                    icon.color: "#C94848"
-                    onClicked: {
-                        if (mainDocument.save())
-                        {
-                            documentFolderScreen.refresh()
-                            infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(radixScreen.horaTitle))
-                        }
-                        else
-                        {
-                            errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(radixScreen.horaTitle))
-                        }
+                onSaveDocument: {
+                    if (mainDocument.save())
+                    {
+                        documentFolderScreen.refresh()
+                        infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(radixTitle))
+                    }
+                    else
+                    {
+                        errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(radixTitle))
                     }
                 }
-                Component.onCompleted: {
-                    setCurrent()
-                    autocalc = true
-                }
             }
-
             HomeScreen {
                 id: homeScreen
                 source: "qrc:/HoraViewScreen.qml"

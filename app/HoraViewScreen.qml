@@ -14,6 +14,7 @@ DocViewScreen {
     property alias showCurrent: dateTimeParams.showCurrentTimer
     property alias showDetails: details.checked
     property alias autocalc: horaPanel.autocalc
+    property alias hora: horaPanel.hora
 
     property alias horaYear: dateTimeParams.year
     property alias horaMonth: dateTimeParams.month
@@ -47,14 +48,11 @@ DocViewScreen {
         popupParent: parent
     }
 
-    MainScreenParamBox {
-        id: calendarParam
+    MainScreenComboBox {
+        id: calendarType
         title: qsTr("Calendar")
         visible: details.checked
-        MainScreenComboBox {
-            id: calendarType
-            model: [ qsTr("Gregorian"), qsTr("Julian") ]
-        }
+        model: [ qsTr("Gregorian"), qsTr("Julian") ]
     }
 
     Item {
@@ -147,45 +145,41 @@ DocViewScreen {
         showDetails: details.checked
     }
 
-    MainScreenParamBox {
-        id: houseSystemParams
+    MainScreenComboBox {
+        id: housesType
         title: qsTr("House system")
         visible: details.checked
-
-        MainScreenComboBox {
-            id: housesType
-            textRole: "name"
-            model: ListModel {
-                ListElement {
-                    name: qsTr("Placidus")
-                    token: "placidus"
-                }
-                ListElement {
-                    name: qsTr("Koch")
-                    token: "koch"
-                }
-                ListElement {
-                    name: qsTr("Regiomontanus")
-                    token: "regiomontanus"
-                }
-                ListElement {
-                    name: qsTr("Campanus")
-                    token: "campanus"
-                }
-                ListElement {
-                    name: qsTr("Equal")
-                    token: "equal"
-                }
+        textRole: "name"
+        model: ListModel {
+            ListElement {
+                name: qsTr("Placidus")
+                token: "placidus"
             }
-            function currentToken()
-            {
-                return model.data(model.index(currentIndex, 0))
+            ListElement {
+                name: qsTr("Koch")
+                token: "koch"
             }
+            ListElement {
+                name: qsTr("Regiomontanus")
+                token: "regiomontanus"
+            }
+            ListElement {
+                name: qsTr("Campanus")
+                token: "campanus"
+            }
+            ListElement {
+                name: qsTr("Equal")
+                token: "equal"
+            }
+        }
+        function currentToken()
+        {
+            return model.data(model.index(currentIndex, 0))
         }
     }
 
     MainScreenDetailsSwitch {
         id: details
-        referenceItem: checked ? houseSystemParams : locationParams
+        referenceItem: checked ? housesType : locationParams
     }
 }

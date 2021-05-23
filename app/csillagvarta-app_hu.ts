@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
+    <name>ForecastScreen</name>
+    <message>
+        <source>Period</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radix date and time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radix positioning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forecast type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Primary direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Secondary direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transit</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>HoraViewScreen</name>
     <message>
         <source>Horoscope name</source>

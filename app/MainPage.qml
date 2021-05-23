@@ -89,6 +89,10 @@ ProcessPage {
                     }
                 }
             }
+            ForecastScreen {
+                radixHora: radixScreen.hora
+            }
+
             HomeScreen {
                 id: homeScreen
                 source: "qrc:/HoraViewScreen.qml"

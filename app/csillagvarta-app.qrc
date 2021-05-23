@@ -19,6 +19,8 @@
         <file>MainDocument.qml</file>
         <file>RadixScreen.qml</file>
         <file>ForecastScreen.qml</file>
+        <file>icons/playback_next_icon&amp;24.png</file>
+        <file>icons/playback_prev_icon&amp;24.png</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

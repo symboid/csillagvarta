@@ -11,12 +11,22 @@ DocViewScreen {
     property HoraCoords radixCoords: radixHora.coords
 
     MainScreenComboBox {
+        id: forecastType
         title: qsTr("Forecast type")
         model: [
             qsTr("Primary direction"),
             qsTr("Secondary direction"),
             qsTr("Transit")
         ]
+        onCurrentIndexChanged: {
+            switch (currentIndex)
+            {
+            case 0: forecastTablePane.forecastModel = ForecastItemModel.PRI_DIREX; break
+            case 1: forecastTablePane.forecastModel = ForecastItemModel.SEC_DIREX; break
+            case 2: forecastTablePane.forecastModel = ForecastItemModel.TRANSIT; break
+            default: forecastTablePane.forecastModel = ForecastItemModel.PRI_DIREX; break
+            }
+        }
     }
 
     DirexModel {
@@ -45,6 +55,7 @@ DocViewScreen {
         height: mandalaSize
         Page {
             ForecastTablePane {
+                id: forecastTablePane
                 anchors.fill: parent
                 hora: radixHora
                 periodBegin: HoraCoords {
@@ -57,22 +68,22 @@ DocViewScreen {
                     month: periodEndDate.month
                     day: periodEndDate.day
                 }
-                forecastModel: TransitModel {
-                }
             }
         }
     }
 
-    MainScreenDateTimeBox {
-        id: radixDateTimeParams
+    MainScreenParamBox {
         title: qsTr("Radix date and time")
-        showSeconds: false
-        editable: false
-        year: radixCoords.year
-        month: radixCoords.month
-        day: radixCoords.day
-        hour: radixCoords.hour
-        minute: radixCoords.minute
+        Pane {
+            Label {
+                text: (new Date(radixCoords.dateTime)).toLocaleDateString()
+            }
+        }
+        Pane {
+            Label {
+                text: Qt.formatTime(radixCoords.dateTime)
+            }
+        }
     }
 
     MainScreenParamBox {
@@ -94,7 +105,7 @@ DocViewScreen {
                 Row {
                     RoundButton {
                         radius: 0
-                        icon.source: "file:/home/robert/Munka/icons/black/png/playback_prev_icon&24.png"
+                        icon.source: "/icons/playback_prev_icon&24.png"
                     }
                     Label {
                         anchors.verticalCenter: parent.verticalCenter
@@ -104,11 +115,10 @@ DocViewScreen {
                     }
                     RoundButton {
                         radius: 0
-                        icon.source: "file:/home/robert/Munka/icons/black/png/playback_next_icon&24.png"
+                        icon.source: "/icons/playback_next_icon&24.png"
                     }
                 }
             }
         }
     }
-
 }

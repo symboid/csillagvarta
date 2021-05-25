@@ -70,6 +70,10 @@ ProcessPage {
                 viewSelector.currentIndex = 1
                 mainProcess.currentIndex = 2
             }
+            onLoadSynastryView: {
+                viewSelector.currentIndex = 2
+                mainProcess.currentIndex = 2
+            }
         }
 
         StackLayout {
@@ -90,6 +94,9 @@ ProcessPage {
                 }
             }
             ForecastScreen {
+                radixHora: radixScreen.hora
+            }
+            SynastryScreen {
                 radixHora: radixScreen.hora
             }
 

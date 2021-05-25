@@ -131,10 +131,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Transit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Revolutions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -154,11 +150,38 @@
         <source>Natal horoscope</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Synastry</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsScreen</name>
     <message>
         <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SynastryScreen</name>
+    <message>
+        <source>Horoscope name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter a name!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gregorian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Julian</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

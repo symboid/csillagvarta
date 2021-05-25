@@ -21,6 +21,7 @@
         <file>ForecastScreen.qml</file>
         <file>icons/playback_next_icon&amp;24.png</file>
         <file>icons/playback_prev_icon&amp;24.png</file>
+        <file>SynastryScreen.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

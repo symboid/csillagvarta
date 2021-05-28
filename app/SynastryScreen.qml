@@ -63,6 +63,7 @@ DocViewScreen {
     }
 
     MultiDataView {
+        vertical: metrics.isLandscape
         width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
         height: mandalaSize
         Page {

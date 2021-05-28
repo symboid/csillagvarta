@@ -14,7 +14,6 @@ DocViewScreen {
     property alias showCurrent: dateTimeParams.showCurrentTimer
     property alias showDetails: details.checked
     property alias autocalc: horaPanel.autocalc
-    property alias hora: horaPanel.hora
 
     property alias horaYear: dateTimeParams.year
     property alias horaMonth: dateTimeParams.month
@@ -60,6 +59,23 @@ DocViewScreen {
         width: 1; height: 1
     }
 
+    property Hora mainHora: Hora {
+        coords: HoraCoords {
+            year: dateTimeParams.year
+            month: dateTimeParams.month
+            day: dateTimeParams.day
+            hour: dateTimeParams.hour
+            minute: dateTimeParams.minute
+            second: dateTimeParams.second
+
+            geoLatt: locationParams.geoLatt
+            geoLont: locationParams.geoLont
+            tzDiff: locationParams.geoTzDiff
+
+            withJulianCalendar: calendarType.currentIndex !== 0
+        }
+    }
+
     MultiDataView {
         vertical: metrics.isLandscape
         width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
@@ -70,21 +86,7 @@ DocViewScreen {
                 anchors.fill: parent
                 isLandscape: metrics.isLandscape
                 withSeparator: true
-
-                horaCoords: HoraCoords {
-                    year: dateTimeParams.year
-                    month: dateTimeParams.month
-                    day: dateTimeParams.day
-                    hour: dateTimeParams.hour
-                    minute: dateTimeParams.minute
-                    second: dateTimeParams.second
-
-                    geoLatt: locationParams.geoLatt
-                    geoLont: locationParams.geoLont
-                    tzDiff: locationParams.geoTzDiff
-
-                    withJulianCalendar: calendarType.currentIndex !== 0
-                }
+                hora: mainHora
 
                 housesType: housesType.currentToken()
             }

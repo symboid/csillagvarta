@@ -70,8 +70,6 @@ DocViewScreen {
                 id: horaPanel
                 anchors.fill: parent
                 isLandscape: metrics.isLandscape
-                minHoraSize: Math.min(parent.width,parent.height)
-                horaSize: minHoraSize
                 withSeparator: true
 
                 horaCoords: HoraCoords {

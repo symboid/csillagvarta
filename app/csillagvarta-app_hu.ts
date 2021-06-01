@@ -2,6 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
+    <name>DocViewScreen</name>
+    <message>
+        <source>Horoscope name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter a name!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ForecastScreen</name>
     <message>
         <source>Period</source>
@@ -46,14 +57,6 @@
 </context>
 <context>
     <name>HoraViewScreen</name>
-    <message>
-        <source>Horoscope name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter a name!</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Calendar</source>
         <translation type="unfinished"></translation>

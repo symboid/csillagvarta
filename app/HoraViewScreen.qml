@@ -12,7 +12,6 @@ DocViewScreen {
     id: horaViewScreen
 
     property alias showCurrent: dateTimeParams.showCurrentTimer
-    property alias autocalc: horaPanel.autocalc
 
     property alias horaYear: dateTimeParams.year
     property alias horaMonth: dateTimeParams.month
@@ -27,12 +26,14 @@ DocViewScreen {
     property alias horaGeoLont: locationParams.geoLont
     property alias horaGeoTzDiff: locationParams.geoTzDiff
 
+    property string houseType: ""
+
     function setCurrent()
     {
         dateTimeParams.setCurrent()
     }
 
-    property Hora mainHora: Hora {
+    property Hora hora: Hora {
         coords: HoraCoords {
             year: dateTimeParams.year
             month: dateTimeParams.month
@@ -48,6 +49,8 @@ DocViewScreen {
             withJulianCalendar: calendarType.currentIndex !== 0
         }
     }
+
+    property alias dataViewModel: multiDataView.dataViewModel
 
     docViewModel: ObjectModel {
 
@@ -65,68 +68,10 @@ DocViewScreen {
         }
 
         MultiDataView {
+            id: multiDataView
             vertical: metrics.isLandscape
             width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
             height: mandalaSize
-            Page {
-                HoraPanel {
-                    id: horaPanel
-                    anchors.fill: parent
-                    isLandscape: metrics.isLandscape
-                    withSeparator: true
-                    hora: mainHora
-
-                    housesType: housesType.currentToken()
-                }
-            }
-            Page {
-                PlanetsTableView {
-                    id: planetTableView
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: showPlanetSeconds.top
-
-                    tableModel: horaPanel.planetsModel
-                    showSeconds: showPlanetSeconds.checked
-                }
-                CheckBox {
-                    id: showPlanetSeconds
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        bottom: parent.bottom
-                        bottomMargin: 20
-                    }
-                    text: qsTr("Show seconds")
-                    onCheckedChanged: {
-                        planetTableView.tableModel.update()
-                    }
-                }
-            }
-            Page {
-                HousesTableView {
-                    id: houseTableView
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: showHousesSeconds.top
-
-                    tableModel: horaPanel.housesModel
-                    showSeconds: showHousesSeconds.checked
-                }
-                CheckBox {
-                    id: showHousesSeconds
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        bottom: parent.bottom
-                        bottomMargin: 20
-                    }
-                    text: qsTr("Show seconds")
-                    onCheckedChanged: {
-                        houseTableView.tableModel.update()
-                    }
-                }
-            }
         }
 
         MainScreenLocationBox {
@@ -134,37 +79,11 @@ DocViewScreen {
             showDetails: horaViewScreen.showDetails
         }
 
-        MainScreenComboBox {
-            id: housesType
-            title: qsTr("House system")
-            visible: showDetails
-            textRole: "name"
-            model: ListModel {
-                ListElement {
-                    name: qsTr("Placidus")
-                    token: "placidus"
-                }
-                ListElement {
-                    name: qsTr("Koch")
-                    token: "koch"
-                }
-                ListElement {
-                    name: qsTr("Regiomontanus")
-                    token: "regiomontanus"
-                }
-                ListElement {
-                    name: qsTr("Campanus")
-                    token: "campanus"
-                }
-                ListElement {
-                    name: qsTr("Equal")
-                    token: "equal"
-                }
-            }
-            function currentToken()
-            {
-                return model.data(model.index(currentIndex, 0))
-            }
-        }
+    }
+
+    property alias rightDocModel: rightDocItems.model
+    Repeater {
+        id: rightDocItems
+        onItemAdded: docViewModel.insert(4 + index, item)
     }
 }

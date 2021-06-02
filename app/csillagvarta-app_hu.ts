@@ -69,34 +69,6 @@
         <source>Julian</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>House system</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Placidus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Koch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Regiomontanus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Campanus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Equal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show seconds</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>InputPage</name>
@@ -155,6 +127,37 @@
     </message>
     <message>
         <source>Synastry</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RadixScreen</name>
+    <message>
+        <source>Show seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>House system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Placidus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Koch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Regiomontanus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Campanus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

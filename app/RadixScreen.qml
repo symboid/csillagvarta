@@ -29,7 +29,10 @@ HoraViewScreen {
                 anchors.right: parent.right
                 anchors.bottom: showPlanetSeconds.top
 
-                tableModel: horaPanel.planetsModel
+                tableModel: HoraPlanetsModel {
+                    hora: radixScreen.hora
+                }
+
                 showSeconds: showPlanetSeconds.checked
             }
             CheckBox {
@@ -53,7 +56,10 @@ HoraViewScreen {
                 anchors.right: parent.right
                 anchors.bottom: showHousesSeconds.top
 
-                tableModel: horaPanel.housesModel
+                tableModel: HoraHousesModel {
+                    hora: radixScreen.hora
+                }
+
                 showSeconds: showHousesSeconds.checked
             }
             CheckBox {

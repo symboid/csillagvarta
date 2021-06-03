@@ -28,6 +28,8 @@ DocViewScreen {
 
     property string houseType: ""
 
+    property alias autocalc: horaPanel.autocalc
+
     function setCurrent()
     {
         dateTimeParams.setCurrent()
@@ -50,7 +52,7 @@ DocViewScreen {
         }
     }
 
-    property alias dataViewModel: multiDataView.dataViewModel
+    property alias multiDataModel: multiDataView.dataViewModel
 
     docViewModel: ObjectModel {
 
@@ -72,6 +74,19 @@ DocViewScreen {
             vertical: metrics.isLandscape
             width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
             height: mandalaSize
+            dataViewModel: ObjectModel {
+                Page {
+                    HoraPanel {
+                        id: horaPanel
+                        anchors.fill: parent
+                        isLandscape: metrics.isLandscape
+                        withSeparator: true
+                        hora: horaViewScreen.hora
+
+                        housesType: houseType
+                    }
+                }
+            }
         }
 
         MainScreenLocationBox {
@@ -81,7 +96,13 @@ DocViewScreen {
 
     }
 
-    property alias rightDocModel: rightDocItems.model
+    property alias dataViews: additionalViews.model
+    Repeater {
+        id: additionalViews
+        onItemAdded: multiDataModel.insert(1 + index, item)
+    }
+
+    property alias rightElements: rightDocItems.model
     Repeater {
         id: rightDocItems
         onItemAdded: docViewModel.insert(4 + index, item)

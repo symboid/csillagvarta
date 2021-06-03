@@ -7,7 +7,6 @@ import QtQml.Models 2.12
 
 HoraViewScreen {
     id: radixScreen
-    property alias autocalc: horaPanel.autocalc
 
     showCurrent: showDetails
     houseType: housesType.currentToken()
@@ -21,18 +20,7 @@ HoraViewScreen {
         icon.color: "#C94848"
         onClicked: saveDocument(horaTitle)
     }
-    dataViewModel: ObjectModel {
-        Page {
-            HoraPanel {
-                id: horaPanel
-                anchors.fill: parent
-                isLandscape: metrics.isLandscape
-                withSeparator: true
-                hora: radixScreen.hora
-
-                housesType: houseType
-            }
-        }
+    dataViews: ObjectModel {
         Page {
             PlanetsTableView {
                 id: planetTableView
@@ -83,7 +71,7 @@ HoraViewScreen {
         }
     }
 
-    rightDocModel: ObjectModel {
+    rightElements: ObjectModel {
         MainScreenComboBox {
             id: housesType
             title: qsTr("House system")

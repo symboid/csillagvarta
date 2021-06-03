@@ -75,16 +75,13 @@ DocViewScreen {
             width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
             height: mandalaSize
             dataViewModel: ObjectModel {
-                Page {
-                    HoraPanel {
-                        id: horaPanel
-                        anchors.fill: parent
-                        isLandscape: metrics.isLandscape
-                        withSeparator: true
-                        hora: horaViewScreen.hora
+                HoraPanel {
+                    id: horaPanel
+                    isLandscape: metrics.isLandscape
+                    withSeparator: true
+                    hora: horaViewScreen.hora
 
-                        housesType: houseType
-                    }
+                    housesType: houseType
                 }
             }
         }

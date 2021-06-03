@@ -4,11 +4,22 @@ import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
 import Symboid.Astro.Controls 1.0
 import Symboid.Astro.Hora 1.0
+import QtQml.Models 2.12
 
 DocViewScreen {
 
     property Hora radixHora: null
     property HoraCoords radixCoords: radixHora.coords
+
+    DirexModel {
+        id: direxModel
+    }
+
+    TransitModel {
+        id: transitModel
+    }
+
+    docViewModel: ObjectModel {
 
     MainScreenComboBox {
         id: forecastType
@@ -29,14 +40,6 @@ DocViewScreen {
         }
     }
 
-    DirexModel {
-        id: direxModel
-    }
-
-    TransitModel {
-        id: transitModel
-    }
-
     MainScreenParamBox {
         id: periodParam
         title: qsTr("Period")
@@ -54,10 +57,9 @@ DocViewScreen {
         vertical: metrics.isLandscape
         width: metrics.isTransLandscape ? horzMandalaSpace : mandalaSize
         height: mandalaSize
-        Page {
+        dataViewModel: ObjectModel {
             ForecastTablePane {
                 id: forecastTablePane
-                anchors.fill: parent
                 hora: radixHora
                 periodBegin: HoraCoords {
                     year: periodBeginDate.year
@@ -121,5 +123,6 @@ DocViewScreen {
                 }
             }
         }
+    }
     }
 }

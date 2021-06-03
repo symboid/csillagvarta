@@ -97,7 +97,6 @@ ProcessPage {
                 radixHora: radixScreen.hora
             }
             SynastryScreen {
-                radixHora: radixScreen.hora
             }
 
             HomeScreen {

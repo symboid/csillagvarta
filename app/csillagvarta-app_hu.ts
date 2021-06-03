@@ -133,10 +133,6 @@
 <context>
     <name>RadixScreen</name>
     <message>
-        <source>Show seconds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>House system</source>
         <translation type="unfinished"></translation>
     </message>
@@ -158,6 +154,10 @@
     </message>
     <message>
         <source>Equal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show seconds</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -6,6 +6,7 @@ import Symboid.Astro.Hora 1.0
 import QtQml.Models 2.12
 
 HoraViewScreen {
+    id: synastryScreen
 
     property Hora radixHora: Hora {
         coords: HoraCoords {
@@ -17,8 +18,9 @@ HoraViewScreen {
             id: horaPanel
             isLandscape: metrics.isLandscape
             withSeparator: true
-            horaView: SingleHoraView {
-                hora: radixHora
+            horaView: DoubleHoraView {
+                mainHora: radixHora
+                auxHora: synastryScreen.hora
                 housesType: houseType
             }
         }

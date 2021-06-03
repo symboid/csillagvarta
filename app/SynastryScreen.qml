@@ -2,11 +2,25 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
-import Symboid.Astro.Controls 1.0
-import Symboid.Astro.Db 1.0
 import Symboid.Astro.Hora 1.0
-import QtQuick.Layouts 1.12
+import QtQml.Models 2.12
 
 HoraViewScreen {
 
+    property Hora radixHora: Hora {
+        coords: HoraCoords {
+        }
+    }
+
+    dataViews: ObjectModel {
+        HoraPanel {
+            id: horaPanel
+            isLandscape: metrics.isLandscape
+            withSeparator: true
+            horaView: SingleHoraView {
+                hora: radixHora
+                housesType: houseType
+            }
+        }
+    }
 }

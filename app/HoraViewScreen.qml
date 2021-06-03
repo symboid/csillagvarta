@@ -79,9 +79,10 @@ DocViewScreen {
                     id: horaPanel
                     isLandscape: metrics.isLandscape
                     withSeparator: true
-                    hora: horaViewScreen.hora
-
-                    housesType: houseType
+                    horaView: SingleHoraView {
+                        hora: horaViewScreen.hora
+                        housesType: houseType
+                    }
                 }
             }
         }

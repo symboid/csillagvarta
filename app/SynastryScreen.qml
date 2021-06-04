@@ -25,4 +25,9 @@ HoraViewScreen {
             }
         }
     }
+
+    Component.onCompleted: {
+        setCurrent()
+        autocalc = true
+    }
 }

@@ -52,6 +52,9 @@ DocViewScreen {
         }
     }
 
+    property alias dateTimeEditable: dateTimeParams.editable
+    property alias dateTimeVisible: dateTimeParams.visible
+
     property alias multiDataModel: multiDataView.dataViewModel
 
     docViewModel: ObjectModel {
@@ -103,6 +106,6 @@ DocViewScreen {
     property alias rightElements: rightDocItems.model
     Repeater {
         id: rightDocItems
-        onItemAdded: docViewModel.insert(4 + index, item)
+        onItemAdded: docViewModel.append(item)
     }
 }

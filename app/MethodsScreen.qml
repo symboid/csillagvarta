@@ -11,7 +11,6 @@ FolderScreen {
 
     signal loadRadixView
     signal loadDocView(string viewName)
-    signal loadSynastryView
 
     MethodItem {
         title: qsTr("Natal horoscope")
@@ -26,7 +25,7 @@ FolderScreen {
         }
         MethodItem {
             title: qsTr("Synastry")
-            onLoadClicked: loadSynastryView()
+            onLoadClicked: loadDocView("SynastryScreen.qml")
         }
     }
 
@@ -37,6 +36,10 @@ FolderScreen {
         }
         MethodItem {
             title: qsTr("Lunar horoscope")
+        }
+        MethodItem {
+            title: qsTr("Generic")
+            onLoadClicked: loadDocView("RevolutionScreen.qml")
         }
     }
 }

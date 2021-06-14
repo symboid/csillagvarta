@@ -8,9 +8,10 @@ import QtQml.Models 2.12
 HoraViewScreen {
     id: synastryScreen
 
-    property Hora radixHora: Hora {
-        coords: HoraCoords {
-        }
+    property alias auxParams: auxParamItems.model
+    Repeater {
+        id: auxParamItems
+        onItemAdded: docViewModel.insert(index, item)
     }
 
     dataViews: ObjectModel {

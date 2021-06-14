@@ -48,6 +48,8 @@ ProcessPage {
         }
     }
 
+    property alias radixHora: radixScreen.hora
+
     ProcessView {
         id: mainProcess
         anchors.fill: parent
@@ -67,11 +69,8 @@ ProcessPage {
                 mainProcess.currentIndex = 2
             }
             onLoadDocView: {
+                screenLoader.source = viewName
                 viewSelector.currentIndex = 1
-                mainProcess.currentIndex = 2
-            }
-            onLoadSynastryView: {
-                viewSelector.currentIndex = 2
                 mainProcess.currentIndex = 2
             }
         }
@@ -93,11 +92,10 @@ ProcessPage {
                     }
                 }
             }
-            ForecastScreen {
-                radixHora: radixScreen.hora
+            Loader {
+                id: screenLoader
             }
             SynastryScreen {
-                radixHora: radixScreen.hora
             }
 
             HomeScreen {

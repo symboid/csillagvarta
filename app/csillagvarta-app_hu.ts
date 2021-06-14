@@ -129,6 +129,10 @@
         <source>Synastry</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Generic</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RadixScreen</name>
@@ -158,6 +162,29 @@
     </message>
     <message>
         <source>Show seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RevolutionScreen</name>
+    <message>
+        <source>Planet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Year:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Revolution</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

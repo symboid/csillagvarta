@@ -20,6 +20,7 @@ SynastryScreen {
             id: revolutionParams
             title: qsTr("Revolution")
             Row {
+                id: yearParamRow
                 spacing: 10
                 Label {
                     anchors.verticalCenter: parent.verticalCenter
@@ -35,6 +36,13 @@ SynastryScreen {
                             displaySuffix: "."
                         }
                     }
+                }
+            }
+            Pane {
+                width: yearParamRow.width + padding
+                ComboBox {
+                    id: comboBox
+                    anchors.fill: parent
                 }
             }
         }

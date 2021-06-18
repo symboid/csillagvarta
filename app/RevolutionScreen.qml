@@ -2,6 +2,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
+import Symboid.Astro.Controls 1.0
 import Symboid.Astro.Hora 1.0
 import QtQml.Models 2.12
 
@@ -11,17 +12,44 @@ SynastryScreen {
     dateTimeVisible: showDetails
 
     auxParams: ObjectModel {
-        MainScreenComboBox {
-            id: revolutionPlanet
-            title: qsTr("Planet")
-            model: [ qsTr("Sun"), qsTr("Moon") ]
-        }
+
         MainScreenParamBox {
-            id: revolutionParams
-            title: qsTr("Revolution")
+            title: qsTr("Revolution parameters")
+            Pane {
+                id: revolutingPlanetPane
+                Row {
+                    spacing: revolutingPlanetPane.padding
+                    Label {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Planet:")
+                    }
+                    ComboBox {
+                        id: revolutingPlanet
+                        anchors.verticalCenter: parent.verticalCenter
+                        model: revolutions.planetModel
+                        currentIndex: 0
+                    }
+                }
+            }
+            Pane {
+                visible: showDetails
+                Row {
+                    spacing: revolutingPlanetPane.padding
+                    Label {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Ecl. position:")
+                    }
+
+                    ArcCoordLabel {
+                        arcDegree: revolutions.planetLont
+                        sectionCalc: ZodiacSectionCalc {}
+                        sectionFont.family: "Symboid"
+                    }
+                }
+            }
             Row {
                 id: yearParamRow
-                spacing: 10
+                spacing: revolutingPlanetPane.padding
                 Label {
                     anchors.verticalCenter: parent.verticalCenter
                     text: qsTr("Year:")
@@ -38,13 +66,33 @@ SynastryScreen {
                     }
                 }
             }
-            Pane {
-                width: yearParamRow.width + padding
-                ComboBox {
-                    id: comboBox
-                    anchors.fill: parent
+            Row {
+                id: countParamRow
+                visible: showDetails
+                spacing: revolutingPlanetPane.padding
+                Label {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Number of revolutions:")
+                }
+
+                MultiNumberBox {
+                    id: revCount
+                    editable: true
+                    boxes: Row {
+                        NumberBox {
+                            from: 1
+                            to: 100
+                        }
+                    }
                 }
             }
+        }
+
+        RevolutionParamsPane {
+            id: revolutions
+            planetIndex: revolutingPlanet.currentIndex
+            hora: radixHora
+            onDefaultRevCountChanged: revCount.box(0).value = defaultRevCount
         }
     }
 

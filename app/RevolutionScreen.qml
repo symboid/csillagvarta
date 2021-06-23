@@ -56,6 +56,7 @@ SynastryScreen {
                 }
 
                 MultiNumberBox {
+                    id: startYear
                     editable: true
                     boxes: Row {
                         NumberBox {
@@ -93,6 +94,8 @@ SynastryScreen {
             planetIndex: revolutingPlanet.currentIndex
             hora: radixHora
             onDefaultRevCountChanged: revCount.box(0).value = defaultRevCount
+            year: startYear.box(0).value
+            revCount: revCount.box(0).value
         }
     }
 

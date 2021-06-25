@@ -96,6 +96,19 @@ SynastryScreen {
             onDefaultRevCountChanged: revCount.box(0).value = defaultRevCount
             year: startYear.box(0).value
             revCount: revCount.box(0).value
+
+            onRevCoordsChanged: {
+                if (revCoords !== null)
+                {
+                    horaYear = revCoords.year
+                    horaMonth = revCoords.month
+                    horaDay = revCoords.day
+                    horaHour = revCoords.hour
+                    horaMinute = revCoords.minute
+                    horaSecond = revCoords.second
+                    horaCalendarType = revCoords.withJulianCalendar ? 1 : 0
+                }
+            }
         }
     }
 

@@ -102,10 +102,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Primary direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Revolutions</source>
         <translation type="unfinished"></translation>
     </message>
@@ -131,6 +127,14 @@
     </message>
     <message>
         <source>Generic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forecast tabulars</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -192,6 +196,13 @@
     <name>SettingsScreen</name>
     <message>
         <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SynastryScreen</name>
+    <message>
+        <source>Show seconds</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

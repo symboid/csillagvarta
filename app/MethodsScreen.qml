@@ -20,12 +20,8 @@ FolderScreen {
     FolderGroupFixed {
         title: qsTr("Forecasts")
         MethodItem {
-            title: qsTr("Primary direction")
+            title: qsTr("Forecast tabulars")
             onLoadClicked: loadDocView("ForecastScreen.qml")
-        }
-        MethodItem {
-            title: qsTr("Synastry")
-            onLoadClicked: loadDocView("SynastryScreen.qml")
         }
     }
 
@@ -42,4 +38,13 @@ FolderScreen {
             onLoadClicked: loadDocView("RevolutionScreen.qml")
         }
     }
+
+    FolderGroupFixed {
+        title: qsTr("Other")
+        MethodItem {
+            title: qsTr("Synastry")
+            onLoadClicked: loadDocView("SynastryScreen.qml")
+        }
+    }
+
 }

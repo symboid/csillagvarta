@@ -15,6 +15,33 @@ HoraViewScreen {
     }
 
     dataViews: ObjectModel {
+        Page {
+            PlanetsTableView {
+                id: planetTableView
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: showPlanetSeconds.top
+
+                tableModel: HoraPlanetsModel {
+                    hora: synastryScreen.hora
+                }
+
+                showSeconds: showPlanetSeconds.checked
+            }
+            CheckBox {
+                id: showPlanetSeconds
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    bottom: parent.bottom
+                    bottomMargin: 20
+                }
+                text: qsTr("Show seconds")
+                onCheckedChanged: {
+                    planetTableView.tableModel.update()
+                }
+            }
+        }
         HoraPanel {
             id: horaPanel
             isLandscape: metrics.isLandscape

@@ -96,6 +96,7 @@ SynastryScreen {
             onDefaultRevCountChanged: revCount.box(0).value = defaultRevCount
             year: startYear.box(0).value
             revCount: revCount.box(0).value
+            tzDiff: horaGeoTzDiff
 
             onRevCoordsChanged: {
                 if (revCoords !== null)

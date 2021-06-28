@@ -99,7 +99,7 @@ SynastryScreen {
             tzDiff: horaGeoTzDiff
 
             onRevCoordsChanged: {
-                if (revCoords !== null)
+                if (revCoords !== undefined)
                 {
                     horaYear = revCoords.year
                     horaMonth = revCoords.month

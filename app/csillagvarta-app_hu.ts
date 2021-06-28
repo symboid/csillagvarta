@@ -180,15 +180,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Ecl. position:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Year:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Number of revolutions:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ecl. position:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

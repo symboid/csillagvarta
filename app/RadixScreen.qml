@@ -43,9 +43,7 @@ HoraViewScreen {
                     bottomMargin: 20
                 }
                 text: qsTr("Show seconds")
-                onCheckedChanged: {
-                    planetTableView.tableModel.update()
-                }
+                onCheckedChanged: planetTableView.refresh()
             }
         }
         Page {
@@ -71,7 +69,8 @@ HoraViewScreen {
                 }
                 text: qsTr("Show seconds")
                 onCheckedChanged: {
-                    houseTableView.tableModel.update()
+                    houseTableView.refresh()
+//                    houseTableView.tableModel.update()
                 }
             }
         }

@@ -31,30 +31,30 @@ ProcessPage {
     }
 
     footer: ToolBar {
-        id: pagerFrame
-        readonly property int buttonCount: mainProcess.count
-        readonly property int cellWidth: Math.min(mainProcess.width / buttonCount, 80)
-        GridView {
+        Row {
             anchors.centerIn: parent
-            height: pagerFrame.height
-            width: pagerFrame.cellWidth * pagerFrame.buttonCount
-            cellHeight: pagerFrame.height
-            cellWidth: pagerFrame.cellWidth
-            model: pagerFrame.buttonCount
-            delegate: Item {
-                height: pagerFrame.height
-                width: pagerFrame.cellWidth
-                ToolButton {
-                    anchors.centerIn: parent
-                    icon.source: iconSources[index]
-                    property var iconSources: [
-                        "/icons/folder_open_icon&32.png",
-                        "/icons/home_icon&32.png",
-                        "/icons/cog_icon&32.png"
-                    ]
-                    highlighted: index === mainProcess.currentIndex
-                    onClicked: mainProcess.currentIndex = index
+            ToolButton {
+                icon.source: "/icons/folder_open_icon&32.png"
+                width: 80
+                highlighted: mainProcess.currentIndex === 0
+                onClicked: mainProcess.currentIndex = 0
+            }
+            Loader {
+                sourceComponent: mainProcess.currentIndex === mainProcess.homeIndex ? browserScreen.buttonRow : homeButton
+                Component {
+                    id: homeButton
+                    ToolButton {
+                        icon.source: "/icons/home_icon&32.png"
+                        width: 80
+                        onClicked: mainProcess.currentIndex = mainProcess.homeIndex
+                    }
                 }
+            }
+            ToolButton {
+                icon.source: "/icons/cog_icon&32.png"
+                width: 80
+                highlighted: mainProcess.currentIndex === 2
+                onClicked: mainProcess.currentIndex = 2
             }
         }
     }

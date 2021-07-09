@@ -8,30 +8,23 @@ import Symboid.Astro.Hora 1.0
 Page {
     id: browserScreen
 
-    header: ToolBar {
+    property Component buttonRow: Component {
         Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-
             ToolButton {
                 icon.source: "/icons/br_prev_icon&32.png"
+                width: 80
                 enabled: browserStack.depth > 1
                 onClicked: forwardStack.push(browserStack.pop())
             }
             ToolButton {
-                icon.source: "/icons/target_icon&32.png"
-                enabled: browserStack.depth > 1
-                onClicked: browserStack.home()
-            }
-            ToolButton {
                 icon.source: "/icons/calc_icon&32.png"
+                width: 80
+                highlighted: true
                 onClicked: pageLoadDialog.open()
             }
             ToolButton {
-                icon.source: "/icons/doc_lines_icon&32.png"
-                enabled: false
-            }
-            ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
+                width: 80
                 enabled: forwardStack.length > 0
                 onClicked: browserStack.push(forwardStack.pop())
             }
@@ -41,8 +34,8 @@ Page {
     PageLoadDialog {
         id: pageLoadDialog
         anchors.centerIn: parent
-        width: Math.min(400, parent.width - header.height)
-        height: parent.height - 2 * header.height
+        width: Math.min(400, parent.width - 50)
+        height: parent.height - 2 * 50
 
         onLoadRadixView: browserStack.home()
         onLoadDocView: {

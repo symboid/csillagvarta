@@ -11,14 +11,23 @@ HoraViewScreen {
     showCurrent: showDetails
     houseType: housesType.currentToken()
 
-    signal saveDocument(string radixTitle)
     horaButton: RoundButton {
         radius: 5
         enabled: horaTitle !== ""
         display: RoundButton.IconOnly
         icon.source: "/icons/save_icon&32.png"
         icon.color: "#C94848"
-        onClicked: saveDocument(horaTitle)
+        onClicked: {
+           if (mainDocument.save())
+           {
+               documentFolderScreen.refresh()
+               infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(horaTitle))
+           }
+           else
+           {
+               errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(horaTitle))
+           }
+       }
     }
     dataViews: ObjectModel {
         Page {

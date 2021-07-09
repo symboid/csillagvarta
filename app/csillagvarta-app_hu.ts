@@ -85,32 +85,9 @@
     </message>
 </context>
 <context>
-    <name>MainPage</name>
-    <message>
-        <source>Horoscope of &apos;%1&apos; saved.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to save horoscope of &apos;%1&apos;!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MethodsScreen</name>
     <message>
         <source>Forecasts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revolutions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Solar horoscope</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lunar horoscope</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -126,15 +103,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generic</source>
+        <source>Forecast tabulars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Other</source>
+        <source>Revolution</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>PageLoadDialog</name>
     <message>
         <source>Forecast tabulars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Revolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Synastry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Natal horoscope</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -166,6 +158,14 @@
     </message>
     <message>
         <source>Show seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horoscope of &apos;%1&apos; saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save horoscope of &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3,6 +3,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
 import Symboid.Sdk.Dox 1.0
+import Symboid.Astro.Hora 1.0
 
 Page {
     id: browserScreen
@@ -48,8 +49,8 @@ Page {
     PageLoadDialog {
         id: pageLoadDialog
         anchors.centerIn: parent
-        width: Math.min(400, parent.width - pagerFrame.height)
-        height: parent.height - 2 * pagerFrame.height
+        width: Math.min(400, parent.width - header.height)
+        height: parent.height - 2 * header.height
 
         onLoadRadixView: {
         }
@@ -105,6 +106,7 @@ Page {
         }
     }
 
+    property alias radixCoords: radixScreen.horaCoords
     property alias radixHora: radixScreen.hora
 
     StackView {

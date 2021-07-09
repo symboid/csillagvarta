@@ -8,8 +8,6 @@ import QtQml.Models 2.12
 
 DocViewScreen {
 
-    property HoraCoords radixCoords: radixHora.coords
-
     DirexModel {
         id: direxModel
     }

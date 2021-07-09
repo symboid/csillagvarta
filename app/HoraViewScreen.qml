@@ -35,21 +35,22 @@ DocViewScreen {
         dateTimeParams.setCurrent()
     }
 
+    property HoraCoords horaCoords: HoraCoords {
+        year: dateTimeParams.year
+        month: dateTimeParams.month
+        day: dateTimeParams.day
+        hour: dateTimeParams.hour
+        minute: dateTimeParams.minute
+        second: dateTimeParams.second
+
+        geoLatt: locationParams.geoLatt
+        geoLont: locationParams.geoLont
+        tzDiff: locationParams.geoTzDiff
+
+        withJulianCalendar: calendarType.currentIndex !== 0
+    }
     property Hora hora: Hora {
-        coords: HoraCoords {
-            year: dateTimeParams.year
-            month: dateTimeParams.month
-            day: dateTimeParams.day
-            hour: dateTimeParams.hour
-            minute: dateTimeParams.minute
-            second: dateTimeParams.second
-
-            geoLatt: locationParams.geoLatt
-            geoLont: locationParams.geoLont
-            tzDiff: locationParams.geoTzDiff
-
-            withJulianCalendar: calendarType.currentIndex !== 0
-        }
+        coords: horaCoords
     }
 
     property alias dateTimeEditable: dateTimeParams.editable

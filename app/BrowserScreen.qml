@@ -1,11 +1,11 @@
 
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.12
 import Symboid.Sdk.Controls 1.0
 import Symboid.Sdk.Dox 1.0
 
 Page {
+    id: browserScreen
 
     header: ToolBar {
         Row {
@@ -13,6 +13,11 @@ Page {
 
             ToolButton {
                 icon.source: "/icons/br_prev_icon&32.png"
+                enabled: browserStack.depth > 1
+                onClicked: {
+                    forwardStack.push(browserStack.pop())
+                    forwardStackLength++
+                }
             }
             ToolButton {
                 icon.source: "/icons/calc_icon&32.png"
@@ -20,15 +25,25 @@ Page {
             }
             ToolButton {
                 icon.source: "/icons/target_icon&32.png"
+                enabled: false
             }
             ToolButton {
                 icon.source: "/icons/doc_lines_icon&32.png"
+                enabled: false
             }
             ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
+                enabled: forwardStackLength > 0
+                onClicked: {
+                    browserStack.push(forwardStack.pop())
+                    forwardStackLength--
+                }
             }
         }
     }
+
+    property int forwardStackLength: 0
+    property var forwardStack: []
 
     PageLoadDialog {
         id: pageLoadDialog
@@ -37,11 +52,17 @@ Page {
         height: parent.height - 2 * pagerFrame.height
 
         onLoadRadixView: {
-            viewSelector.currentIndex = 0
         }
         onLoadDocView: {
-            screenLoader.source = viewName
-            viewSelector.currentIndex = 1
+            var screenComponent = Qt.createComponent(viewName)
+            var screen = screenComponent.createObject(browserScreen)
+            for (var s = 0; s < forwardStack.length; ++s)
+            {
+                forwardStack[s].destroy()
+            }
+            forwardStack = []
+            forwardStackLength = 0
+            browserStack.push(screen)
         }
     }
 
@@ -86,15 +107,11 @@ Page {
 
     property alias radixHora: radixScreen.hora
 
-    StackLayout {
-        id: viewSelector
+    StackView {
+        id: browserStack
         anchors.fill: parent
-        currentIndex: 0
-        RadixScreen {
+        initialItem: RadixScreen {
             id: radixScreen
-        }
-        Loader {
-            id: screenLoader
         }
     }
 }

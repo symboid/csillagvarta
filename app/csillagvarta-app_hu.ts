@@ -85,33 +85,6 @@
     </message>
 </context>
 <context>
-    <name>MethodsScreen</name>
-    <message>
-        <source>Forecasts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Calculation methods</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Natal horoscope</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Synastry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Forecast tabulars</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revolution</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>PageLoadDialog</name>
     <message>
         <source>Forecast tabulars</source>

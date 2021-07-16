@@ -28,6 +28,8 @@
         <file>icons/br_prev_icon&amp;32.png</file>
         <file>icons/target_icon&amp;32.png</file>
         <file>icons/delete_icon&amp;24.png</file>
+        <file>MethodView.qml</file>
+        <file>DocPageView.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

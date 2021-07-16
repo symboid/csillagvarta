@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
+    <name>DocPageView</name>
+    <message>
+        <source>DOC PAGE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DocViewScreen</name>
     <message>
         <source>Horoscope name</source>
@@ -85,7 +92,11 @@
     </message>
 </context>
 <context>
-    <name>PageLoadDialog</name>
+    <name>MethodView</name>
+    <message>
+        <source>Natal horoscope</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Forecast tabulars</source>
         <translation type="unfinished"></translation>
@@ -96,10 +107,6 @@
     </message>
     <message>
         <source>Synastry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Natal horoscope</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

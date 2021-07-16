@@ -25,7 +25,7 @@ Page {
             ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
                 width: 80
-                enabled: forwardStack.length > 0
+                enabled: forwardStack.depth > 0
                 onClicked: browserStack.push(forwardStack.pop())
             }
         }
@@ -36,6 +36,8 @@ Page {
         anchors.centerIn: parent
         width: Math.min(400, parent.width - 50)
         height: parent.height - 2 * 50
+
+        openPageCount: browserStack.depth + forwardStack.depth
 
         onLoadRadixView: browserStack.home()
         onLoadDocView: {
@@ -119,7 +121,7 @@ Page {
             {
                 browserStack.pop()
             }
-            else if (forwardStack.length > 0)
+            else if (forwardStack.depth > 0)
             {
                 browserStack.replace(browserStack.currentItem, forwardStack.pop())
             }

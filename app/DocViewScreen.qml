@@ -42,4 +42,16 @@ MainScreen {
         id: docViewItems
         onItemAdded: screenModel.insert(1 + index, item)
     }
+
+    StackView.onActivating: loadingPopup.show(horaTitle)
+
+    signal closeView
+    RoundButton {
+        anchors.top: parent.top
+        anchors.right: parent.right
+        icon.source: "/icons/delete_icon&24.png"
+        background: null
+        opacity: 0.5
+        onClicked: closeView()
+    }
 }

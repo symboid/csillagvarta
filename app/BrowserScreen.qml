@@ -110,4 +110,41 @@ Page {
             }
         }
     }
+
+    Connections {
+        target: browserStack.currentItem
+        function onCloseView()
+        {
+            if (browserStack.depth > 1)
+            {
+                browserStack.pop()
+            }
+            else if (forwardStack.length > 0)
+            {
+                browserStack.replace(browserStack.currentItem, forwardStack.pop())
+            }
+        }
+    }
+
+    property Popup loadingPopup: Popup {
+        anchors.centerIn: parent
+        height: pageTitle.height * 2
+        width: Math.min(pageTitle.width * 3, parent.width - 50)
+        onOpened: loadingTimer.start()
+        Timer {
+            id: loadingTimer
+            interval: 700
+            onTriggered: loadingPopup.close()
+        }
+        Label {
+            id: pageTitle
+            anchors.centerIn: parent
+            font.italic: true
+        }
+        function show(title)
+        {
+            pageTitle.text = title
+            open()
+        }
+    }
 }

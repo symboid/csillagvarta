@@ -11,6 +11,14 @@ HoraViewScreen {
     showCurrent: showDetails
     houseType: housesType.currentToken()
 
+    Rectangle {
+        anchors.fill: parent
+        anchors.margins: 2
+        color: "transparent"
+        border.color: "darkgray"
+        border.width: 2
+    }
+
     horaButton: RoundButton {
         radius: 5
         enabled: horaTitle !== ""

@@ -12,9 +12,7 @@
         <file>icons/calc_icon&amp;32.png</file>
         <file>icons/doc_lines_icon&amp;32.png</file>
         <file>icons/folder_open_icon&amp;32.png</file>
-        <file>MethodItem.qml</file>
         <file>icons/br_next_icon&amp;24.png</file>
-        <file>HomeScreen.qml</file>
         <file>MainDocument.qml</file>
         <file>RadixScreen.qml</file>
         <file>ForecastScreen.qml</file>
@@ -22,15 +20,11 @@
         <file>icons/playback_prev_icon&amp;24.png</file>
         <file>SynastryScreen.qml</file>
         <file>RevolutionScreen.qml</file>
-        <file>PageLoadDialog.qml</file>
         <file>BrowserScreen.qml</file>
         <file>icons/br_next_icon&amp;32.png</file>
         <file>icons/br_prev_icon&amp;32.png</file>
         <file>icons/target_icon&amp;32.png</file>
         <file>icons/delete_icon&amp;24.png</file>
-        <file>MethodView.qml</file>
-        <file>DocPageView.qml</file>
-        <file>DocumentsBrowser.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

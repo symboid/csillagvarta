@@ -2,9 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hu_HU">
 <context>
-    <name>DocPageView</name>
+    <name>BrowserScreen</name>
     <message>
-        <source>Page %1</source>
+        <source>Forecast tabulars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Revolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Synastry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -89,25 +97,6 @@
     <message>
         <source></source>
         <translation></translation>
-    </message>
-</context>
-<context>
-    <name>MethodView</name>
-    <message>
-        <source>Natal horoscope</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Forecast tabulars</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revolution</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Synastry</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

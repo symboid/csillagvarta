@@ -12,20 +12,20 @@ Page {
             ToolButton {
                 icon.source: "/icons/br_prev_icon&32.png"
                 width: 80
-                enabled: documentsBrowser.docPageIndex > 0
-                onClicked: documentsBrowser.backward()
+                enabled: documentBrowser.docPageIndex > 0
+                onClicked: documentBrowser.backward()
             }
             ToolButton {
                 icon.source: "/icons/calc_icon&32.png"
                 width: 80
                 highlighted: true
-                onClicked: documentsBrowser.pageLoadDialogOpen()
+                onClicked: documentBrowser.docPageDialogOpen()
             }
             ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
                 width: 80
-                enabled: documentsBrowser.docPageIndex < documentsBrowser.docPageCount - 1
-                onClicked: documentsBrowser.forward()
+                enabled: documentBrowser.docPageIndex < documentBrowser.docPageCount - 1
+                onClicked: documentBrowser.forward()
             }
         }
     }
@@ -72,11 +72,25 @@ Page {
     property alias radixCoords: radixScreen.horaCoords
     property alias radixHora: radixScreen.hora
 
-    DocumentsBrowser {
-        id: documentsBrowser
+    DocumentBrowser {
+        id: documentBrowser
         anchors.fill: parent
-        radixScreen: RadixScreen {
+        initialPage: RadixScreen {
             id: radixScreen
+        }
+        docMethodModel: ListModel {
+            ListElement {
+                methodTitle: qsTr("Forecast tabulars")
+                methodPageUrl: "qrc:/ForecastScreen.qml"
+            }
+            ListElement {
+                methodTitle: qsTr("Revolution")
+                methodPageUrl: "qrc:/RevolutionScreen.qml"
+            }
+            ListElement {
+                methodTitle: qsTr("Synastry")
+                methodPageUrl: "qrc:/SynastryScreen.qml"
+            }
         }
     }
 

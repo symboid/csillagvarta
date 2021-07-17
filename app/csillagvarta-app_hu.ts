@@ -4,7 +4,7 @@
 <context>
     <name>DocPageView</name>
     <message>
-        <source>DOC PAGE</source>
+        <source>Page %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

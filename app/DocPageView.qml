@@ -4,15 +4,15 @@ import Symboid.Sdk.Controls 1.0
 
 FolderView {
 
-    property int openPageCount: 0
+    property int docPageCount: 0
     signal switchDocPage(int pageIndex)
 
     property FolderView folderView: this
     initialItem: FolderPane {
         Repeater {
-            model: openPageCount
+            model: docPageCount
             MethodItem {
-                title: qsTr("DOC PAGE")
+                title: qsTr("Page %1").arg(index)
                 onLoadClicked: switchDocPage(index)
             }
         }

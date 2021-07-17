@@ -12,8 +12,9 @@ Popup {
 
     onLoadRadixView: close()
     onLoadDocView: close()
+    onSwitchDocPage: close()
 
-    property int openPageCount: 0
+    property alias docPageCount: docPageView.docPageCount
 
     TabBar {
         id: tabBar
@@ -37,11 +38,11 @@ Popup {
             bottom: parent.bottom
         }
         MethodView {
-            anchors.fill: parent
             onLoadRadixView: pageLoadDialog.loadRadixView()
             onLoadDocView: pageLoadDialog.loadDocView(viewName)
         }
         DocPageView {
+            id: docPageView
             onSwitchDocPage: pageLoadDialog.switchDocPage(pageIndex)
         }
     }

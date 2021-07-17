@@ -37,14 +37,24 @@ Page {
         width: Math.min(400, parent.width - 50)
         height: parent.height - 2 * 50
 
-        openPageCount: browserStack.depth + forwardStack.depth
+        docPageCount: browserStack.depth + forwardStack.depth
 
         onLoadRadixView: browserStack.home()
         onLoadDocView: {
             var screenComponent = Qt.createComponent(viewName)
             var screen = screenComponent.createObject(browserScreen)
-            browserStack.push(screen)
             forwardStack.cleanup()
+            browserStack.push(screen)
+        }
+        onSwitchDocPage: {
+            while (browserStack.depth < viewIndex + 1)
+            {
+                browserStack.push(forwardStack.pop())
+            }
+            while (browserStack.depth > viewIndex + 1)
+            {
+                forwardStack.push(browserStack.pop())
+            }
         }
     }
 

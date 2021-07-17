@@ -30,6 +30,7 @@
         <file>icons/delete_icon&amp;24.png</file>
         <file>MethodView.qml</file>
         <file>DocPageView.qml</file>
+        <file>DocumentsBrowser.qml</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

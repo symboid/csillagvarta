@@ -6,60 +6,28 @@ import Symboid.Sdk.Dox 1.0
 import Symboid.Astro.Hora 1.0
 
 Page {
-    id: browserScreen
 
     property Component buttonRow: Component {
         Row {
             ToolButton {
                 icon.source: "/icons/br_prev_icon&32.png"
                 width: 80
-                enabled: browserStack.depth > 1
-                onClicked: forwardStack.push(browserStack.pop())
+                enabled: documentsBrowser.docPageIndex > 0
+                onClicked: documentsBrowser.backward()
             }
             ToolButton {
                 icon.source: "/icons/calc_icon&32.png"
                 width: 80
                 highlighted: true
-                onClicked: pageLoadDialog.open()
+                onClicked: documentsBrowser.pageLoadDialogOpen()
             }
             ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
                 width: 80
-                enabled: forwardStack.depth > 0
-                onClicked: browserStack.push(forwardStack.pop())
+                enabled: documentsBrowser.docPageIndex < documentsBrowser.docPageCount - 1
+                onClicked: documentsBrowser.forward()
             }
         }
-    }
-
-    PageLoadDialog {
-        id: pageLoadDialog
-        anchors.centerIn: parent
-        width: Math.min(400, parent.width - 50)
-        height: parent.height - 2 * 50
-
-        docPageCount: browserStack.depth + forwardStack.depth
-
-        onLoadRadixView: browserStack.home()
-        onLoadDocView: {
-            var screenComponent = Qt.createComponent(viewName)
-            var screen = screenComponent.createObject(browserScreen)
-            forwardStack.cleanup()
-            browserStack.push(screen)
-        }
-        onSwitchDocPage: {
-            while (browserStack.depth < viewIndex + 1)
-            {
-                browserStack.push(forwardStack.pop())
-            }
-            while (browserStack.depth > viewIndex + 1)
-            {
-                forwardStack.push(browserStack.pop())
-            }
-        }
-    }
-
-    StackObject {
-        id: forwardStack
     }
 
     property Document mainDocument: Document {
@@ -104,37 +72,11 @@ Page {
     property alias radixCoords: radixScreen.horaCoords
     property alias radixHora: radixScreen.hora
 
-    StackView {
-        id: browserStack
+    DocumentsBrowser {
+        id: documentsBrowser
         anchors.fill: parent
-        initialItem: RadixScreen {
+        radixScreen: RadixScreen {
             id: radixScreen
-        }
-        pushEnter: null
-        pushExit: null
-        popEnter: null
-        popExit: null
-        function home()
-        {
-            while (depth > 1)
-            {
-                forwardStack.push(browserStack.pop())
-            }
-        }
-    }
-
-    Connections {
-        target: browserStack.currentItem
-        function onCloseView()
-        {
-            if (browserStack.depth > 1)
-            {
-                browserStack.pop()
-            }
-            else if (forwardStack.depth > 0)
-            {
-                browserStack.replace(browserStack.currentItem, forwardStack.pop())
-            }
         }
     }
 

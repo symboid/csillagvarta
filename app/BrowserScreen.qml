@@ -30,53 +30,19 @@ Page {
         }
     }
 
-    property Document mainDocument: Document {
-        title: radixScreen.horaTitle
-        onTitleChanged: {
-            radixScreen.horaTitle = title
-            title = Qt.binding(function(){return radixScreen.horaTitle})
+    property var radixModel: [
+        {
+            radixTitle: radixScreen.docTitle,
+            radixHora: radixScreen.hora
         }
-        onLoadStarted: radixScreen.autocalc = false
-        onLoadFinished: radixScreen.autocalc = true
-        onLoadFailed: radixScreen.autocalc = true
-
-        DocumentNode {
-            name: "radix"
-
-            property alias title: radixScreen.horaTitle
-
-            DocumentNode {
-                name: "time"
-                property alias year: radixScreen.horaYear
-                property alias month: radixScreen.horaMonth
-                property alias day: radixScreen.horaDay
-                property alias hour: radixScreen.horaHour
-                property alias minute: radixScreen.horaMinute
-                property alias second: radixScreen.horaSecond
-                property alias calendarType: radixScreen.horaCalendarType
-            }
-            DocumentNode {
-                name: "geoLoc"
-                property alias geoName: radixScreen.horaGeoName
-                property alias latt: radixScreen.horaGeoLatt
-                property alias lont: radixScreen.horaGeoLont
-                property alias tzDiff: radixScreen.horaGeoTzDiff
-            }
-        }
-
-        onLoadCurrent: {
-            radixScreen.setCurrent()
-        }
-    }
-
-    property alias radixCoords: radixScreen.horaCoords
-    property alias radixHora: radixScreen.hora
+    ]
 
     DocumentBrowser {
         id: documentBrowser
         anchors.fill: parent
         initialPage: RadixScreen {
             id: radixScreen
+            horaTitle: qsTr("Current transit")
         }
         docMethodModel: ListModel {
             ListElement {
@@ -90,6 +56,30 @@ Page {
             ListElement {
                 methodTitle: qsTr("Synastry")
                 methodPageUrl: "qrc:/SynastryScreen.qml"
+            }
+        }
+        createDocPage: function(viewName)
+        {
+            var screenComponent = Qt.createComponent(viewName)
+            return screenComponent.createObject(this)
+        }
+        closeDocPage: function(docPage)
+        {
+            if (docPage instanceof RadixScreen)
+            {
+                var radixIndex = -1
+                for (var r = 0; radixIndex === -1 && r < radixModel.length; ++r)
+                {
+                    if (radixModel[r].radixHora === docPage.hora)
+                    {
+                        radixIndex = r
+                    }
+                }
+                if (radixIndex !== -1)
+                {
+                    radixModel.splice(radixIndex, 1)
+                    radixModelChanged()
+                }
             }
         }
     }
@@ -114,5 +104,24 @@ Page {
             pageTitle.text = title
             open()
         }
+    }
+
+    function loadDocument(documentPath, documentTitle)
+    {
+        var radixScreen = documentBrowser.newDocPage("qrc:/RadixScreen.qml")
+        var document = radixScreen.mainDocument
+        document.title = documentTitle
+        if (documentPath !== undefined && documentPath !== "")
+        {
+            document.filePath = documentPath
+            document.load()
+        }
+        else
+        {
+            document.loadCurrent()
+        }
+        radixModel.push({ radixTitle: document.title, radixHora: radixScreen.hora })
+        radixModelChanged()
+        return document
     }
 }

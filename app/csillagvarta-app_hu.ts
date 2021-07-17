@@ -15,6 +15,10 @@
         <source>Synastry</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Current transit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DocViewScreen</name>
@@ -24,6 +28,10 @@
     </message>
     <message>
         <source>Enter a name!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radix</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

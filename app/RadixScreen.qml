@@ -2,6 +2,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Symboid.Sdk.Controls 1.0
+import Symboid.Sdk.Dox 1.0
 import Symboid.Astro.Hora 1.0
 import QtQml.Models 2.12
 
@@ -9,6 +10,7 @@ HoraViewScreen {
     id: radixScreen
 
     showCurrent: showDetails
+    showRadixSelector: false
     houseType: housesType.currentToken()
 
     Rectangle {
@@ -17,6 +19,45 @@ HoraViewScreen {
         color: "transparent"
         border.color: "darkgray"
         border.width: 2
+    }
+
+    property Document mainDocument: Document {
+        title: radixScreen.horaTitle
+        onTitleChanged: {
+            radixScreen.horaTitle = title
+            title = Qt.binding(function(){return radixScreen.horaTitle})
+        }
+        onLoadStarted: radixScreen.autocalc = false
+        onLoadFinished: radixScreen.autocalc = true
+        onLoadFailed: radixScreen.autocalc = true
+
+        DocumentNode {
+            name: "radix"
+
+            property alias title: radixScreen.horaTitle
+
+            DocumentNode {
+                name: "time"
+                property alias year: radixScreen.horaYear
+                property alias month: radixScreen.horaMonth
+                property alias day: radixScreen.horaDay
+                property alias hour: radixScreen.horaHour
+                property alias minute: radixScreen.horaMinute
+                property alias second: radixScreen.horaSecond
+                property alias calendarType: radixScreen.horaCalendarType
+            }
+            DocumentNode {
+                name: "geoLoc"
+                property alias geoName: radixScreen.horaGeoName
+                property alias latt: radixScreen.horaGeoLatt
+                property alias lont: radixScreen.horaGeoLont
+                property alias tzDiff: radixScreen.horaGeoTzDiff
+            }
+        }
+
+        onLoadCurrent: {
+            radixScreen.setCurrent()
+        }
     }
 
     horaButton: RoundButton {

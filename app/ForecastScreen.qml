@@ -76,12 +76,12 @@ DocViewScreen {
         title: qsTr("Radix date and time")
         Pane {
             Label {
-                text: (new Date(radixCoords.dateTime)).toLocaleDateString()
+                text: Qt.formatDate(radixHora.coords.dateTime)
             }
         }
         Pane {
             Label {
-                text: Qt.formatTime(radixCoords.dateTime)
+                text: Qt.formatTime(radixHora.coords.dateTime)
             }
         }
     }

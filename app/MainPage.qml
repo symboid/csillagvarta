@@ -16,7 +16,7 @@ ProcessPage {
 
         DocumentFolderScreen {
             id: documentFolderScreen
-            currentDocument: browserScreen.mainDocument
+            loadDocument: browserScreen.loadDocument
             onDocumentLoaded: {
                 mainProcess.currentIndex = mainProcess.homeIndex
             }

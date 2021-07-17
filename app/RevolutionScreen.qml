@@ -60,8 +60,8 @@ SynastryScreen {
                     editable: true
                     boxes: Row {
                         NumberBox {
-                            from: radixCoords.year
-                            to: radixCoords.year + 100
+                            from: radixHora.coords.year
+                            to: radixHora.coords.year + 100
                             displaySuffix: "."
                         }
                     }

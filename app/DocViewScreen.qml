@@ -8,13 +8,14 @@ import QtQml.Models 2.12
 
 DocPage {
 
-    docTitle: horaName.text
+    pageTitle: horaName.text
     property alias horaTitle: horaName.text
     property alias horaButton: horaName.button
     property alias showDetails: details.checked
 
     property alias showRadixSelector: radixSelector.visible
     property Hora radixHora: radixSelector.currentValue
+    readonly property alias docIndex: radixSelector.currentIndex
 
     screenModel: ObjectModel {
         MainScreenParamBox {

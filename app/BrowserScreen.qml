@@ -32,7 +32,7 @@ Page {
 
     property var radixModel: [
         {
-            radixTitle: radixScreen.docTitle,
+            radixTitle: radixScreen.pageTitle,
             radixHora: radixScreen.hora
         }
     ]
@@ -44,6 +44,8 @@ Page {
             id: radixScreen
             horaTitle: qsTr("Current transit")
         }
+        docListModel: radixModel
+        currentDocIndex: (currentPage instanceof RadixScreen) ? docPageIndex : currentPage.docIndex
         fileMenuModel: ListModel {
             ListElement {
                 itemTitle: qsTr("New (Radix)")

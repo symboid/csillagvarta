@@ -25,6 +25,9 @@
         <file>icons/br_prev_icon&amp;32.png</file>
         <file>icons/target_icon&amp;32.png</file>
         <file>icons/delete_icon&amp;24.png</file>
+        <file>icons/doc_new_icon&amp;32.png</file>
+        <file>icons/print_icon&amp;32.png</file>
+        <file>icons/shapes_icon&amp;32.png</file>
     </qresource>
     <qresource prefix="/tr">
         <file>csillagvarta-app_hu.qm</file>

@@ -16,7 +16,7 @@ Page {
                 onClicked: documentBrowser.backward()
             }
             ToolButton {
-                icon.source: "/icons/calc_icon&32.png"
+                icon.source: "/icons/home_icon&32.png"
                 width: 80
                 highlighted: true
                 onClicked: documentBrowser.docPageDialogOpen()
@@ -44,12 +44,34 @@ Page {
             id: radixScreen
             horaTitle: qsTr("Current transit")
         }
-        docMethodModel: ListModel {
+        fileMenuModel: ListModel {
             ListElement {
-                methodTitle: qsTr("New radix")
-                methodLoadClicked: function() { loadDocument("", "") }
-                methodSeparated: true
+                itemTitle: qsTr("New (Radix)")
+                itemIcon: "/icons/doc_new_icon&32.png"
+                itemClicked: function() { loadDocument("", "") }
             }
+            ListElement {
+                itemTitle: qsTr("Save")
+                itemIcon: "/icons/save_icon&32.png"
+                itemClicked: function() { }
+            }
+            ListElement {
+                itemTitle: qsTr("Print")
+                itemIcon: "/icons/print_icon&32.png"
+                itemClicked: function() { }
+            }
+            ListElement {
+                itemTitle: qsTr("Save to image")
+                itemIcon: "/icons/shapes_icon&32.png"
+                itemClicked: function() { }
+            }
+            ListElement {
+                itemTitle: qsTr("Close")
+                itemIcon: "/icons/delete_icon&32.png"
+                itemClicked: function() { documentBrowser.closeCurrentPage() }
+            }
+        }
+        docMethodModel: ListModel {
             ListElement {
                 methodTitle: qsTr("Forecast tabulars")
                 methodLoadClicked: function() { loadDocPage("qrc:/ForecastScreen.qml") }

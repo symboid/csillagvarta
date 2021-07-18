@@ -20,7 +20,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New radix</source>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New (Radix)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

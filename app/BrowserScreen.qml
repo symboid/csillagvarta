@@ -46,16 +46,21 @@ Page {
         }
         docMethodModel: ListModel {
             ListElement {
+                methodTitle: qsTr("New radix")
+                methodLoadClicked: function() { loadDocument("", "") }
+                methodSeparated: true
+            }
+            ListElement {
                 methodTitle: qsTr("Forecast tabulars")
-                methodPageUrl: "qrc:/ForecastScreen.qml"
+                methodLoadClicked: function() { loadDocPage("qrc:/ForecastScreen.qml") }
             }
             ListElement {
                 methodTitle: qsTr("Revolution")
-                methodPageUrl: "qrc:/RevolutionScreen.qml"
+                methodLoadClicked: function() { loadDocPage("qrc:/RevolutionScreen.qml") }
             }
             ListElement {
                 methodTitle: qsTr("Synastry")
-                methodPageUrl: "qrc:/SynastryScreen.qml"
+                methodLoadClicked: function() { loadDocPage("qrc:/SynastryScreen.qml") }
             }
         }
         createDocPage: function(viewName)
@@ -123,5 +128,9 @@ Page {
         radixModel.push({ radixTitle: document.title, radixHora: radixScreen.hora })
         radixModelChanged()
         return document
+    }
+    function loadDocPage(docPageUrl)
+    {
+        return documentBrowser.newDocPage(docPageUrl)
     }
 }

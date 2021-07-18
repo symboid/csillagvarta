@@ -19,6 +19,10 @@
         <source>Current transit</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>New radix</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DocViewScreen</name>

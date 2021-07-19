@@ -42,7 +42,7 @@ Page {
         anchors.fill: parent
         initialPage: RadixScreen {
             id: radixScreen
-            horaTitle: qsTr("Current transit")
+            pageTitle: qsTr("Current transit")
         }
         docListModel: radixModel
         currentDocIndex: (currentPage instanceof RadixScreen) ? docPageIndex : currentPage.docIndex
@@ -55,7 +55,7 @@ Page {
             ListElement {
                 itemTitle: qsTr("Save")
                 itemIcon: "/icons/save_icon&32.png"
-                itemClicked: function() { }
+                itemClicked: function() { saveDocument() }
             }
             ListElement {
                 itemTitle: qsTr("Print")
@@ -153,6 +153,24 @@ Page {
         radixModelChanged()
         return document
     }
+    function saveDocument()
+    {
+        var radixScreen = documentBrowser.get(documentBrowser.currentDocIndex)
+        if (radixScreen !== undefined)
+        {
+            radixScreen.pageTitle = documentBrowser.currentDocTitle
+            if (radixScreen.mainDocument.save())
+            {
+               documentFolderScreen.refresh()
+               infoPopup.show(qsTr("Document of '%1' saved.").arg(radixScreen.pageTitle))
+            }
+            else
+            {
+               errorPopup.show(qsTr("Failed to save document of '%1'!").arg(radixScreen.pageTitle))
+            }
+        }
+    }
+
     function loadDocPage(docPageUrl)
     {
         return documentBrowser.newDocPage(docPageUrl)

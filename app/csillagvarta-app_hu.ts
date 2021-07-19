@@ -39,6 +39,14 @@
         <source>New (Radix)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Document of &apos;%1&apos; saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save document of &apos;%1&apos;!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DocViewScreen</name>
@@ -155,14 +163,6 @@
     </message>
     <message>
         <source>Show seconds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horoscope of &apos;%1&apos; saved.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to save horoscope of &apos;%1&apos;!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

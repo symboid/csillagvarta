@@ -22,10 +22,10 @@ HoraViewScreen {
     }
 
     property Document mainDocument: Document {
-        title: radixScreen.horaTitle
+        title: radixScreen.pageTitle
         onTitleChanged: {
-            radixScreen.horaTitle = title
-            title = Qt.binding(function(){return radixScreen.horaTitle})
+            radixScreen.pageTitle = title
+            title = Qt.binding(function(){return radixScreen.pageTitle})
         }
         onLoadStarted: radixScreen.autocalc = false
         onLoadFinished: radixScreen.autocalc = true
@@ -34,7 +34,7 @@ HoraViewScreen {
         DocumentNode {
             name: "radix"
 
-            property alias title: radixScreen.horaTitle
+            property alias title: radixScreen.pageTitle
 
             DocumentNode {
                 name: "time"
@@ -60,24 +60,6 @@ HoraViewScreen {
         }
     }
 
-    horaButton: RoundButton {
-        radius: 5
-        enabled: horaTitle !== ""
-        display: RoundButton.IconOnly
-        icon.source: "/icons/save_icon&32.png"
-        icon.color: "#C94848"
-        onClicked: {
-           if (mainDocument.save())
-           {
-               documentFolderScreen.refresh()
-               infoPopup.show(qsTr("Horoscope of '%1' saved.").arg(horaTitle))
-           }
-           else
-           {
-               errorPopup.show(qsTr("Failed to save horoscope of '%1'!").arg(horaTitle))
-           }
-       }
-    }
     dataViews: ObjectModel {
         Page {
             PlanetsTableView {

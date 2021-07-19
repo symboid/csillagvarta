@@ -9,7 +9,10 @@ import QtQml.Models 2.12
 DocPage {
 
     pageTitle: horaName.text
-    property alias horaTitle: horaName.text
+    onPageTitleChanged: {
+        horaName.text = pageTitle
+        pageTitle = Qt.binding(function(){return horaName.text})
+    }
     property alias horaButton: horaName.button
     property alias showDetails: details.checked
 

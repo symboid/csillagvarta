@@ -6,10 +6,10 @@ import Symboid.Sdk.Dox 1.0
 Document {
     id: mainDocument
 
-    title: radixScreen.horaTitle
+    title: radixScreen.pageTitle
     onTitleChanged: {
-        radixScreen.horaTitle = title
-        title = Qt.binding(function(){return radixScreen.horaTitle})
+        radixScreen.pageTitle = title
+        title = Qt.binding(function(){return radixScreen.pageTitle})
     }
     onLoadStarted: radixScreen.autocalc = false
     onLoadFinished: radixScreen.autocalc = true
@@ -18,7 +18,7 @@ Document {
     DocumentNode {
         name: "radix"
 
-        property alias title: radixScreen.horaTitle
+        property alias title: radixScreen.pageTitle
 
         DocumentNode {
             name: "time"

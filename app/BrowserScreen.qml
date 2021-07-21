@@ -19,7 +19,7 @@ Page {
                 icon.source: "/icons/home_icon&32.png"
                 width: 80
                 highlighted: true
-                onClicked: documentBrowser.docPageDialogOpen()
+                onClicked: docPageDialog.open()
             }
             ToolButton {
                 icon.source: "/icons/br_next_icon&32.png"
@@ -44,49 +44,7 @@ Page {
             id: radixScreen
             pageTitle: qsTr("Current transit")
         }
-        docListModel: radixModel
-        currentDocIndex: (currentPage instanceof RadixScreen) ? docPageIndex : currentPage.docIndex
-        fileMenuModel: ListModel {
-            ListElement {
-                itemTitle: qsTr("New (Radix)")
-                itemIcon: "/icons/doc_new_icon&32.png"
-                itemClicked: function() { loadDocument("", "") }
-            }
-            ListElement {
-                itemTitle: qsTr("Save")
-                itemIcon: "/icons/save_icon&32.png"
-                itemClicked: function() { saveDocument() }
-            }
-            ListElement {
-                itemTitle: qsTr("Print")
-                itemIcon: "/icons/print_icon&32.png"
-                itemClicked: function() { }
-            }
-            ListElement {
-                itemTitle: qsTr("Save to image")
-                itemIcon: "/icons/shapes_icon&32.png"
-                itemClicked: function() { }
-            }
-            ListElement {
-                itemTitle: qsTr("Close")
-                itemIcon: "/icons/delete_icon&32.png"
-                itemClicked: function() { documentBrowser.closeCurrentPage() }
-            }
-        }
-        docMethodModel: ListModel {
-            ListElement {
-                methodTitle: qsTr("Forecast tabulars")
-                methodLoadClicked: function() { loadDocPage("qrc:/ForecastScreen.qml") }
-            }
-            ListElement {
-                methodTitle: qsTr("Revolution")
-                methodLoadClicked: function() { loadDocPage("qrc:/RevolutionScreen.qml") }
-            }
-            ListElement {
-                methodTitle: qsTr("Synastry")
-                methodLoadClicked: function() { loadDocPage("qrc:/SynastryScreen.qml") }
-            }
-        }
+        property int currentDocIndex: (currentPage instanceof RadixScreen) ? docPageIndex : currentPage.docIndex
         createDocPage: function(viewName)
         {
             var screenComponent = Qt.createComponent(viewName)
@@ -111,6 +69,24 @@ Page {
                 }
             }
         }
+    }
+
+    DocPageDialog {
+        id: docPageDialog
+        anchors.centerIn: parent
+        width: Math.min(400, parent.width - 50)
+        height: parent.height - 2 * 50
+
+        docListModel: radixModel
+        docPageCount: documentBrowser.docPageCount
+
+        onLoadMethodPage: loadDocPage(methodPage)
+        onSwitchDocPage: documentBrowser.switchDocPage(viewIndex)
+        onOpened: selectedDocIndex = documentBrowser.currentDocIndex
+
+        onMethodNewClicked: loadDocument("", "")
+        onMethodSaveClicked: saveDocument()
+        onMethodCloseClicked: documentBrowser.closeCurrentPage()
     }
 
     property Popup loadingPopup: Popup {
@@ -158,7 +134,7 @@ Page {
         var radixScreen = documentBrowser.get(documentBrowser.currentDocIndex)
         if (radixScreen !== undefined)
         {
-            radixScreen.pageTitle = documentBrowser.currentDocTitle
+            radixScreen.pageTitle = docPageDialog.selectedDocTitle
             if (radixScreen.mainDocument.save())
             {
                documentFolderScreen.refresh()

@@ -4,6 +4,44 @@
 <context>
     <name>BrowserScreen</name>
     <message>
+        <source>Current transit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Document of &apos;%1&apos; saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save document of &apos;%1&apos;!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DocFileMenu</name>
+    <message>
+        <source>New (Radix)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DocMethodView</name>
+    <message>
         <source>Forecast tabulars</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15,36 +53,11 @@
         <source>Synastry</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>DocPageDialog</name>
     <message>
-        <source>Current transit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save to image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New (Radix)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Document of &apos;%1&apos; saved.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to save document of &apos;%1&apos;!</source>
+        <source>Document</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

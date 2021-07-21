@@ -11,6 +11,11 @@ SynastryScreen {
     dateTimeEditable: false
     dateTimeVisible: showDetails
 
+    fillPageTitle: function()
+    {
+        return qsTr("Revolution of %1").arg(revolutingPlanet.currentText)
+    }
+
     auxParams: ObjectModel {
 
         MainScreenParamBox {

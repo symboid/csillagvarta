@@ -8,6 +8,8 @@ import QtQml.Models 2.12
 
 DocViewScreen {
 
+    fillPageTitle: function() { return forecastType.currentText }
+
     DirexModel {
         id: direxModel
     }

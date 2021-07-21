@@ -8,12 +8,13 @@ import QtQml.Models 2.12
 
 DocPage {
 
-    pageTitle: horaName.text
+    pageTitle: fillPageTitle()
     onPageTitleChanged: {
         horaName.text = pageTitle
-        pageTitle = Qt.binding(function(){return horaName.text})
+        pageTitle = Qt.binding(fillPageTitle)
     }
-    property alias horaButton: horaName.button
+    property var fillPageTitle: function() { return horaName.text }
+
     property alias showDetails: details.checked
 
     property alias showRadixSelector: radixSelector.visible

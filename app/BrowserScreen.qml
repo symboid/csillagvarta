@@ -91,8 +91,8 @@ Page {
 
     property Popup loadingPopup: Popup {
         anchors.centerIn: parent
-        height: pageTitle.height * 2
-        width: Math.min(pageTitle.width * 3, parent.width - 50)
+        height: pageTitleLabel.height * 2
+        width: Math.min(pageTitleLabel.width * 3, parent.width - 50)
         onOpened: loadingTimer.start()
         Timer {
             id: loadingTimer
@@ -100,13 +100,13 @@ Page {
             onTriggered: loadingPopup.close()
         }
         Label {
-            id: pageTitle
+            id: pageTitleLabel
             anchors.centerIn: parent
             font.italic: true
         }
         function show(title)
         {
-            pageTitle.text = title
+            pageTitleLabel.text = title
             open()
         }
     }

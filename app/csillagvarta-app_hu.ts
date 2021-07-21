@@ -201,6 +201,10 @@
         <source>Number of revolutions:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Revolution of %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsScreen</name>
